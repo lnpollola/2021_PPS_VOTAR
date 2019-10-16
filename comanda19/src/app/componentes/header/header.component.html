@@ -1,0 +1,52 @@
+<mat-toolbar class="header">
+    <span><img src="/assets/images/logo.png" height=auto width=30px></span>
+
+    <!-- PAGINA DESLOGUEADA -->
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/home" routerLinkActive="active" id="hbtn"><span class="fa fa-home fa-lg"></span> Home</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/aboutus" routerLinkActive="active" id="hbtn"><span class="fa fa-info fa-lg"></span> About</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contactus" routerLinkActive="active" id="hbtn"><span class="fa fa-address-card fa-lg"></span> Contact</a>
+   
+   <!-- PERFILES -->
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" id="hbtn"><span class="fa fa-user fa-lg"></span> Administrador </a>
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/cliente" routerLinkActive="active" id="hbtn"><span class="fa fa-search-plus fa-lg"></span> Ver estado Pedido</a>
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/encuesta" routerLinkActive="active" id="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
+    
+    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'mozo'" routerLink="/menu" routerLinkActive="active" id="hbtn"><span class="fa fa-cutlery fa-lg"></span> Menu</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario != 'mozo' && perfilUsuario != 'cliente')" routerLink="/listado" routerLinkActive="active" id="hbtn"><span class="fa fa-book fa-lg"></span> Listado pedidos</a>
+   
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'mozo' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" id="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
+  
+    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/estadisticas" routerLinkActive="active" id="hbtn"><span class="fa fa-bar-chart fa-lg"></span> Estadísticas</a>
+    <span letraYcolor class="flex-spacer"></span>¡Hola {{nombre | eliminoMail }}!
+
+    <!-- LOGUEO -->
+    <a mat-button letraYcolor *ngIf="!IngresoBool" (click)="openLoginForm()" id="hbtn"><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool" (click)="logout()" id="hbtn"><span class="fa fa-sign-out fa-lg"></span> Salir</a>
+
+
+  </mat-toolbar>
+  
+  <div class="container-fluid jumbotron"
+      fxLayout="row"
+      fxLayout.sm="column" 
+      fxLayout.xs="column" 
+      fxLayoutAlign.xs="start center"
+      fxLayoutAlign.sm="start center" 
+      fxLayoutAlign.gt-sm="center center" 
+      fxLayoutGap="10px">
+  
+    <div fxFlex fxFlex.gt-sm="60%">
+      <div>
+      <h1 letraYcolor>Bienvenido a The Red Door</h1>
+    </div>
+      <p>Nos inspiramos en las mejores cocinas del mundo y creamos una experiencia de fusión única. 
+        ¡Nuestras creaciones te sorprenderan!</p>
+    </div>
+    <div class="md-8">
+      
+        <mat-toolbar-row>
+            <img class="enmarcada" src="../../assets/images/theRedDoor.png" alt="Avatar">
+          </mat-toolbar-row>
+    </div>
+   
+  </div>
