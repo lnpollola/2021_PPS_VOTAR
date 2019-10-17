@@ -26,7 +26,7 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 # ENTREGAS 
 
 ### Entrega 17/10 -
-#### Registro, Login con perfiles y pantallas 
+#### README, Login con perfiles y pantallas 
 
 ### Screenshots:
 
