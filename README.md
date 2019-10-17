@@ -34,4 +34,4 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 ![alt text](Screenshots/Home.jpg)
 
 ## - Login
-![alt text](Screenshots/Login.jgp)
+![alt text](Screenshots/Login.jpg)
