@@ -7,12 +7,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   perfilUsuario: string; 
-  // dish: Dish;
+  dish: boolean=true;
+  promotion: boolean=true;
+  images = [  
+    { img: "../../../assets/images/uthappizza.png" },  
+    { img: "../../../assets/images/alberto.png" },  
+    { img: "../../../assets/images/buffet.png" }  
+    // { img: "../assets/images/4.jpg" },  
+    // { img: "../assets/images/5.jpg" },  
+    // { img: "../assets/images/6.jpg" },  
+    // { img: "../assets/images/7.jpg" },  
+    // { img: "../assets/images/8.jpg" },  
+    // { img: "../assets/images/9.jpg" },  
+  ];  
+  
+  slideConfig = {  
+    "slidesToShow": 3,  
+    "slidesToScroll": 3,  
+    "dots": true,  
+    "infinite": true  
+  };  
+
   // promotion: Promotion;
   // leader: Leader;
   constructor() { }
 
   ngOnInit() {
+
+    if(localStorage.getItem('usuario') == null )
+    {
+      // console.log("no hay usuario");
+    }
+    else 
+    {
+      this.perfilUsuario = JSON.parse(localStorage.getItem('usuario')).perfil;
+    }
   }
 
 }

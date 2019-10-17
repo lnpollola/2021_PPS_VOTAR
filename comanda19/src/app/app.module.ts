@@ -41,6 +41,7 @@ import {
 import { EliminoMailPipe } from './pipes/elimino-mail.pipe';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppRoutingModule,
     MatCardModule,
     AngularFontAwesomeModule,
+    SlickCarouselModule,
     //material    
     MatFormFieldModule,    
     MatAutocompleteModule,

@@ -1,4 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css?family=Long+Cang&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Skranji&display=swap');
+p{
+  font-family: 'Long Cang', cursive;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 .jumbotron {
     margin: 0px auto;
     padding: 20px 20px;
@@ -14,9 +19,11 @@
     
   }
 
-  .h1
+  h1
   {
     color: blanchedalmond;
+    font-family: 'Skranji', cursive;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 
   #hbtn{
@@ -46,12 +53,16 @@
 
 .enmarcada{
   position: relative;
-
+  
   margin:10px; /* distancia entre el borde y el contenido */
   width:120px; /* el ancho de la img */
   border-radius:150px;
   border:5px solid #666;
   height: 120px; 
+  margin-bottom: 15%;
+}
+.avatar{
+  margin-left: 90%;
 }
 
 
