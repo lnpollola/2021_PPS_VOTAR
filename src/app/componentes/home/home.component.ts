@@ -10,9 +10,9 @@ export class HomeComponent implements OnInit {
   dish: boolean=true;
   promotion: boolean=true;
   images = [  
-    { img: "../assets/images/uthappizza.png" },  
-    { img: "../assets/images/interior.jpg" },  
-    { img: "../assets/images/buffet.png" }  
+    { img: "./assets/images/uthappizza.png" },  
+    { img: "./assets/images/interior.jpg" },  
+    { img: "./assets/images/buffet.png" }  
     // { img: "../assets/images/4.jpg" },  
     // { img: "../assets/images/5.jpg" },  
     // { img: "../assets/images/6.jpg" },  
