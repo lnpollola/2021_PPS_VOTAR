@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   promotion: boolean=true;
   images = [  
     { img: "../../../assets/images/uthappizza.png" },  
-    { img: "../../../assets/images/alberto.png" },  
+    { img: "../../../assets/images/interior.jpg" },  
     { img: "../../../assets/images/buffet.png" }  
     // { img: "../assets/images/4.jpg" },  
     // { img: "../assets/images/5.jpg" },  
@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     "slidesToShow": 1,  
     "slidesToScroll": 1,  
     "dots": true,  
+    "autoplay": true,
     "infinite": true  
   };  
 
@@ -43,5 +44,7 @@ export class HomeComponent implements OnInit {
       this.perfilUsuario = JSON.parse(localStorage.getItem('usuario')).perfil;
     }
   }
+
+  
 
 }
