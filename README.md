@@ -23,10 +23,10 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 - Tragos&Vinos
 - CandyBar
 
-#ENTREGAS 
+# ENTREGAS 
 
-###Entrega 17/10 -
-####Registro, Login con perfiles y pantallas 
+### Entrega 17/10 -
+#### Registro, Login con perfiles y pantallas 
 
 ### Screenshots:
 
