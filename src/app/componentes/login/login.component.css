@@ -1,0 +1,36 @@
+.full-width-input {
+    width: auto;
+  }
+
+#closebtn{
+    position: relative;
+    left: 20%;
+}  
+.mat-toolbar {
+    background: transparent;
+    color: #fff;
+}
+
+
+input[type=text], input[type=password] , input[type=nombre], input[type=usuario],  input[type=email] {
+    width: 100%;
+    /* padding: 12px 20px;
+    margin: 8px 0; */
+    display: inline-block;
+    /* border: 1px solid #ccc; */
+    box-sizing: border-box;
+}
+.centro {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+img {
+    /* border-radius: 5px 5px 0 0; */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}/* Add some padding inside the card container */
+

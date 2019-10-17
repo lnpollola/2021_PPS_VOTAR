@@ -42,6 +42,9 @@ import { EliminoMailPipe } from './pipes/elimino-mail.pipe';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { LoginComponent } from './componentes/login/login.component';
+import { FirebaseService } from "../app/servicios/firebase.service";
+import { ReactiveFormsModule  } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     HomeComponent,
     HeaderComponent,
     EliminoMailPipe,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     MatCardModule,
     AngularFontAwesomeModule,
     SlickCarouselModule,
+    ReactiveFormsModule,
     //material    
     MatFormFieldModule,    
     MatAutocompleteModule,
@@ -89,7 +94,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     MatTooltipModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

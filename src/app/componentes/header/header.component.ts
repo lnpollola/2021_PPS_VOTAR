@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef} from '@angular/material';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openLoginForm(){
-    // this.dialog.open(LoginComponent, {width:'300px', height:'550px'});
+    this.dialog.open(LoginComponent, {width:'300px', height:'550px'});
    
   }
 
