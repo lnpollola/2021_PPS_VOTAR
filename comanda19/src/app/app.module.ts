@@ -40,6 +40,7 @@ import {
 } from '@angular/material';
 import { EliminoMailPipe } from './pipes/elimino-mail.pipe';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
+    AngularFontAwesomeModule,
     //material    
     MatFormFieldModule,    
     MatAutocompleteModule,
