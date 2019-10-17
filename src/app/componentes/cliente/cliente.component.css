@@ -1,0 +1,12 @@
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+    padding-left: 24px;
+    text-align: center;
+    padding-right: 24px;
+    align-content: center;
+    font-size: 18px;
+}

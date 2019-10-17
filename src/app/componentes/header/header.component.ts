@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   constructor(private dialog: MatDialog,   private router: Router) { }
 
   ngOnInit() {
-    if(localStorage.getItem('usuario') == null )
+    if(sessionStorage.getItem('Usuarios') == null )
     {
     //  console.log("no hay usuario");
       this.IngresoBool=false;
@@ -30,10 +30,10 @@ export class HeaderComponent implements OnInit {
     }
     else 
     {
-      this.usuario = JSON.parse(localStorage.getItem('usuario')) ;
-      this.nombre =this.usuario.usuario;
+      this.usuario = JSON.parse(sessionStorage.getItem('Usuarios')) ;
+      this.nombre =this.usuario.username;
       this.IngresoBool=true;
-      this.perfilUsuario = JSON.parse(localStorage.getItem('usuario')).perfil;
+      this.perfilUsuario = JSON.parse(sessionStorage.getItem('Usuarios')).perfil;
     }
 
   }
@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
 
   logout()
   {
-    localStorage.clear();
+    sessionStorage.clear();
     this.IngresoBool=false;
     this.router.navigate(['']);
     

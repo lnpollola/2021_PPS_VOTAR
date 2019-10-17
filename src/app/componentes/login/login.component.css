@@ -74,3 +74,9 @@ input[type=text], input[type=password] {
     font-size: 40px;
     font-weight: bold;
 }
+
+.inputs {
+    
+   
+    width: 90%;
+}

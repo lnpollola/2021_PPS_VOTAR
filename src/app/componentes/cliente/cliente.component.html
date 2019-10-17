@@ -1,1 +1,46 @@
-<p>cliente works!</p>
+<app-header></app-header>
+
+
+<div class="container">
+    <div class="row">
+<div class="form-ingreso" style="text-align: center;">
+        <h3 letraYcolor >Ingrese Nro de pedido </h3>
+  <div class="form-goup">
+  <input type="text" class="form-control" style="text-align: center;" [(ngModel)]="idPedido" placeholder="Pedido" > <br>
+  <button class="btn btn-primary btn-block" (click)="TraerTiempo()" >Traer</button>
+</div>
+</div>
+    </div>
+    <br>
+
+<div class="row">
+  <!-- <div class="info-cliente col-sm-8"> -->
+    <h1 *ngIf="idPedido" letraYcolor>
+      Pedido seleccionado: {{idPedido}}
+    </h1>
+    
+       <table *ngIf="detalles" mat-table [dataSource]="detalles" class="lessons-table mat-elevation-z8" style="align-content: center;">
+     
+            <!-- Position Column -->
+            <ng-container matColumnDef="nroPedido">
+              <th mat-header-cell *matHeaderCellDef> Nro de Pedido </th>
+              <td mat-cell *matCellDef="let element"> {{element.idDetalle}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="producto">
+              <th mat-header-cell *matHeaderCellDef> Productos Pedidos </th>
+              <td mat-cell *matCellDef="let element"> {{element.producto}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="tiempoRestante">
+              <th mat-header-cell *matHeaderCellDef> Tiempo Estimado de Preparación </th>
+              <!-- <td mat-cell *matCellDef="let element"> {{element.tiempoRestante | prueba: element.tiempoRestante}} </td> -->
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+  </div>
+</div>
+

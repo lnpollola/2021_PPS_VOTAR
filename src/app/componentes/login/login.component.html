@@ -17,16 +17,16 @@
       <br><br>
 
     <div class="form-group"> 
-            <mat-form-field>
+            <mat-form-field class="inputs">
               <label>Ingrese usuario:</label>
-                <input matInput formControlName="username"   type="text" name="usuario" required>
+                <input matInput formControlName="username"  class="inputs"    type="text" name="usuario" required>
                 <!-- <mat-error *ngIf="usuario.invalid">{{getErrorMessageUser()}}</mat-error> -->
               </mat-form-field>
 
             </div>
 <br>
 <div class="form-group">
-          <mat-form-field>
+          <mat-form-field class="inputs">
               <label>Ingrese contraseña:</label>
             <input matInput  formControlName="password"  name="password" [type]="hide ? 'password' : 'text'">
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'no ver' : 'ver'}}</mat-icon>
