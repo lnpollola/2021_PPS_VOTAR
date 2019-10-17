@@ -42,8 +42,8 @@
            
             <mat-dialog-actions>
                 <span class="flex-spacer"></span>
-                <button mat-button mat-dialog-close>Cancel</button>
-                <button type="submit" mat-button class="background-primary text-floral-white" >Ingresar</button>
+                <button class="btn btn-danger btn-block"  mat-dialog-close >Cancelar</button>
+                <button type="submit" class="btn btn-success btn-block" >Ingresar</button>
                 <p *ngIf="error">Usuario Incorrecto</p>
                 <p *ngIf="success">Usuario Incorrecto</p>
               </mat-dialog-actions>
@@ -52,13 +52,13 @@
         <!-- </div> -->
 </form>
 
-<br>
+<br><br>
 <button  (click)="LoginCliente()" class="btn btn-primary">Cliente</button>
 <button  (click)="LoginSocio()" class="btn btn-primary">Socio</button>
-<button  (click)="LoginMozo()" class="btn btn-primary">Mozo</button>
-<button  (click)="LoginChopera()" class="btn btn-primary">Chopera</button>
-<button  (click)="LoginTragos()" class="btn btn-primary">Tragos</button>
-<button  (click)="LoginCocina()" class="btn btn-primary">Cocina</button>
-<button  (click)="LoginCandy()" class="btn btn-primary">Candy Bar</button>
+<button  (click)="LoginMozo()" class="btn btn-primary"disabled>Mozo</button>
+<button  (click)="LoginChopera()" class="btn btn-primary"disabled>Chopera</button>
+<button  (click)="LoginTragos()" class="btn btn-primary"disabled>Tragos</button>
+<button  (click)="LoginCocina()" class="btn btn-primary"disabled>Cocina</button>
+<button  (click)="LoginCandy()" class="btn btn-primary"disabled>Candy Bar</button>
 <!-- </div> -->
 

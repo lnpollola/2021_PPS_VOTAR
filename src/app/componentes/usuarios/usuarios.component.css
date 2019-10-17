@@ -1,0 +1,25 @@
+.row
+{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.tabla-negra {
+    background: white;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.mat-cell , .mat-footer-cell, .mat-header-cell {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+p-messages
+{
+    color:whitesmoke;
+    
+}

@@ -1,0 +1,94 @@
+<app-header></app-header>   
+
+
+<div class="row">
+    <div class="form-ingreso col-sm-3">
+        <h3 letraYcolor>Nuevo empleado</h3>
+      <form [formGroup]="registroForm" >
+        <div class="form-group">
+          <input class="form-control input-ingreso" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" ><br>
+    
+          <input class="form-control input-ingreso" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
+    
+          <!-- <input type="text" class="form-control input-ingreso" placeholder="Perfil"  name="perfil"  [formControl]="perfil" required><br> -->
+    
+          
+          <mat-form-field>
+            <mat-select  [formControl]="perfil" placeholder="Seleccione Perfil">
+              <mat-option name="perfil"  value="admin"> ADMINISTRADOR</mat-option>
+              <mat-option name="perfil"  value="mozo"> MOZO </mat-option>
+              <mat-option name="perfil"  value="cocina"> COCINA</mat-option>
+              <mat-option name="perfil"  value="chopera"> CHOPERA</mat-option>
+              <mat-option name="perfil"  value="barra"> BARRA </mat-option>
+              <mat-option name="perfil"  value="candy"> CANDY BAR</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+            <legend letraYcolor>Sexo</legend>
+
+            <mat-radio-group  [formControl]="sexo">
+                <mat-radio-button value="Hombre"  type="radio" id="sexoh"  name="sexo"   style="color:whitesmoke; 	font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;" required >HOMBRE</mat-radio-button>
+                <br>
+                <mat-radio-button value="Mujer"  type="radio" id="sexom"  name="sexo" style="color:whitesmoke; 	font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;" required >MUJER</mat-radio-button>
+            </mat-radio-group>
+            <button (click)="IngresarUsuario()" class="btn btn-success col-sm-12" [disabled]="!registroForm.valid">Ingresar</button>
+          <br><br>
+          
+          <legend letraYcolor>Verificar Captcha</legend>
+          <!-- <app-captcha-propio (lanzador)="RecibirCaptcha($event)"></app-captcha-propio>  -->
+          <!-- <p-messages [(value)]="msgs" ></p-messages> -->
+         </div>
+    
+      </form>
+    
+    </div>
+    
+    <div class="mat-elevation-z8 col-sm-5" style="color:black; background: rgba(119, 136, 153, 0.481);">
+      
+        <h3 style="color:whitesmoke; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Lista de empleados</h3>
+        <table mat-table [dataSource]="listaUsuarios" class="lessons-table mat-elevation-z8" style="align-content: center;">
+     
+            <!-- Position Column -->
+            <ng-container matColumnDef="usuario">
+              <th mat-header-cell *matHeaderCellDef> Nombre de Usuario </th>
+              <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="perfil">
+              <th mat-header-cell *matHeaderCellDef> Perfil </th>
+              <td mat-cell *matCellDef="let element"> {{element.perfil}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="estado">
+              <th mat-header-cell *matHeaderCellDef> Estado </th>
+              <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="accionesSusp">
+                <th mat-header-cell *matHeaderCellDef> SUSP </th>
+                <td mat-cell *matCellDef="let element"> 
+                <!-- <boton-suspender [id]="element.id" [estado]="element.estado" (lanzador)="TraerTodosLosUsuarios($event)"></boton-suspender> -->
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="accionesDel">
+                  <th mat-header-cell *matHeaderCellDef> DEL </th>
+                  <td mat-cell *matCellDef="let element"> 
+                  <!-- <app-btn-borrar-usuario [id]="element.id" (lanzador)="TraerTodosLosUsuarios($event)" style="align-content: center; text-align: center;" ></app-btn-borrar-usuario>  -->
+                  </td>
+        
+                </ng-container> 
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+        
+      </div>
+    
+    </div>

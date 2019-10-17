@@ -47,6 +47,8 @@ import { FirebaseService } from "../app/servicios/firebase.service";
 import { ReactiveFormsModule  } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { ClienteComponent } from './componentes/cliente/cliente.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     EliminoMailPipe,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    UsuariosComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,

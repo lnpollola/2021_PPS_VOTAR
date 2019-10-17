@@ -134,7 +134,14 @@ Entrar(){
         // this.events.publish('usuarioLogueado', usuarioLogueado.perfil);       
         // this.creoToast(true);
         this.dialog.closeAll();
-        // this.router.navigateByUrl('/Principal'); 
+        if(usuarioLogueado.perfil == "admin")
+        {
+          this.router.navigateByUrl('/usuarios'); 
+        }
+        if (usuarioLogueado.perfil == "cliente") {
+          this.router.navigateByUrl('/cliente'); 
+        }
+        
       }
       else{
         this.error = true;
