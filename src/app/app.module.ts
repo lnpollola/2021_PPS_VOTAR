@@ -45,6 +45,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { LoginComponent } from './componentes/login/login.component';
 import { FirebaseService } from "../app/servicios/firebase.service";
 import { ReactiveFormsModule  } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { ReactiveFormsModule  } from '@angular/forms';
     AngularFontAwesomeModule,
     SlickCarouselModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    FormsModule,
     //material    
     MatFormFieldModule,    
     MatAutocompleteModule,
@@ -93,6 +97,9 @@ import { ReactiveFormsModule  } from '@angular/forms';
     MatToolbarModule,
     MatTooltipModule,
     MatNativeDateModule
+  ],
+  entryComponents: [
+    LoginComponent,
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

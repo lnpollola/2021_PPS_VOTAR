@@ -1,7 +1,7 @@
 <form novalidate [formGroup]="loginForm" (ngSubmit)="Entrar()">
 
     <mat-toolbar mat-dialog-title color="gray">
-        <h2 class="display-3">Ingresar <button mat-button mat-dialog-close id="closebtn">&times;</button></h2>
+        <h2 class="display-3">Ingresar <button mat-button mat-dialog-close class="close">&times;</button></h2>
        
     </mat-toolbar>
 
@@ -14,11 +14,12 @@
       <div class="centro">    
       <img class="img-thumbnail"   src="../../assets/images/login.png" alt="Avatar" >
       </div>
-    <br><br>
+      <br><br>
 
     <div class="form-group"> 
             <mat-form-field>
-                <input matInput placeholder="Ingrese Usuario"  formControlName="username"   type="usuario" name="usuario" required>
+              <label>Ingrese usuario:</label>
+                <input matInput formControlName="username"   type="text" name="usuario" required>
                 <!-- <mat-error *ngIf="usuario.invalid">{{getErrorMessageUser()}}</mat-error> -->
               </mat-form-field>
 
@@ -26,22 +27,25 @@
 <br>
 <div class="form-group">
           <mat-form-field>
-            <input matInput placeholder="Ingrese contraseña"  formControlName="password"  name="password" [type]="hide ? 'password' : 'text'">
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <label>Ingrese contraseña:</label>
+            <input matInput  formControlName="password"  name="password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'no ver' : 'ver'}}</mat-icon>
             <!-- <mat-error *ngIf="password.invalid">{{getErrorMessagePsw()}}</mat-error> -->
           </mat-form-field>  
 
 </div>
 
-          <br>
-            <mat-checkbox >Recordar mis Datos</mat-checkbox>
-            <br>
+          <!-- <br> -->
+            <!-- <mat-checkbox >Recordar mis Datos</mat-checkbox> -->
+            <!-- <br> -->
             <!-- <button *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar</button> -->
            
             <mat-dialog-actions>
                 <span class="flex-spacer"></span>
                 <button mat-button mat-dialog-close>Cancel</button>
                 <button type="submit" mat-button class="background-primary text-floral-white" >Ingresar</button>
+                <p *ngIf="error">Usuario Incorrecto</p>
+                <p *ngIf="success">Usuario Incorrecto</p>
               </mat-dialog-actions>
           <!-- </div> -->
 

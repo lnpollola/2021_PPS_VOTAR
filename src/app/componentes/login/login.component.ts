@@ -3,6 +3,8 @@ import { Router} from '@angular/router';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {Usuario} from '../../clases/usuario';
 import { MatDialog, MatDialogRef} from '@angular/material';
+import { FirebaseService } from '../../servicios/firebase.service';
+
 
 @Component({
   selector: 'app-login',
@@ -20,22 +22,32 @@ export class LoginComponent implements OnInit {
   respuesta: any;
   hide: any;
   @Input () type: any;
+  usuarios:any[];
+  datosLogin: Usuario;
+  public error: boolean = false;
+  public success: boolean = false;
 
   constructor(
       private formBuilder: FormBuilder,
-      //private route: ActivatedRoute,
+      private baseService:FirebaseService,
       private router: Router,
       // private _login: LoginService,
       private dialog: MatDialog
       //private authenticationService: AuthenticationService,
       //private alertService: AlertService
-      ) {}
+      ) {
+     
+      }
 
   ngOnInit() {
+   
+
       this.loginForm = this.formBuilder.group({
           username: ['', Validators.required],
           password: ['', Validators.required]
       });
+
+
     }
 
     get f() { return this.loginForm.controls; }
@@ -49,55 +61,84 @@ Entrar(){
     this.loading = true;
     
     // stop here if form is invalid
-    if (this.loginForm.invalid) {
-        return;
-    }
+    // if (this.loginForm.invalid) {
+    //     return;
+    // }
    
-    let datosLogin = new Usuario(this.f.username.value, this.f.password.value);
-
-    this._login.ServiceLogin(datosLogin)
-    .subscribe( data =>{
+    // this.datosLogin = new Usuario(this.f.username.value, this.f.password.value);
+    // this.datosLogin = new Usuario(this.datosLogin.username, this.datosLogin.password);
 
 
-      this.respuesta = JSON.parse(data._body);
+    // this._login.ServiceLogin(datosLogin)
+    // .subscribe( data =>{
 
-      if (this.respuesta)
-      {
-        localStorage.setItem('data', JSON.stringify(this.respuesta) );
-        localStorage.setItem('usuario', JSON.stringify(this.respuesta.datos) );
+
+    //   this.respuesta = JSON.parse(data._body);
+
+    //   if (this.respuesta)
+    //   {
+    //     localStorage.setItem('data', JSON.stringify(this.respuesta) );
+    //     localStorage.setItem('usuario', JSON.stringify(this.respuesta.datos) );
         
-        localStorage.setItem('token', JSON.stringify(this.respuesta.token) );
-        this.dialog.closeAll();
-        if(this.respuesta.datos.perfil =='admin')
-        {
-          this.router.navigate(['usuarios']); 
-        }
-        else
-        {
-          if(this.respuesta.datos.perfil =='mozo')
-          {
-            this.router.navigate(['menu']); 
-          }
-          else
-          { 
-            if(this.respuesta.datos.perfil =='cliente')
-            {
-              this.router.navigate(['cliente']); 
-            }
-            else
-            { 
-              this.router.navigate(['listado']); 
-            }
-          }
-        }
+    //     localStorage.setItem('token', JSON.stringify(this.respuesta.token) );
+    //     this.dialog.closeAll();
+    //     if(this.respuesta.datos.perfil =='admin')
+    //     {
+    //       this.router.navigate(['usuarios']); 
+    //     }
+    //     else
+    //     {
+    //       if(this.respuesta.datos.perfil =='mozo')
+    //       {
+    //         this.router.navigate(['menu']); 
+    //       }
+    //       else
+    //       { 
+    //         if(this.respuesta.datos.perfil =='cliente')
+    //         {
+    //           this.router.navigate(['cliente']); 
+    //         }
+    //         else
+    //         { 
+    //           this.router.navigate(['listado']); 
+    //         }
+    //       }
+    //     }
        
-      }
-      else{
-        alert("error");
-        this.router.navigate(['home']); 
-      }
+    //   }
+    //   else{
+    //     alert("error");
+    //     this.router.navigate(['home']); 
+    //   }
 
      
+    // });
+
+    this.baseService.getItems("comanda/Usuarios").then(users => {
+      // setTimeout(() => this.spinner = false, 2000);
+     
+   
+      this.usuarios = users;
+      this.datosLogin = new Usuario(this.f.username.value, this.f.password.value);
+     
+      console.log(this.datosLogin);
+      let usuarioLogueado = this.usuarios.find(elem => (elem.username == this.datosLogin.username && elem.password == this.datosLogin.password));
+      console.log(usuarioLogueado);
+      // console.log(usuarioLogueado);
+      // console.log(this.cuenta);
+      if (usuarioLogueado !== undefined) {
+        this.error = false;
+        this.success = true;
+        sessionStorage.setItem('Usuarios', JSON.stringify(usuarioLogueado));
+
+        // this.events.publish('usuarioLogueado', usuarioLogueado.perfil);       
+        // this.creoToast(true);
+        this.dialog.closeAll();
+        // this.router.navigateByUrl('/Principal'); 
+      }
+      else{
+        this.error = true;
+      }
     });
   
 }

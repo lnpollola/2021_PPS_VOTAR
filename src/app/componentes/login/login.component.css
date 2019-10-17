@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Chilanka|Livvic&display=swap');
+
 .full-width-input {
     width: auto;
   }
@@ -34,3 +36,41 @@ img {
     height: 100px;
 }/* Add some padding inside the card container */
 
+::ng-deep .cdk-overlay-container{
+    font-family: 'Livvic', sans-serif;
+    position: absolute;
+    /* top: 10%;
+    left: 40%; */
+    background: black;
+    box-shadow: 2px 5px 20px gray;
+
+    width: 280px;
+    /* position: absolute; */
+     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background: darkslategray;
+    /* padding: 50px; */
+    border-radius: 20px;
+
+}
+
+input[type=text], input[type=password] {
+   
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FIREBASE_CONFIG } from '../app/app.firebase.config';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'comanda19';
+  constructor(){
+    firebase.initializeApp(FIREBASE_CONFIG);
+  }
 
   
 }
