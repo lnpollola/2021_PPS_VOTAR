@@ -20,7 +20,9 @@
     <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'mozo' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" id="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
   
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/estadisticas" routerLinkActive="active" id="hbtn"><span class="fa fa-bar-chart fa-lg"></span> Estadísticas</a>
+    
     <span class="flex-spacer" ></span><h6 style="color: white;">¡Hola {{nombre | eliminoMail }}!</h6>
+
 
     <!-- LOGUEO -->
     <a mat-button letraYcolor *ngIf="!IngresoBool" (click)="openLoginForm()" id="hbtn"><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
