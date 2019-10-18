@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Skranji&display=swap');
+
+.image{
+    position: relative;
+    float: left;
+}
+
+.enmarcada{
+  position: relative;
+  border-radius: 50%;
+  margin:10px; /* distancia entre el borde y el contenido */
+  width:130px; /* el ancho de la img */
+  border-radius:150px;
+  border:5px solid #666;
+  height: 120px; 
+}
+
+.imgback{
+   
+        position: absolute;
+        top: 36%;
+        /* left: -20px; */
+        /* right: -40px; */
+        /* bottom: -40px; */
+        width: 100%;
+        height: 117%;
+        
+        background-size: cover;
+        -webkit-filter: blur(5px);
+        z-index: 0;
+   
+}
+
+.card{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 white, 0 -1px white;
+}
+.card-text{
+    font-family: 'Roboto Slab', serif;
+}
+
+.card-title{
+    font-family: 'Skranji', cursive;
+}
+
+.algd{
+    margin-bottom: 30%;
+}

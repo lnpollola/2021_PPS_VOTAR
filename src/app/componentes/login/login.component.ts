@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
   public error: boolean = false;
   public success: boolean = false;
 
+  isLoading: boolean = false;
+
   constructor(
       private formBuilder: FormBuilder,
       private baseService:FirebaseService,
@@ -113,11 +115,11 @@ Entrar(){
 
      
     // });
-
+    this.isLoading = true;
+    setTimeout(() => this.isLoading = false, 6000);
     this.baseService.getItems("comanda/Usuarios").then(users => {
       // setTimeout(() => this.spinner = false, 2000);
-     
-   
+      
       this.usuarios = users;
       this.datosLogin = new Usuario(this.f.username.value, this.f.password.value);
      
@@ -128,7 +130,7 @@ Entrar(){
       // console.log(this.cuenta);
       if (usuarioLogueado !== undefined) {
         this.error = false;
-        this.success = true;
+        // this.success = true;
         sessionStorage.setItem('Usuarios', JSON.stringify(usuarioLogueado));
 
         // this.events.publish('usuarioLogueado', usuarioLogueado.perfil);       
@@ -136,15 +138,19 @@ Entrar(){
         this.dialog.closeAll();
         if(usuarioLogueado.perfil == "admin")
         {
+          // this.isLoading = false;
           this.router.navigateByUrl('/usuarios'); 
         }
         if (usuarioLogueado.perfil == "cliente") {
+          // this.isLoading = false;
           this.router.navigateByUrl('/cliente'); 
         }
         
       }
       else{
+        // this.isLoading = false;
         this.error = true;
+        
       }
     });
   

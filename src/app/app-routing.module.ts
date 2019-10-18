@@ -4,12 +4,15 @@ import { HomeComponent } from "./componentes/home/home.component";
 import { HeaderComponent } from "./componentes/header/header.component";
 import { UsuariosComponent } from "./componentes/usuarios/usuarios.component";
 import { ClienteComponent } from "../app/componentes/cliente/cliente.component";
+import { AboutComponent } from "../app/componentes/about/about.component";
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'cliente', component: ClienteComponent },
+  { path: 'aboutus', component: AboutComponent },
+
 
 
   

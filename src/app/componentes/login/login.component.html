@@ -1,3 +1,6 @@
+<header>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</header>
 <form novalidate [formGroup]="loginForm" (ngSubmit)="Entrar()">
 
     <mat-toolbar mat-dialog-title color="gray">
@@ -44,12 +47,18 @@
                 <span class="flex-spacer"></span>
                 <button class="btn btn-danger btn-block"  mat-dialog-close >Cancelar</button>
                 <button type="submit" class="btn btn-success btn-block" >Ingresar</button>
+               
                 <p *ngIf="error">Usuario Incorrecto</p>
-                <p *ngIf="success">Usuario Incorrecto</p>
+                
               </mat-dialog-actions>
           <!-- </div> -->
 
         <!-- </div> -->
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Cargando...</span>
+          </div>
+        </div>
 </form>
 
 <br><br>

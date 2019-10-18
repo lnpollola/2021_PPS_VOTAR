@@ -49,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { ClienteComponent } from './componentes/cliente/cliente.component';
+import { AboutComponent } from './componentes/about/about.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ClienteComponent } from './componentes/cliente/cliente.component';
     FooterComponent,
     LoginComponent,
     UsuariosComponent,
-    ClienteComponent
+    ClienteComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

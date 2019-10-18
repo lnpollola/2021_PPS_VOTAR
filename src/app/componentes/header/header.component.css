@@ -3,6 +3,7 @@
 p{
   font-family: 'Long Cang', cursive;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 150%;
 }
 .jumbotron {
     margin: 0px auto;
@@ -59,7 +60,7 @@ p{
   border-radius:150px;
   border:5px solid #666;
   height: 120px; 
-  margin-bottom: 15%;
+  margin-bottom: 9%;
 }
 /* .avatar{
   margin-left: 90%;
