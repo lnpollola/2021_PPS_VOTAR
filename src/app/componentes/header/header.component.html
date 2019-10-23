@@ -5,29 +5,28 @@
     <span><img src="./assets/images/logo.png" height=auto width=30px></span>
 
     <!-- PAGINA DESLOGUEADA -->
-    <a mat-button letraYcolor routerLink="/home" routerLinkActive="active" id="hbtn"><span class="fa fa-home fa-lg"></span> Home</a>
-    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/aboutus" routerLinkActive="active" id="hbtn"><span class="fa fa-info fa-lg"></span> About</a>
-    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contactus" routerLinkActive="active" id="hbtn"><span class="fa fa-address-card fa-lg"></span> Contact</a>
+    <a mat-button letraYcolor routerLink="/home" routerLinkActive="active" class="hbtn"><span class="fa fa-home fa-lg"></span> Home</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/aboutus" routerLinkActive="active" class="hbtn"><span class="fa fa-info fa-lg"></span> About</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contactus" routerLinkActive="active" class="hbtn"><span class="fa fa-address-card fa-lg"></span> Contact</a>
    
    <!-- PERFILES -->
-   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" id="hbtn"><span class="fa fa-user fa-lg"></span> Administrador </a>
-   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/cliente" routerLinkActive="active" id="hbtn"><span class="fa fa-search-plus fa-lg"></span> Ver estado Pedido</a>
-   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/encuesta" routerLinkActive="active" id="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Administrador </a>
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/cliente" routerLinkActive="active" class="hbtn"><span class="fa fa-search-plus fa-lg"></span> Ver estado Pedido</a>
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/encuesta" routerLinkActive="active" class="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
     
-    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'mozo'" routerLink="/menu" routerLinkActive="active" id="hbtn"><span class="fa fa-cutlery fa-lg"></span> Menu</a>
-    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario != 'mozo' && perfilUsuario != 'cliente')" routerLink="/listado" routerLinkActive="active" id="hbtn"><span class="fa fa-book fa-lg"></span> Listado pedidos</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'mozo'" routerLink="/menu" routerLinkActive="active" class="hbtn"><span class="fa fa-cutlery fa-lg"></span> Menu</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario != 'mozo' && perfilUsuario != 'cliente')" routerLink="/listado" routerLinkActive="active" class="hbtn"><span class="fa fa-book fa-lg"></span> Listado pedidos</a>
    
-    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'mozo' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" id="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'mozo' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
   
-    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/estadisticas" routerLinkActive="active" id="hbtn"><span class="fa fa-bar-chart fa-lg"></span> Estadísticas</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/estadisticas" routerLinkActive="active" class="hbtn"><span class="fa fa-bar-chart fa-lg"></span> Estadísticas</a>
     
-    <span class="flex-spacer" ></span><h6 style="color: white;">¡Hola {{nombre | eliminoMail }}!</h6>
-
-
+    <span class="fill-space"></span>
+    <h6 letraYcolor class="hbtn" >¡Hola {{nombre | eliminoMail }}!</h6>
     <!-- LOGUEO -->
-    <a mat-button letraYcolor *ngIf="!IngresoBool" (click)="openLoginForm()" id="hbtn"><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
-    <a mat-button letraYcolor *ngIf="IngresoBool"  (click)="logout()" id="hbtn"><span class="fa fa-sign-out fa-lg"></span> Salir</a>
-
+    <a mat-button  *ngIf="!IngresoBool" (click)="openLoginForm()" class="hbtn" ><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool"  (click)="logout()" class="hbtn" ><span class="fa fa-sign-out fa-lg"></span> Salir</a>
+   
 
   </mat-toolbar>
   
