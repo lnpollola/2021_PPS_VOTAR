@@ -3,7 +3,7 @@
 p{
   font-family: 'Long Cang', cursive;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  font-size: 150%;
+  font-size: 180%;
 }
 .jumbotron {
     margin: 0px auto;
@@ -92,3 +92,4 @@ span{
  
   flex: 1 1 auto;
 }
+

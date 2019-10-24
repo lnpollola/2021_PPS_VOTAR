@@ -50,6 +50,7 @@ import { FormsModule } from '@angular/forms';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { ClienteComponent } from './componentes/cliente/cliente.component';
 import { AboutComponent } from './componentes/about/about.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { AboutComponent } from './componentes/about/about.component';
     LoginComponent,
     UsuariosComponent,
     ClienteComponent,
-    AboutComponent
+    AboutComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

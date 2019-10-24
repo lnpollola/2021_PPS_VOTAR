@@ -116,7 +116,7 @@ Entrar(){
      
     // });
     this.isLoading = true;
-    setTimeout(() => this.isLoading = false, 6000);
+    setTimeout(() => this.isLoading = false, 3000);
     this.baseService.getItems("comanda/Usuarios").then(users => {
       // setTimeout(() => this.spinner = false, 2000);
       

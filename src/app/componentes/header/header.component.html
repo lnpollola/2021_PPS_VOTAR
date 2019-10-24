@@ -1,13 +1,16 @@
-<header>
+<!-- <header>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</header>
+</header> -->
 <mat-toolbar class="header">
     <span><img src="./assets/images/logo.png" height=auto width=30px></span>
 
     <!-- PAGINA DESLOGUEADA -->
-    <a mat-button letraYcolor routerLink="/home" routerLinkActive="active" class="hbtn"><span class="fa fa-home fa-lg"></span> Home</a>
-    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/aboutus" routerLinkActive="active" class="hbtn"><span class="fa fa-info fa-lg"></span> About</a>
-    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contactus" routerLinkActive="active" class="hbtn"><span class="fa fa-address-card fa-lg"></span> Contact</a>
+    <a mat-button letraYcolor routerLink="/home" routerLinkActive="active" class="hbtn"><span class="fa fa-home fa-lg"></span>Inicio</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/aboutus" routerLinkActive="active" class="hbtn"><span class="fa fa-info fa-lg"></span> Nosotros</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contactus" routerLinkActive="active" class="hbtn"><span class="fa fa-address-card fa-lg"></span> Contacto</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/registro" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Registro</a>
+   
+
    
    <!-- PERFILES -->
    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Administrador </a>
@@ -44,8 +47,9 @@
         <br>
       <h1 letraYcolor>Bienvenido a The Temple Bar</h1>
     </div>
-      <p>Nos inspiramos en las mejores cocinas del mundo y somos una experiencia de fusion unica. 
-        ¡Nuestras creaciones te sorprenderan!</p>
+      <p>Nos inspiramos en las mejores cocinas del mundo y somos una experiencia de fusion unica.</p>
+      <br>
+      <p> ¡Nuestras creaciones te sorprenderan!</p>
     </div>
     <div class="md-8">
       

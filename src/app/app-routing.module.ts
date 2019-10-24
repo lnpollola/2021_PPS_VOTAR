@@ -5,6 +5,7 @@ import { HeaderComponent } from "./componentes/header/header.component";
 import { UsuariosComponent } from "./componentes/usuarios/usuarios.component";
 import { ClienteComponent } from "../app/componentes/cliente/cliente.component";
 import { AboutComponent } from "../app/componentes/about/about.component";
+import { RegistroComponent } from "../app/componentes/registro/registro.component";
 
 
 const routes: Routes = [
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'cliente', component: ClienteComponent },
   { path: 'aboutus', component: AboutComponent },
+  { path: 'registro', component: RegistroComponent },
+
 
 
 
