@@ -1,4 +1,6 @@
-
+<head>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
 <form novalidate [formGroup]="loginForm" (ngSubmit)="Entrar()" >
 
     <mat-toolbar mat-dialog-title color="gray">
@@ -32,7 +34,7 @@
             <input matInput  formControlName="password"  name="password" [type]="hide ? 'password' : 'text'">
             
             <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'no ver' : 'ver'}}</mat-icon> -->
-            <mat-icon matSuffix (click)="hide = !hide"><i class="fas fa-eye"></i></mat-icon>
+            <mat-icon matSuffix (click)="hide = !hide"><i class="fa fa-eye"></i></mat-icon>
 
             <!-- <mat-error *ngIf="password.invalid">{{getErrorMessagePsw()}}</mat-error> -->
           </mat-form-field>  
@@ -45,6 +47,17 @@
             <!-- <button *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar</button> -->
            
             <mat-dialog-actions>
+                <!-- <div class="g-recaptcha" id="my_captcha_form"
+                data-sitekey="6LcNY78UAAAAANCSxOs6q84fn-fdu3x5fzSzmZWD" 
+                ></div> -->
+             
+               
+                  <div data-theme="dark" #recaptcha style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+                         
+                    <br>
+                    <p class="form-text naranja" *ngIf="captchaE">Acepte el captcha por favor.</p>
+                    <br>
+               
                 <span class="flex-spacer"></span>
                 <button class="btn btn-danger btn-block"  mat-dialog-close >Cancelar</button>
                 <button type="submit" class="btn btn-success btn-block" >Ingresar</button>

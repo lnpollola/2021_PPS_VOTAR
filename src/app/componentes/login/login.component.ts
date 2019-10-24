@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Router} from '@angular/router';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {Usuario} from '../../clases/usuario';
@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
   public success: boolean = false;
 
   isLoading: boolean = false;
+  captchaOK:boolean = false;
+  captchaE:boolean = false;
+  @ViewChild('recaptcha', {static: true }) recaptchaElement: ElementRef;
+ 
 
   constructor(
       private formBuilder: FormBuilder,
@@ -43,12 +47,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
    
+      this.addRecaptchaScript();
 
       this.loginForm = this.formBuilder.group({
           username: ['', Validators.required],
           password: ['', Validators.required]
       });
 
+      
 
     }
 
@@ -116,7 +122,7 @@ Entrar(){
      
     // });
     this.isLoading = true;
-    setTimeout(() => this.isLoading = false, 3000);
+    setTimeout(() => this.isLoading = false, 2500);
     this.baseService.getItems("comanda/Usuarios").then(users => {
       // setTimeout(() => this.spinner = false, 2000);
       
@@ -135,16 +141,25 @@ Entrar(){
 
         // this.events.publish('usuarioLogueado', usuarioLogueado.perfil);       
         // this.creoToast(true);
-        this.dialog.closeAll();
-        if(usuarioLogueado.perfil == "admin")
-        {
-          // this.isLoading = false;
-          this.router.navigateByUrl('/usuarios'); 
+        console.log("Captcha esta ok?" + this.captchaOK);
+        if (this.captchaOK) {
+          this.captchaE = false;
+          this.dialog.closeAll();
+          if(usuarioLogueado.perfil == "admin")
+          {
+            // this.isLoading = false;
+            this.router.navigateByUrl('/usuarios'); 
+          }
+          if (usuarioLogueado.perfil == "cliente") {
+            // this.isLoading = false;
+            this.router.navigateByUrl('/cliente'); 
+          }
+          
         }
-        if (usuarioLogueado.perfil == "cliente") {
-          // this.isLoading = false;
-          this.router.navigateByUrl('/cliente'); 
-        }
+        else{
+          this.captchaE = true;
+      }
+      
         
       }
       else{
@@ -199,6 +214,32 @@ LoginCandy()
   this.loginForm.controls['password'].setValue('1234');
 }
 
+renderReCaptch() {
+  window['grecaptcha'].render(this.recaptchaElement.nativeElement, {
+    'sitekey' : '6LcNY78UAAAAANCSxOs6q84fn-fdu3x5fzSzmZWD',
+    'callback': (response) => {
+      this.captchaOK = true;
+        console.log(response);
+        console.log(this.captchaOK);
+    }
+  });
+}
+
+addRecaptchaScript() {
+
+  window['grecaptchaCallback'] = () => {
+    this.renderReCaptch();
+  }
+
+  (function(d, s, id, obj){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { obj.renderReCaptch(); return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://www.google.com/recaptcha/api.js?onload=grecaptchaCallback&amp;render=explicit";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'recaptcha-jssdk', this));
+
+}
 
 
 
