@@ -122,7 +122,7 @@ Entrar(){
      
     // });
     this.isLoading = true;
-    setTimeout(() => this.isLoading = false, 2500);
+    // setTimeout(() => this.isLoading = false, 2500);
     this.baseService.getItems("comanda/Usuarios").then(users => {
       // setTimeout(() => this.spinner = false, 2000);
       
@@ -143,6 +143,8 @@ Entrar(){
         // this.creoToast(true);
         console.log("Captcha esta ok?" + this.captchaOK);
         if (this.captchaOK) {
+          this.isLoading = false;
+
           this.captchaE = false;
           this.dialog.closeAll();
           if(usuarioLogueado.perfil == "admin")
@@ -158,6 +160,8 @@ Entrar(){
         }
         else{
           this.captchaE = true;
+          this.isLoading = false;
+
       }
       
         
