@@ -144,7 +144,6 @@ Entrar(){
         console.log("Captcha esta ok?" + this.captchaOK);
         if (this.captchaOK) {
           this.isLoading = false;
-
           this.captchaE = false;
           this.dialog.closeAll();
           if(usuarioLogueado.perfil == "admin")
@@ -159,8 +158,9 @@ Entrar(){
           
         }
         else{
-          this.captchaE = true;
           this.isLoading = false;
+          this.captchaE = true;
+          
 
       }
       
