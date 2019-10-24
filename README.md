@@ -35,3 +35,12 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 
 ## - Login
 ![alt text](Screenshots/Login.jpg)
+
+### Entrega 24/10 -
+#### Captcha, subido a la web.  
+
+## - Registro
+![alt text](Screenshots/Registro.jpg)
+
+## - Captcha
+![alt text](Screenshots/Captcha.jpg)
