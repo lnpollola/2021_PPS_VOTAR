@@ -43,20 +43,33 @@
       fxLayoutGap="10px">
   
     <div fxFlex fxFlex.gt-sm="60%">
-      <div>
+
+      <div *ngIf="!IngresoBool">
         <br>
-      <h1 letraYcolor>Bienvenido a The Temple Bar</h1>
-    </div>
-      <p>Nos inspiramos en las mejores cocinas del mundo y somos una experiencia de fusion unica.</p>
-      <br>
-      <p> ¡Nuestras creaciones te sorprenderan!</p>
-    </div>
+        <h1 letraYcolor>Bienvenido a The Temple Bar</h1>
+        <p>Nos inspiramos en las mejores cocinas del mundo y somos una experiencia de fusion unica.</p>
+        <p> ¡Nuestras creaciones te sorprenderan!</p>
+      </div>
+
+      <div *ngIf="IngresoBool && (perfilUsuario == 'cliente')">
+        <br>
+        <h1 letraYcolor>The Temple Bar</h1>
+        <p>Bienvenido! Gestione su pedido</p>
+      </div>
+      <div *ngIf="IngresoBool && (perfilUsuario == 'admin')">
+          <br>
+          <h1 letraYcolor>The Temple Bar</h1>
+          <p>Bienvenido! Sistema de Gestion del bar</p>
+      </div>
+
     <div class="md-8">
       
         <mat-toolbar-row>
             
           
-            <img class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar" style="margin-left: 90%;">
+            <img *ngIf="!IngresoBool" class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar">
+            <img *ngIf="IngresoBool && (perfilUsuario == 'cliente') || IngresoBool && (perfilUsuario == 'admin')" class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar" style="margin-bottom: 10%;">
+
 
           </mat-toolbar-row>
     </div>

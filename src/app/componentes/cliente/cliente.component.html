@@ -1,13 +1,13 @@
 <app-header></app-header>
 
-
-<div class="container">
-    <div class="row">
-<div class="form-ingreso" style="text-align: center;">
-        <h3 letraYcolor >Ingrese Nro de pedido </h3>
+<body>
+<div class="divG">
+    <div class="row ">
+<div class="form-ingreso" style="text-align: center; width: 100%;">
+        <h3 letraYcolor >Ingrese Nro de pedido </h3><br>
   <div class="form-goup">
-  <input type="text" class="form-control" style="text-align: center;" [(ngModel)]="idPedido" placeholder="Pedido" > <br>
-  <button class="btn btn-primary btn-block" (click)="TraerTiempo()" >Traer</button>
+  <input type="text" class="form-control" style="text-align: center;" [(ngModel)]="idPedido" placeholder="Pedido" > <br><br>
+  <button class="btn btn-dark btn-block" (click)="TraerTiempo()" >Traer</button>
 </div>
 </div>
     </div>
@@ -43,4 +43,4 @@
           </table>
   </div>
 </div>
-
+</body>
