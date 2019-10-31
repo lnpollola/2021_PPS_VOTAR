@@ -2,9 +2,11 @@
 
 .footer {
     font-family: 'Modak', cursive;
-    background-color: lightsalmon;
+    background-color: #6D6875;
     margin: 0px auto;
     padding: 20px 5px;
+    color: blanchedalmond;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
   .btn-facebook {
     color: #fff !important;

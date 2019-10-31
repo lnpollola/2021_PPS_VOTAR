@@ -1,0 +1,97 @@
+<app-header> </app-header>
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+     <div fxFlex>
+            <div>
+               <h3 letraYcolor>Contactanos</h3>
+               <hr>
+            </div>
+     </div> 
+
+    <div fxFlex>
+      <h3 letraYcolor>Información de contacto</h3> 
+      <div fxLayout="column" fxLayout.gt-sm="row">
+          <div fxFlex="50" fxFlexOffset="50px">
+                <h4 letraYcolor>Dirección</h4>
+                <address letraYcolor>
+		              1234, Republica Fantasma<br>
+		              Clear Water Bay, Kowloon<br>
+		              HONG KONG<br>
+		              <i class="fa fa-phone"></i>:+15 34713587<br>
+		              <i class="fa fa-envelope"></i>: 
+                        <a href="mailto:jngraziano@gmail.com">jngraziano@gmail.com</a>
+		           </address>
+               <p></p>
+                <div>
+                    <a mat-raised-button href="tel:+1561870585"><i class="fa fa-phone"></i> Llamar </a>
+                    <a mat-raised-button><i class="fa fa-skype"></i> Skype</a>
+                    <a mat-raised-button href="mailto:jngraziano@gmail.com"><i class="fa fa-envelope-o"></i> Email</a>
+                </div>
+            </div>
+          <div fxFlex="40">
+                <h4 letraYcolor>Mapa de nuestra locacion</h4>
+                <app-map></app-map>
+          </div>
+        </div>
+      </div>
+
+<!--       
+      <div fxFlex fxFlexOffset="20px" class="form-size">
+          <h3>Send us your Feedback</h3>
+          <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+  
+          <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+            <p>
+              <mat-form-field class="half-width">
+                <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
+                <mat-error *ngIf="formErrors.firstname">
+                    {{formErrors.firstname}}                
+                </mat-error>
+              </mat-form-field>
+             
+              <mat-form-field class="half-width">
+                <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
+                <mat-error *ngIf="formErrors.lastname">
+                    {{formErrors.lastname}}                  
+                  </mat-error>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="half-width">
+                <input matInput formControlName="telnum" placeholder="Tel. Number" type="tel" pattern="[0-9]*" required>
+                <mat-error *ngIf="formErrors.telnum">
+                    {{formErrors.telnum}}                  
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="half-width">
+                <input matInput formControlName="email" placeholder="Email" type="email" email required>
+                <mat-error *ngIf="formErrors.email">
+                    {{formErrors.email}}                 
+                  </mat-error>
+              </mat-form-field>
+            </p>
+            <table class="form-size">
+              <td>
+              <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
+              </td>
+              <td>
+              <mat-select placeholder="How?" formControlName="contacttype">
+                <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+                  {{ ctype }}
+                </mat-option>
+              </mat-select>
+              </td>
+              </table>
+            <p>
+              <mat-form-field class="full-width">
+                <textarea matInput formControlName="message" placeholder="Your Feedback" rows=12></textarea>
+              </mat-form-field>
+            </p>
+            <button type="submit" mat-button class="background-primary text-floral-white"
+              [disabled]="feedbackForm.invalid"> Submit</button>
+          </form>
+        </div>
+</div> -->

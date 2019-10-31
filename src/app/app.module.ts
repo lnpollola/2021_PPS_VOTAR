@@ -51,6 +51,8 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { ClienteComponent } from './componentes/cliente/cliente.component';
 import { AboutComponent } from './componentes/about/about.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { ContactComponent } from './componentes/contact/contact.component';
+import { MapComponent } from './componentes/map/map.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     UsuariosComponent,
     ClienteComponent,
     AboutComponent,
-    RegistroComponent
+    RegistroComponent,
+    ContactComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

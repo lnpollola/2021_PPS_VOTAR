@@ -6,6 +6,7 @@ import { UsuariosComponent } from "./componentes/usuarios/usuarios.component";
 import { ClienteComponent } from "../app/componentes/cliente/cliente.component";
 import { AboutComponent } from "../app/componentes/about/about.component";
 import { RegistroComponent } from "../app/componentes/registro/registro.component";
+import { ContactComponent } from "../app/componentes/contact/contact.component";
 
 
 const routes: Routes = [
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'cliente', component: ClienteComponent },
   { path: 'aboutus', component: AboutComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'contacto', component: ContactComponent },
+
 
 
 

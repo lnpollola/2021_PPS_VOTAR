@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=McLaren&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Skranji&display=swap');
 
 .image{
@@ -37,7 +37,7 @@
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .card-text{
-    font-family: 'Roboto Slab', serif;
+    font-family: 'McLaren', cursive;
 }
 
 .card-title{

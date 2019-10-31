@@ -1,23 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Long+Cang&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Skranji&display=swap');
+@import url('https://fonts.googleapis.com/css?family=McLaren&display=swap');
+
 p{
-  font-family: 'Long Cang', cursive;
+  font-family: 'McLaren', cursive;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  font-size: 180%;
+  font-size: 140%;
 }
 .jumbotron {
     margin: 0px auto;
     padding: 0px 20px;
-    background: lightsalmon;
-    color: floralwhite;
+    /* background: lightsalmon; */
+    background: #6D6875;
+
+    color: blanchedalmond;
     min-height: 100px;
+    border-radius: 0rem;
     
   }
 
   .header 
   {
-    background-color: black;
-    color: white;
+    background-color: #B5838D;
+    /* background-color: #6D6875; */
+    font-family: 'McLaren', cursive;
   }
 
   h1
@@ -28,7 +34,7 @@ p{
   }
 
   .hbtn{
-    color: white;
+    color: blanchedalmond;
   }
   .hbtn.hover{
     color:crimson;
@@ -58,9 +64,9 @@ p{
   margin:10px; /* distancia entre el borde y el contenido */
   width:120px; /* el ancho de la img */
   border-radius:150px;
-  border:5px solid #666;
+  border:5px solid black;
   height: 120px; 
-  margin-bottom: 20%;
+  margin-bottom: 17%;
   margin-left: 90%;
 }
 /* .avatar{
