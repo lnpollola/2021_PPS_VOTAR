@@ -2,19 +2,21 @@
 
 <body>
 <div class="row">
-    <div class="form-ingreso col-sm-3">
+    <div class=" col-sm-3">
+      <br>
         <h3 letraYcolor>Nuevo empleado</h3>
+        <hr style="border-color: white;">
       <form [formGroup]="registroForm" >
         <div class="form-group">
-          <input class="form-control input-ingreso" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
-          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" ><br>
-    
-          <input class="form-control input-ingreso" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
+          <input class="form-control dark" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"><br>
+          <p letraYcolor *ngIf="usuarioRegistrado">Usuario ya utilizado.</p><br>
+          <input class="form-control dark" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
     
           <!-- <input type="text" class="form-control input-ingreso" placeholder="Perfil"  name="perfil"  [formControl]="perfil" required><br> -->
     
           
-          <mat-form-field>
+          <!-- <mat-form-field>
             <mat-select  [formControl]="perfil" placeholder="Seleccione Perfil">
               <mat-option name="perfil"  value="admin"> ADMINISTRADOR</mat-option>
               <mat-option name="perfil"  value="mozo"> MOZO </mat-option>
@@ -23,20 +25,53 @@
               <mat-option name="perfil"  value="barra"> BARRA </mat-option>
               <mat-option name="perfil"  value="candy"> CANDY BAR</mat-option>
             </mat-select>
-          </mat-form-field>
+          </mat-form-field> -->
+          
+          <select class="form-control dark" formControlName="perfil" >
+              <option [ngValue]="null" hidden disabled>Seleccione perfil</option>
+              <option *ngFor="let perfil of perfiles" [ngValue]="perfil.name">
+                  {{ perfil.name }}
+                </option>
+             
+            </select>
+       
 
 
-            <legend letraYcolor>Sexo</legend>
+            <!-- <legend >Sexo</legend>
 
             <mat-radio-group  [formControl]="sexo">
-                <mat-radio-button value="Hombre"  type="radio" id="sexoh"  name="sexo"   style="color:whitesmoke; 	font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;" required >HOMBRE</mat-radio-button>
+                <mat-radio-button value="Hombre"  type="radio" id="sexoh"  name="sexo"  required >HOMBRE</mat-radio-button>
                 <br>
-                <mat-radio-button value="Mujer"  type="radio" id="sexom"  name="sexo" style="color:whitesmoke; 	font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;" required >MUJER</mat-radio-button>
-            </mat-radio-group>
-            <button (click)="IngresarUsuario()" class="btn btn-success col-sm-12" [disabled]="!registroForm.valid">Ingresar</button>
+                <mat-radio-button value="Mujer"  type="radio" id="sexom"  name="sexo"  required >MUJER</mat-radio-button>
+            </mat-radio-group> -->
+            <br>
+            <div class="form-group" [formControl]="sexo" name="sexo">
+                <h4>Sexo</h4>
+                
+                <ul style="margin-left: 10%;" >
+                  
+                    <input type="radio" id="sexoh" name="sexo" formControlName="sexo" value="hombre" id="one" checked />
+                    <label for="one">HOMBRE</label>
+                    
+                    <div class="check"></div>
+               
+                  <br>
+                  
+                    <input type="radio" id="sexom" name="sexo" formControlName="sexo" value="mujer" id="two" />
+                    <label for="two">MUJER</label>
+                    
+                    <div class="check"></div>
+                  
+                </ul>
+              </div>
+           
+
+
+            
+            <button (click)="IngresarUsuario()" class="btn btn-success col-sm-12" [disabled]="!registroForm.valid">Agregar</button>
           <br><br>
-          
-          <legend letraYcolor>Verificar Captcha</legend>
+          <p letraYcolor *ngIf="agregOK">Usuario arregado</p>
+          <!-- <legend letraYcolor>Verificar Captcha</legend> -->
           <!-- <app-captcha-propio (lanzador)="RecibirCaptcha($event)"></app-captcha-propio>  -->
           <!-- <p-messages [(value)]="msgs" ></p-messages> -->
          </div>
@@ -47,46 +82,79 @@
     
     <div class="mat-elevation-z8 col-sm-5" style="color:black; background: rgba(119, 136, 153, 0.481);">
       
-        <h3 style="color:whitesmoke; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Lista de empleados</h3>
-        <table mat-table [dataSource]="listaUsuarios" class="lessons-table mat-elevation-z8" style="align-content: center;">
+        <h3 style="color:blanchedalmond; ">Lista de empleados</h3>
+        <!-- <table mat-table [dataSource]="listaUsuarios" class="lessons-table mat-elevation-z8" style="align-content: center;">
+      
      
-            <!-- Position Column -->
+            
             <ng-container matColumnDef="usuario">
               <th mat-header-cell *matHeaderCellDef> Nombre de Usuario </th>
               <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
             </ng-container>
-          
-            <!-- Name Column -->
+        
             <ng-container matColumnDef="perfil">
               <th mat-header-cell *matHeaderCellDef> Perfil </th>
               <td mat-cell *matCellDef="let element"> {{element.perfil}} </td>
             </ng-container>
           
-            <!-- Weight Column -->
+           
             <ng-container matColumnDef="estado">
               <th mat-header-cell *matHeaderCellDef> Estado </th>
               <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
+          
             <ng-container matColumnDef="accionesSusp">
                 <th mat-header-cell *matHeaderCellDef> SUSP </th>
-                <td mat-cell *matCellDef="let element"> 
+                <td mat-cell *matCellDef="let element">  -->
                 <!-- <boton-suspender [id]="element.id" [estado]="element.estado" (lanzador)="TraerTodosLosUsuarios($event)"></boton-suspender> -->
-                </td>
+                <!-- </td>
               </ng-container>
 
               <ng-container matColumnDef="accionesDel">
                   <th mat-header-cell *matHeaderCellDef> DEL </th>
-                  <td mat-cell *matCellDef="let element"> 
+                  <td mat-cell *matCellDef="let element">  -->
                   <!-- <app-btn-borrar-usuario [id]="element.id" (lanzador)="TraerTodosLosUsuarios($event)" style="align-content: center; text-align: center;" ></app-btn-borrar-usuario>  -->
-                  </td>
+                  <!-- </td>
         
                 </ng-container> 
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+          </table> -->
+
+
+
+          <table class="table  table-striped table-dark table-bordered table-hover" id="tablaID">
+              <thead>
+                <tr>
+                
+                  <th  scope="col" class="col1">USUARIO</th>
+                  <th  scope="col" class="col2">PERFIL</th>
+                   <th  scope="col" class="col3">ESTADO</th>
+                  <th  scope="col" class="col4">SEXO</th>
+                  <!-- <th  scope="col" class="col5">SEXO</th>  -->
+        
+                </tr>
+            </thead>
+        
+                <tbody id="tBodyTable"  *ngFor="let item of listaUsuarios">
+                    <tr> 
+                  
+                          <td>{{item.username}}</td>
+                          <td>{{item.perfil}}</td>
+                          <td>{{item.estado}}</td>
+                          <td>{{item.sexo}}</td>
+
+                          <td><button class="btn btn-warning" (click)="editar(item)"><i class="fa fa-edit"></i></button>
+                          <button class="btn btn-danger" (click)="borrar(item)"><i class="fa fa-trash"></i></button></td>
+      
+      
+                     
+                    </tr> 
+                
+                   </tbody>
+                  </table>
 
         
       </div>

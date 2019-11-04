@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 body{
-    background-color: beige;
+    /* background-color: beige; */
     font-family: 'Roboto Slab', serif;
-    color: white;
+    color: blanchedalmond;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-input{
-    background-color: beige;
+.dark{
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
     font-family: 'Roboto Slab', serif;
 }
 
@@ -16,7 +19,9 @@ input{
     margin-left: 15px;
 }
 
+
 .tabla-negra {
+
     background: white;
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -30,8 +35,50 @@ input{
     padding-right: 24px;
 }
 
-p-messages
+/* p-messages
 {
     color:whitesmoke;
     
+} */
+
+
+
+
+input[type=radio] {
+	position: absolute;
+	visibility: hidden;
 }
+
+label { 
+	cursor: pointer; 
+	font-weight: 400;
+}
+.card{
+    background-color: transparent;
+}
+
+.check {
+	width: 25px; height: 25px;
+    position: absolute;
+
+	border-radius: 50%;
+	transition: transform .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Reset */
+input#one ~ .check { 
+	transform: translate(-50px, -25px); 
+	background: var(--secondary-c); 
+}
+input#two ~ .check { 
+	transform: translate(-50px, -67px); 
+	background: #003047;
+	box-shadow: 0 6px 12px white;
+}
+
+/* Radio Input #1 */
+input#one:checked ~ .check { transform: translate(-50px, -67px); }
+
+/* Radio Input #2  */
+input#two:checked ~ .check { transform: translate(-50px, -25px); }
+

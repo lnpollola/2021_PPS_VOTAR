@@ -11,7 +11,7 @@ p{
     margin: 0px auto;
     padding: 0px 20px;
     /* background: lightsalmon; */
-    background: #6D6875;
+    background: rgb(63, 67, 69);
 
     color: blanchedalmond;
     min-height: 100px;
@@ -21,17 +21,12 @@ p{
 
   .header 
   {
-    background-color: #B5838D;
+    background-color: rgb(79, 47, 53);
     /* background-color: #6D6875; */
     font-family: 'McLaren', cursive;
   }
 
-  h1
-  {
-    color: blanchedalmond;
-    font-family: 'Skranji', cursive;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  }
+ 
 
   .hbtn{
     color: blanchedalmond;

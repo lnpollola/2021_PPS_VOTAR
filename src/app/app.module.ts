@@ -53,6 +53,7 @@ import { AboutComponent } from './componentes/about/about.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ContactComponent } from './componentes/contact/contact.component';
 import { MapComponent } from './componentes/map/map.component';
+import { LetraYcolorDirective } from './directivas/letra-ycolor.directive';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { MapComponent } from './componentes/map/map.component';
     AboutComponent,
     RegistroComponent,
     ContactComponent,
-    MapComponent
+    MapComponent,
+    LetraYcolorDirective
   ],
   imports: [
     BrowserModule,
