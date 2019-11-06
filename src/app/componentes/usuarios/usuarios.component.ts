@@ -4,6 +4,7 @@ import { Usuario } from '../../clases/usuario';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { FirebaseService } from '../../servicios/firebase.service';
 
+
 // import fire = require('firebase/empty-import');
 
 // import { MessageService } from 'primeng/api';
@@ -153,6 +154,10 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
 
        
    }
+
+   descargarInfo(){
+     
+  }
    
 
 
