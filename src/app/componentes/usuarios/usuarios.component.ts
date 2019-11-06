@@ -240,6 +240,8 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
   borrarUsuario(usuario){
     console.log(usuario);
     this.baseService.removeItem('comanda/Usuarios', usuario.key );
+
+    this.agregOK = false;
     this.eliminOK = true;
     this.TraerTodosLosUsuarios();
   }
