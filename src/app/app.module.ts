@@ -54,6 +54,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { ContactComponent } from './componentes/contact/contact.component';
 import { MapComponent } from './componentes/map/map.component';
 import { LetraYcolorDirective } from './directivas/letra-ycolor.directive';
+import { BtnEliminarComponent } from './componentes/btn-eliminar/btn-eliminar.component';
+import { BtnEditarComponent } from './componentes/btn-editar/btn-editar.component';
 // import { FileSelectDirective } from 'ng2-file-upload';
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { LetraYcolorDirective } from './directivas/letra-ycolor.directive';
     ContactComponent,
     MapComponent,
     LetraYcolorDirective,
+    BtnEliminarComponent,
+    BtnEditarComponent,
     // FileSelectDirective
   ],
   imports: [

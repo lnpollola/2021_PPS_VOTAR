@@ -34,6 +34,7 @@ export class UsuariosComponent implements OnInit {
   listaUsuarios:Array<any>;
   usuarioRegistrado: boolean = false;
   agregOK:boolean = false;
+  eliminOK:boolean = false;
   perfiles = [
     {name: 'admin'},
     {name: 'mozo'},
@@ -138,7 +139,9 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
          
           this.baseService.addItem('comanda/Usuarios', usuarioNuev); 
           this.usuarioRegistrado = false;
+          this.eliminOK = false;
           this.agregOK = true;
+          this.registroForm.reset();
           this.TraerTodosLosUsuarios();
         }
 
@@ -158,6 +161,7 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
    }
 
    descarga(){
+    this.eliminOK = false;
     const documentDefinition = { content: [
         {
             text: 'Listado de Usuarios',
@@ -233,8 +237,11 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
 
   }
 
-  borrar(item){
-
+  borrarUsuario(usuario){
+    console.log(usuario);
+    this.baseService.removeItem('comanda/Usuarios', usuario.key );
+    this.eliminOK = true;
+    this.TraerTodosLosUsuarios();
   }
    
 

@@ -78,7 +78,8 @@
             
             <button (click)="IngresarUsuario()" class="btn btn-success col-sm-12" [disabled]="!registroForm.valid">Agregar</button>
           <br><br>
-          <p letraYcolor *ngIf="agregOK">Usuario arregado</p>
+          <p letraYcolor *ngIf="agregOK" style="text-align: center;">Usuario agregado</p>
+          <p letraYcolor *ngIf="eliminOK" style="text-align: center;">Usuario eliminado</p>
           <!-- <legend letraYcolor>Verificar Captcha</legend> -->
           <!-- <app-captcha-propio (lanzador)="RecibirCaptcha($event)"></app-captcha-propio>  -->
           <!-- <p-messages [(value)]="msgs" ></p-messages> -->
@@ -155,7 +156,7 @@
                           <td>{{item.sexo}}</td>
 
                           <td><button class="btn btn-warning" (click)="editar(item)"><i class="fa fa-edit"></i></button>
-                          <button class="btn btn-danger" (click)="borrar(item)"><i class="fa fa-trash"></i></button></td>
+                          <app-btn-eliminar (enviarABorrar)="borrarUsuario(item)"></app-btn-eliminar></td>
       
       
                      
