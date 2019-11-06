@@ -16,24 +16,25 @@
 
 input[type=text], input[type=password] , input[type=nombre], input[type=usuario],  input[type=email] {
     width: 100%;
-    /* padding: 12px 20px;
-    margin: 8px 0; */
+    padding: 12px 20px;
+    margin: 8px 0;
     display: inline-block;
-    /* border: 1px solid #ccc; */
+    border: 1px solid #ccc;
     box-sizing: border-box;
 }
 .centro {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 35%;
 }
 
 img {
     /* border-radius: 5px 5px 0 0; */
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
+    margin-left: 17%;
 }/* Add some padding inside the card container */
 
 /* ::ng-deep .cdk-overlay-container{
@@ -47,11 +48,11 @@ img {
     left: 40%; */
     background: black;
     box-shadow: 2px 5px 20px gray;
-    margin-top: 7%;
-    width: 280px;
+    margin-top: 15%;
+    width: 22%;
 
     /* position: absolute; */
-     top: 50%;
+     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
@@ -60,7 +61,14 @@ img {
     border-radius: 20px;
 
 }
+.midialogEdit .mat-dialog-container{
+    width: 100%;
+}
 
+/* #cdk-overlay-0 {
+    width: 100%;
+ } */
+/* 
 input[type=text], input[type=password] {
    
     width: 100%;
@@ -69,7 +77,8 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+} */
+
 
 .close {
     position: absolute;
@@ -83,10 +92,14 @@ input[type=text], input[type=password] {
 .inputs {
     
    
-    width: 90%;
+    width: 100%;
 }
 
 
 .naranja{
     color: darkorange;
+}
+
+.mat-dialog-container{
+    width: 70%;
 }

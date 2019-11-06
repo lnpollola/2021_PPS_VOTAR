@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openLoginForm(){
-    this.dialog.open(LoginComponent, {hasBackdrop: true, disableClose: false, width:'100%', height:'100%' });
+    this.dialog.open(LoginComponent, {hasBackdrop: true, disableClose: false, width:'100%', height:'20%',panelClass: 'midialogEdit' });
    
   }
 
