@@ -3,6 +3,7 @@ import { Usuario } from '../../clases/usuario';
 // import { UsuariosService } from "../services/usuarios.service";
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { FirebaseService } from '../../servicios/firebase.service';
+
 // import fire = require('firebase/empty-import');
 
 // import { MessageService } from 'primeng/api';
@@ -41,7 +42,7 @@ export class UsuariosComponent implements OnInit {
   ];
 
 
-  displayedColumns: string[] = ['usuario', 'perfil', 'estado','accionesSusp','accionesDel'];
+  // displayedColumns: string[] = ['usuario', 'perfil', 'estado','accionesSusp','accionesDel'];
 
 
   // private msjServ: MessageService
@@ -67,6 +68,7 @@ export class UsuariosComponent implements OnInit {
   
 
   sexo = new FormControl('');
+
 
   registroForm: FormGroup = this.builder.group({
     email: this.email,
@@ -94,6 +96,7 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
 
 });
    }
+  
 
 
    IngresarUsuario()
@@ -101,23 +104,27 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
  
       
   
-        let usuario= this.registroForm.get('email').value;
-        let clave= this.registroForm.get('clave').value;
-        let perfil= this.registroForm.get('perfil').value;
-        let sexo= this.registroForm.get('sexo').value;
-        console.log(this.registroForm);                            
+        // let usuario= this.registroForm.get('email').value;
+        // let clave= this.registroForm.get('clave').value;
+        // let perfil= this.registroForm.get('perfil').value;
+        let sexoOK= this.registroForm.get('sexo').value;
+        if(sexoOK == undefined || sexoOK == '')
+        {
+          sexoOK = "hombre";
+        }
+                             
 
 
        let usuarioNuev = new Usuario(this.registroForm.get('email').value,this.registroForm.get('clave').value,
-                                     this.registroForm.get('perfil').value,this.registroForm.get('sexo').value);
+                                     this.registroForm.get('perfil').value,sexoOK);
         console.log(usuarioNuev);                            
-        let usuarioNuevo = 
-        {
-          usuario : this.registroForm.get('email').value,
-          clave: this.registroForm.get('clave').value,
-          perfil: this.registroForm.get('perfil').value,
-          sexo: this.registroForm.get('sexo').value
-        }
+        // let usuarioNuevo = 
+        // {
+        //   usuario : this.registroForm.get('email').value,
+        //   clave: this.registroForm.get('clave').value,
+        //   perfil: this.registroForm.get('perfil').value,
+        //   sexo: this.registroForm.get('sexo').value
+        // }
 
         let usuarioLogueado = this.listaUsuarios.find(elem => (elem.username == usuarioNuev.username));
         if (usuarioLogueado != undefined) {
@@ -126,9 +133,10 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
         }
         else{
          
-          this.baseService.addItem('comanda/Usuarios', usuarioNuevo); 
+          this.baseService.addItem('comanda/Usuarios', usuarioNuev); 
           this.usuarioRegistrado = false;
           this.agregOK = true;
+          this.TraerTodosLosUsuarios();
         }
 
 

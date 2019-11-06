@@ -26,12 +26,19 @@
               <mat-option name="perfil"  value="candy"> CANDY BAR</mat-option>
             </mat-select>
           </mat-form-field> -->
-          
+          <!-- formControlName="perfil"  -->
           <select class="form-control dark" formControlName="perfil" >
               <option [ngValue]="null" hidden disabled>Seleccione perfil</option>
               <option *ngFor="let perfil of perfiles" [ngValue]="perfil.name">
                   {{ perfil.name }}
                 </option>
+              <!-- <option [ngValue]="admin">ADMINISTRADOR</option>
+              <option [ngValue]="mozo">MOZO</option>
+              <option [ngValue]="cocina">COCINA</option>
+              <option [ngValue]="chopera">CHOPERA</option>
+              <option [ngValue]="barra">BARRA</option>
+              <option [ngValue]="candy">CANDY BAR</option> -->
+
              
             </select>
        
@@ -45,7 +52,8 @@
                 <mat-radio-button value="Mujer"  type="radio" id="sexom"  name="sexo"  required >MUJER</mat-radio-button>
             </mat-radio-group> -->
             <br>
-            <div class="form-group" [formControl]="sexo" name="sexo">
+            <!-- [formControl]="sexo" -->
+            <div class="form-group"  name="sexo">
                 <h4>Sexo</h4>
                 
                 <ul style="margin-left: 10%;" >
