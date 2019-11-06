@@ -8,10 +8,10 @@
         <hr style="border-color: white;">
       <form [formGroup]="registroForm" >
         <div class="form-group">
-          <input class="form-control dark" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
+          <input Temadark class="form-control" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
           pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"><br>
           <p letraYcolor *ngIf="usuarioRegistrado">Usuario ya utilizado.</p><br>
-          <input class="form-control dark" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
+          <input Temadark class="form-control" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
     
           <!-- <input type="text" class="form-control input-ingreso" placeholder="Perfil"  name="perfil"  [formControl]="perfil" required><br> -->
     
@@ -27,7 +27,7 @@
             </mat-select>
           </mat-form-field> -->
           <!-- formControlName="perfil"  -->
-          <select class="form-control dark" formControlName="perfil" >
+          <select Temadark class="form-control" formControlName="perfil" >
               <option [ngValue]="null" hidden disabled>Seleccione perfil</option>
               <option *ngFor="let perfil of perfiles" [ngValue]="perfil.name">
                   {{ perfil.name }}
@@ -92,6 +92,7 @@
     <div class="mat-elevation-z8 col-sm-5" style="color:black; background: rgba(119, 136, 153, 0.481);">
       
         <h3 style="color:blanchedalmond; ">Lista de empleados</h3>
+        <hr style="border-color: white;">
         <!-- <table mat-table [dataSource]="listaUsuarios" class="lessons-table mat-elevation-z8" style="align-content: center;">
       
      

@@ -57,6 +57,7 @@ import { LetraYcolorDirective } from './directivas/letra-ycolor.directive';
 import { BtnEliminarComponent } from './componentes/btn-eliminar/btn-eliminar.component';
 import { BtnEditarComponent } from './componentes/btn-editar/btn-editar.component';
 import { BottomSheetOverviewExampleSheetComponent } from './componentes/bottom-sheet-overview-example-sheet/bottom-sheet-overview-example-sheet.component';
+import { TemadarkDirective } from './directivas/temadark.directive';
 // import { FileSelectDirective } from 'ng2-file-upload';
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { BottomSheetOverviewExampleSheetComponent } from './componentes/bottom-s
     BtnEliminarComponent,
     BtnEditarComponent,
     BottomSheetOverviewExampleSheetComponent,
+    TemadarkDirective,
     // FileSelectDirective
   ],
   imports: [

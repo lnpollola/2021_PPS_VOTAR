@@ -26,13 +26,19 @@ export class RegistroComponent implements OnInit {
 
   }
 
+  sexoElegido:string = "hombre";
+  radioSelected:string;
+
   constructor(private baseService:FirebaseService ) { }
 
   ngOnInit() {
   }
 
   registrarme(){
-    if(this.validateEmail(this.cuentaRegistro.username))
+    this.agregado = false;
+    this.usuarioUtilizado = false;
+    this.emailincompleto = false;
+    if(!this.validateEmail(this.cuentaRegistro.username))
     {
       this.emailincompleto = true;
     }
@@ -77,7 +83,9 @@ export class RegistroComponent implements OnInit {
           let usuarioCargar = {
             "username":this.cuentaRegistro.username,
             "password":this.cuentaRegistro.password,
-            "perfil": "cliente"
+            "perfil": "cliente",
+            "estado": "activo",
+            "sexo": this.sexoElegido
           }
           this.baseService.addItem('comanda/Usuarios', usuarioCargar); 
           this.cuentaRegistro.username= "";
@@ -97,8 +105,14 @@ export class RegistroComponent implements OnInit {
 
 
     validateEmail(email) {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(String(email).toLowerCase());
+}
+
+onItemChange(value)
+{
+  this.sexoElegido=value;
 }
 
 }
