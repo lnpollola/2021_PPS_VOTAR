@@ -39,7 +39,6 @@ export class UsuariosComponent implements OnInit {
     {name: 'admin'},
     {name: 'mozo'},
     {name: 'cocina'},
-    {name: 'cochera'},
     {name: 'barra'},
     {name: 'candy'}
 
