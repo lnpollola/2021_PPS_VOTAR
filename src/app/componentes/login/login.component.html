@@ -25,7 +25,7 @@
 <div class="form-group">
           <mat-form-field class="inputs">
               <label>Ingrese contraseña:</label>
-            <input matInput  formControlName="password"  name="password" [type]="hide ? 'password' : 'text'">
+            <input matInput  formControlName="password"  name="password" [type]="hide ?  'text': 'password' ">
             
             <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'no ver' : 'ver'}}</mat-icon> -->
             <mat-icon matSuffix (click)="hide = !hide"><i class="fa fa-eye"></i></mat-icon>
