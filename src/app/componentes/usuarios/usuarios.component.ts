@@ -3,7 +3,9 @@ import { Usuario } from '../../clases/usuario';
 // import { UsuariosService } from "../services/usuarios.service";
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { FirebaseService } from '../../servicios/firebase.service';
-
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 // import fire = require('firebase/empty-import');
 
@@ -42,7 +44,7 @@ export class UsuariosComponent implements OnInit {
 
   ];
 
-
+  
   // displayedColumns: string[] = ['usuario', 'perfil', 'estado','accionesSusp','accionesDel'];
 
 
@@ -155,9 +157,122 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
        
    }
 
-   descargarInfo(){
-     
+   descarga(){
+    let documentDefinition;
+    // this.listaUsuarios.forEach(element => {
+    // documentDefinition = { content: JSON.stringify(element) };
+      
+    // });
+    // var column = [];
+    // column.push({ text: 'Username', style: 'tableHeader'});
+    // column.push({ text: 'Estado', style: 'tableHeader'});
+    // column.push({ text: 'Perfil', style: 'tableHeader'});
+    // column.push({ text: 'Sexo', style: 'tableHeader'});
+    // column.push({ text: 'FirebaseKey', style: 'tableHeader'});
+
+    // var value = [];
+    // this.listaUsuarios.forEach(element => {
+    //   value.push({ text: element.username});
+    //   value.push({ text: element.estado});
+    //   value.push({ text: element.perfil});
+    //   value.push({ text: element.sexo});
+    //   value.push({ text: element.key});
+
+    // });
+
+  
+
+   
+     documentDefinition = { content: [
+        {
+            text: 'Listado de Usuarios',
+            bold: true,
+            fontSize: 20,
+            alignment: 'center',
+            margin: [0, 0, 0, 20]
+        },
+        this.getListaUsuariosPDF(),
+        // {
+        //   table: {
+        //     // headers are automatically repeated if the table spans over multiple pages
+        //     // you can declare how many rows should be treated as headers
+        //     headerRows: 1,
+        //     widths: [ '*', 'auto', 100, '*' ],
+        //     body: [
+        //       [ 'Username', 'Estado', 'Perfil', 'Sexo', "FirebaseKey" ],
+        //       [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
+        //       [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
+        //     ]
+        //   },
+      ],
+          styles: {
+            header: {
+              fontSize: 18,
+              bold: true,
+              margin: [0, 20, 0, 10],
+              decoration: 'underline'
+            },
+            name: {
+              fontSize: 16,
+              bold: true
+            },
+            jobTitle: {
+              fontSize: 14,
+              bold: true,
+              italics: true
+            },
+            tableHeader: {
+              bold: true,
+            }
+          }
+        }
+  
+  
+   
+   
+    
+    pdfMake.createPdf(documentDefinition).download();
+  
   }
+  getListaUsuariosPDF(){
+    const exs = [];
+    this.listaUsuarios.forEach(element => {
+      exs.push(
+        [{
+          columns: [
+            [{
+              text: "Username: "+ element.username,
+              style: 'jobTitle'
+            },
+            {
+              text:  "Estado: "+ element.estado
+            },
+            {
+              text:  "Perfil: "+ element.perfil
+            },
+            {
+              text:  "Sexo: "+ element.sexo
+            },
+            {
+              text:  "Firebase Key: "+ element.key
+            },
+          ]
+          ]
+        }]
+      );
+    });
+    return {
+      table: {
+        widths: ['*'],
+        body: [
+          ...exs
+        ]
+      }
+    };
+  
+  }
+
+
   editar(item){
 
   }
