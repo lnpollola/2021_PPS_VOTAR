@@ -44,11 +44,13 @@ export class HeaderComponent implements OnInit {
     if(this.dialogAbierto)
     {
       this.dialog.closeAll();
+
       this.dialogAbierto = false;
 
     }
     else{
       this.dialog.open(LoginComponent, {hasBackdrop: true, disableClose: false, width:'100%', height:'20%',panelClass: 'midialogEdit' });
+      //aasd
       this.dialogAbierto = true;
     }
     
