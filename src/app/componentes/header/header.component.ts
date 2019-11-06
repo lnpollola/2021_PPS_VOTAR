@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef} from '@angular/material';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { throwError } from 'rxjs';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class HeaderComponent implements OnInit {
   IngresoBool:boolean;
   perfilUsuario:string;
   nombre:string;
+  dialogAbierto:boolean = false;
 
   constructor(private dialog: MatDialog,   private router: Router) { }
 
@@ -39,8 +41,17 @@ export class HeaderComponent implements OnInit {
   }
 
   openLoginForm(){
-    this.dialog.open(LoginComponent, {hasBackdrop: true, disableClose: false, width:'100%', height:'20%',panelClass: 'midialogEdit' });
-   
+    if(this.dialogAbierto)
+    {
+      this.dialog.closeAll();
+      this.dialogAbierto = false;
+
+    }
+    else{
+      this.dialog.open(LoginComponent, {hasBackdrop: true, disableClose: false, width:'100%', height:'20%',panelClass: 'midialogEdit' });
+      this.dialogAbierto = true;
+    }
+    
   }
 
   logout()
