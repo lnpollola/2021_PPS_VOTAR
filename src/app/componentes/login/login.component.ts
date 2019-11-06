@@ -130,7 +130,7 @@ Entrar(){
       // this.datosLogin = new Usuario(this.f.username.value, this.f.password.value,"cliente", );
      
       // console.log(this.datosLogin);
-      let usuarioLogueado = this.usuarios.find(elem => (elem.username == this.f.username.value && elem.password == this.f.password.value.password));
+      let usuarioLogueado = this.usuarios.find(elem => (elem.username == this.f.username.value && elem.password == this.f.password.value));
       console.log(usuarioLogueado);
       // console.log(usuarioLogueado);
       // console.log(this.cuenta);
@@ -167,7 +167,7 @@ Entrar(){
         
       }
       else{
-        // this.isLoading = false;
+        this.isLoading = false;
         this.error = true;
         
       }
