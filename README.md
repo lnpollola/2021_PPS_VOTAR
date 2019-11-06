@@ -44,3 +44,15 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 
 ## - Captcha
 ![alt text](Screenshots/Captcha.jpg)
+
+### Entrega 07/11 -
+#### Generar documentos PDF, manejo de imagenes.  
+
+## - Documentos PDF
+![alt text](Screenshots/docuPDF1.jpg)
+![alt text](Screenshots/docuPDF1.jpg)
+
+
+## - Manejo de imagenes
+<!-- ![alt text](Screenshots/Captcha.jpg) -->
+
