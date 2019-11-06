@@ -189,6 +189,7 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
             bold: true,
             fontSize: 20,
             alignment: 'center',
+            decoration: 'underline',
             margin: [0, 0, 0, 20]
         },
         this.getListaUsuariosPDF(),
