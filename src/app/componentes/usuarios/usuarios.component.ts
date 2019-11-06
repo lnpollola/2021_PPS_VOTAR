@@ -158,32 +158,7 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
    }
 
    descarga(){
-    let documentDefinition;
-    // this.listaUsuarios.forEach(element => {
-    // documentDefinition = { content: JSON.stringify(element) };
-      
-    // });
-    // var column = [];
-    // column.push({ text: 'Username', style: 'tableHeader'});
-    // column.push({ text: 'Estado', style: 'tableHeader'});
-    // column.push({ text: 'Perfil', style: 'tableHeader'});
-    // column.push({ text: 'Sexo', style: 'tableHeader'});
-    // column.push({ text: 'FirebaseKey', style: 'tableHeader'});
-
-    // var value = [];
-    // this.listaUsuarios.forEach(element => {
-    //   value.push({ text: element.username});
-    //   value.push({ text: element.estado});
-    //   value.push({ text: element.perfil});
-    //   value.push({ text: element.sexo});
-    //   value.push({ text: element.key});
-
-    // });
-
-  
-
-   
-     documentDefinition = { content: [
+    const documentDefinition = { content: [
         {
             text: 'Listado de Usuarios',
             bold: true,
@@ -193,44 +168,20 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
             margin: [0, 0, 0, 20]
         },
         this.getListaUsuariosPDF(),
-        // {
-        //   table: {
-        //     // headers are automatically repeated if the table spans over multiple pages
-        //     // you can declare how many rows should be treated as headers
-        //     headerRows: 1,
-        //     widths: [ '*', 'auto', 100, '*' ],
-        //     body: [
-        //       [ 'Username', 'Estado', 'Perfil', 'Sexo', "FirebaseKey" ],
-        //       [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
-        //       [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
-        //     ]
-        //   },
+    
       ],
           styles: {
-            header: {
-              fontSize: 18,
-              bold: true,
-              margin: [0, 20, 0, 10],
-              decoration: 'underline'
-            },
             name: {
-              fontSize: 16,
-              bold: true
+              fontSize: 14,
             },
             jobTitle: {
-              fontSize: 14,
+              fontSize: 16,
               bold: true,
               italics: true
-            },
-            tableHeader: {
-              bold: true,
             }
           }
         }
-  
-  
-   
-   
+
     
     pdfMake.createPdf(documentDefinition).download();
   
@@ -246,16 +197,20 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
               style: 'jobTitle'
             },
             {
-              text:  "Estado: "+ element.estado
+              text:  "Estado: "+ element.estado,
+              style: 'name'
             },
             {
-              text:  "Perfil: "+ element.perfil
+              text:  "Perfil: "+ element.perfil,
+              style: 'name'
             },
             {
-              text:  "Sexo: "+ element.sexo
+              text:  "Sexo: "+ element.sexo,
+              style: 'name'
             },
             {
-              text:  "Firebase Key: "+ element.key
+              text:  "Firebase Key: "+ element.key,
+              style: 'name'
             },
           ]
           ]
