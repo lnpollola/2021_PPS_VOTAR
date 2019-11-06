@@ -158,6 +158,13 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
    descargarInfo(){
      
   }
+  editar(item){
+
+  }
+
+  borrar(item){
+
+  }
    
 
 

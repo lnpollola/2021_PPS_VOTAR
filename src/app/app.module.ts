@@ -54,7 +54,7 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { ContactComponent } from './componentes/contact/contact.component';
 import { MapComponent } from './componentes/map/map.component';
 import { LetraYcolorDirective } from './directivas/letra-ycolor.directive';
-import { FileSelectDirective } from 'ng2-file-upload';
+// import { FileSelectDirective } from 'ng2-file-upload';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +70,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     ContactComponent,
     MapComponent,
     LetraYcolorDirective,
-    FileSelectDirective
+    // FileSelectDirective
   ],
   imports: [
     BrowserModule,
