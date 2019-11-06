@@ -50,7 +50,7 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 
 ## - Documentos PDF
 ![alt text](Screenshots/docuPDF1.jpg)
-![alt text](Screenshots/docuPDF1.jpg)
+![alt text](Screenshots/docuPDF2.jpg)
 
 
 ## - Manejo de imagenes
