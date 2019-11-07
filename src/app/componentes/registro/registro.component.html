@@ -52,7 +52,7 @@
           <span letraYcolor class="file-name" style="margin-left: -30%;">Has click para seleccionar el avatar</span>
           <input style="opacity:0;" #imageInput
                  type="file"
-                 accept=".png,.jpg"
+                 accept="image/*"
                  (change)="processFile(imageInput)">
       <p letraYcolor *ngIf="agregoimagenErrorMsg" class="faltaIMG">Debe ingresar imagen</p>
       
