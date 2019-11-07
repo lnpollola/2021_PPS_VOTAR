@@ -247,8 +247,49 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
   }
 
 
-  editar(item){
+  suspender(item){
+    this.baseService.getItems("comanda/Usuarios").then(users => {
+      // setTimeout(() => this.spinner = false, 2000);
+      
+     let listausuarios = users;
+   
+      let usuarioLogueado = listausuarios.find(elem => (elem.username == item.username));
 
+      console.log(usuarioLogueado);
+      // console.log(usuarioLogueado);
+      // console.log(this.cuenta);
+
+      let objetoEnviar = {
+                         
+        "estado": "suspendido"
+
+      }
+      this.baseService.updateItem('comanda/Usuarios', usuarioLogueado.key, objetoEnviar); 
+      this.TraerTodosLosUsuarios();
+    });
+    
+  }
+
+  activar(item){
+    this.baseService.getItems("comanda/Usuarios").then(users => {
+      // setTimeout(() => this.spinner = false, 2000);
+      
+     let listausuarios = users;
+   
+      let usuarioLogueado = listausuarios.find(elem => (elem.username == item.username));
+
+      console.log(usuarioLogueado);
+      // console.log(usuarioLogueado);
+      // console.log(this.cuenta);
+
+      let objetoEnviar = {
+                         
+        "estado": "activo"
+
+      }
+      this.baseService.updateItem('comanda/Usuarios', usuarioLogueado.key, objetoEnviar); 
+      this.TraerTodosLosUsuarios();
+    });
   }
 
   borrarUsuario(usuario){
