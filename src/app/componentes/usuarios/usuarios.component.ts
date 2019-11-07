@@ -201,7 +201,7 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
         }
 
     
-    pdfMake.createPdf(documentDefinition).download();
+    pdfMake.createPdf(documentDefinition).download('ListadoUsuarios.pdf');
   
   }
   getListaUsuariosPDF(){
