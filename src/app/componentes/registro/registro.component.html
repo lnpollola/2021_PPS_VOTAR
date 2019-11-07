@@ -54,13 +54,13 @@
                  type="file"
                  accept=".png,.jpg"
                  (change)="processFile(imageInput)">
-      <p letraYcolor *ngIf="agregoimagenErrorMsg">Debe ingresar imagen</p>
+      <p letraYcolor *ngIf="agregoimagenErrorMsg" class="faltaIMG">Debe ingresar imagen</p>
       
         </label>
 </div>
 <br>
 
-<small id="emailHelp" class="form-text " *ngIf="faltancampos">Por favor completar todos los campos.</small>
+<small letraYcolor id="emailHelp" class="form-text" *ngIf="faltancampos">Por favor completar todos los campos.</small>
 <br>
   <!-- <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
