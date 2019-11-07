@@ -7,7 +7,13 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-// import fire = require('firebase/empty-import');
+import * as firebase from "firebase";
+
+// import { AngularFireStorage } from 'angularfire2/storage';
+
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
+}
 
 // import { MessageService } from 'primeng/api';
 // import {Message} from 'primeng/components/common/api';
@@ -29,7 +35,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export class UsuariosComponent implements OnInit {
 
-  @Input() dataSource;
+  // @Input() dataSource;
 
   listaUsuarios:Array<any>;
   usuarioRegistrado: boolean = false;
@@ -43,6 +49,10 @@ export class UsuariosComponent implements OnInit {
     {name: 'candy'}
 
   ];
+  selectedFile: ImageSnippet;
+  imagenNueva: any;
+  checkagregoimagen: boolean = false;
+  agregoimagenErrorMsg: boolean = false;
 
   
   // displayedColumns: string[] = ['usuario', 'perfil', 'estado','accionesSusp','accionesDel'];
@@ -51,7 +61,9 @@ export class UsuariosComponent implements OnInit {
   // private msjServ: MessageService
   // private usrService: UsuariosService, private httpUsuarios:UsuariosService
   constructor( private builder: FormBuilder,
-    private baseService:FirebaseService, ) {
+    private baseService:FirebaseService, 
+    // private afStorage: AngularFireStorage
+   ) {
     this.TraerTodosLosUsuarios();
    }
 
@@ -105,42 +117,45 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
    IngresarUsuario()
    {
  
-      
-  
-        // let usuario= this.registroForm.get('email').value;
-        // let clave= this.registroForm.get('clave').value;
-        // let perfil= this.registroForm.get('perfil').value;
+
         let sexoOK= this.registroForm.get('sexo').value;
         if(sexoOK == undefined || sexoOK == '')
         {
           sexoOK = "hombre";
         }
-                             
+                                                      
+        let usuarioNuevo = 
+        {
+          username : this.registroForm.get('email').value,
+        
+        }
 
-
-       let usuarioNuev = new Usuario(this.registroForm.get('email').value,this.registroForm.get('clave').value,
-                                     this.registroForm.get('perfil').value,sexoOK);
-        console.log(usuarioNuev);                            
-        // let usuarioNuevo = 
-        // {
-        //   usuario : this.registroForm.get('email').value,
-        //   clave: this.registroForm.get('clave').value,
-        //   perfil: this.registroForm.get('perfil').value,
-        //   sexo: this.registroForm.get('sexo').value
-        // }
-
-        let usuarioLogueado = this.listaUsuarios.find(elem => (elem.username == usuarioNuev.username));
+        let usuarioLogueado = this.listaUsuarios.find(elem => (elem.username == usuarioNuevo.username));
         if (usuarioLogueado != undefined) {
 
           this.usuarioRegistrado = true;
         }
         else{
-         
-          this.baseService.addItem('comanda/Usuarios', usuarioNuev); 
-          this.usuarioRegistrado = false;
-          this.eliminOK = false;
-          this.agregOK = true;
-          this.registroForm.reset();
+          if(this.checkagregoimagen)
+          {
+            this.agregarImagen();
+            let imagen:string = localStorage.getItem("ImagenSeleccionada");
+            console.log(imagen);
+            let usuarioNuev = new Usuario(this.registroForm.get('email').value,this.registroForm.get('clave').value,
+            this.registroForm.get('perfil').value,sexoOK,imagen);
+            console.log(usuarioNuev); 
+            this.baseService.addItem('comanda/Usuarios', usuarioNuev); 
+            this.usuarioRegistrado = false;
+            this.agregoimagenErrorMsg = false;
+            this.eliminOK = false;
+            this.agregOK = true;
+            this.registroForm.reset();
+            
+          }
+          else{
+            this.agregoimagenErrorMsg = true;
+          }
+          
           this.TraerTodosLosUsuarios();
         }
 
@@ -244,11 +259,44 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
     this.eliminOK = true;
     this.TraerTodosLosUsuarios();
   }
+
+  processFile(imageInput){
+
+    this.imagenNueva = imageInput;
+    this.checkagregoimagen = true; 
+  }
    
+  agregarImagen()
+  {
+    let storageRef = firebase.storage().ref();
+    let errores: number = 0;
+    let usuarioLogueado: any = JSON.parse(sessionStorage.getItem('Usuarios'));
+    let filename: string = this.registroForm.get('email').value;
+    const file: File = this.imagenNueva.files[0];
+    const reader = new FileReader();
+    const imageRef = storageRef.child(`comanda/usuarios/${filename}.jpg`);
+    let enviarFotoB64;
+
+    reader.onloadend = function() {
+      enviarFotoB64= reader.result;
+      localStorage.setItem("ImagenSeleccionada",enviarFotoB64)
+      
+      imageRef.putString(enviarFotoB64, firebase.storage.StringFormat.DATA_URL).then((snapshot) => {
+       
+      })
+        .catch(() => {
+          errores++;
+        });
+    }
+    
+    reader.readAsDataURL(file);
+  }
 
 
   ngOnInit() {
     this.TraerTodosLosUsuarios();
   }
+
+
 
 }

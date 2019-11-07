@@ -58,7 +58,10 @@ import { BtnEliminarComponent } from './componentes/btn-eliminar/btn-eliminar.co
 import { BtnEditarComponent } from './componentes/btn-editar/btn-editar.component';
 import { BottomSheetOverviewExampleSheetComponent } from './componentes/bottom-sheet-overview-example-sheet/bottom-sheet-overview-example-sheet.component';
 import { TemadarkDirective } from './directivas/temadark.directive';
+// import { AngularFireStorageModule  } from "angularfire2/storage";
+// import { AngularFireModule } from "@angular/fire";
 // import { FileSelectDirective } from 'ng2-file-upload';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +92,8 @@ import { TemadarkDirective } from './directivas/temadark.directive';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FormsModule,
+    // AngularFireModule,
+    // AngularFireStorageModule.initializeApp(),
     //material    
     MatFormFieldModule,    
     MatAutocompleteModule,

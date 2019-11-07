@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FirebaseService } from '../../servicios/firebase.service';
+import { Usuario } from "../../clases/usuario";
+
+import * as firebase from "firebase";
+
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
+}
 
 @Component({
   selector: 'app-registro',
@@ -28,6 +35,11 @@ export class RegistroComponent implements OnInit {
 
   sexoElegido:string = "hombre";
   radioSelected:string;
+
+  selectedFile: ImageSnippet;
+  imagenNueva: any;
+  checkagregoimagen: boolean = false;
+  agregoimagenErrorMsg: boolean = false;
 
   constructor(private baseService:FirebaseService ) { }
 
@@ -79,21 +91,32 @@ export class RegistroComponent implements OnInit {
           
         }
         else{
-          this.usuarioUtilizado = false;
-          let usuarioCargar = {
-            "username":this.cuentaRegistro.username,
-            "password":this.cuentaRegistro.password,
-            "perfil": "cliente",
-            "estado": "activo",
-            "sexo": this.sexoElegido
-          }
-          this.baseService.addItem('comanda/Usuarios', usuarioCargar); 
+          if(this.checkagregoimagen)
+          {
+            this.agregarImagen();
+            let imagen:string = localStorage.getItem("ImagenSeleccionada");
+            console.log(imagen);
+            this.usuarioUtilizado = false;
+         
+            let usuarioNuev = new Usuario(this.cuentaRegistro.username,
+                                          this.cuentaRegistro.password,
+                                          "cliente",
+                                          this.sexoElegido,
+                                          imagen);
+          this.baseService.addItem('comanda/Usuarios', usuarioNuev); 
           this.cuentaRegistro.username= "";
           this.cuentaRegistro.password= "";
           this.cuentaRegistro.passwordR= "";
-  
           this.isLoading = false;
           this.agregado = true;
+          }
+          else{
+            this.isLoading = false;
+            this.agregoimagenErrorMsg = true;
+          }
+          
+  
+          
         }
     
     
@@ -101,6 +124,37 @@ export class RegistroComponent implements OnInit {
     }
     
   
+  }
+  agregarImagen()
+  {
+    let storageRef = firebase.storage().ref();
+    let errores: number = 0;
+    let usuarioLogueado: any = JSON.parse(sessionStorage.getItem('Usuarios'));
+    let filename: string = this.cuentaRegistro.username;
+    const file: File = this.imagenNueva.files[0];
+    const reader = new FileReader();
+    const imageRef = storageRef.child(`comanda/usuarios/${filename}.jpg`);
+    let enviarFotoB64;
+
+    reader.onloadend = function() {
+      enviarFotoB64= reader.result;
+      localStorage.setItem("ImagenSeleccionada",enviarFotoB64)
+      
+      imageRef.putString(enviarFotoB64, firebase.storage.StringFormat.DATA_URL).then((snapshot) => {
+       
+      })
+        .catch(() => {
+          errores++;
+        });
+    }
+    
+    reader.readAsDataURL(file);
+  }
+
+  processFile(imageInput){
+
+    this.imagenNueva = imageInput;
+    this.checkagregoimagen = true; 
   }
 
 

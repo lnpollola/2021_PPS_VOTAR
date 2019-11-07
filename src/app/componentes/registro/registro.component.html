@@ -48,7 +48,18 @@
           
         </ul>
       </div>
+      <label>
+          <span letraYcolor class="file-name" style="margin-left: -30%;">Has click para seleccionar el avatar</span>
+          <input style="opacity:0;" #imageInput
+                 type="file"
+                 accept=".png,.jpg"
+                 (change)="processFile(imageInput)">
+      <p letraYcolor *ngIf="agregoimagenErrorMsg">Debe ingresar imagen</p>
+      
+        </label>
 </div>
+<br>
+
 <small id="emailHelp" class="form-text " *ngIf="faltancampos">Por favor completar todos los campos.</small>
 <br>
   <!-- <div class="form-check">

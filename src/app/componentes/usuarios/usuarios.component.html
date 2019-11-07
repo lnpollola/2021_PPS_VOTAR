@@ -54,7 +54,7 @@
             <br>
             <!-- [formControl]="sexo" -->
             <div class="form-group"  name="sexo">
-                <h4>Sexo</h4>
+                <h4 letraYcolor>Sexo</h4>
                 
                 <ul style="margin-left: 10%;" >
                   
@@ -72,7 +72,16 @@
                   
                 </ul>
               </div>
-           
+        
+           <label>
+              <span letraYcolor class="file-name">Has click para seleccionar el avatar</span>
+              <input style="opacity:0;" #imageInput
+                     type="file"
+                     accept=".png,.jpg"
+                     (change)="processFile(imageInput)">
+          <p letraYcolor *ngIf="agregoimagenErrorMsg">Debe ingresar imagen</p>
+
+            </label>
 
 
             
@@ -89,9 +98,9 @@
     
     </div>
     
-    <div class="mat-elevation-z8 col-sm-5" style="color:black; background: rgba(119, 136, 153, 0.481);">
-      
-        <h3 style="color:blanchedalmond; ">Lista de empleados</h3>
+    <div class="mat-elevation-z8 col-sm-7" style="color:black; background: rgba(119, 136, 153, 0.481);">
+      <br>
+        <h3 letraYcolor>Lista de empleados</h3>
         <hr style="border-color: white;">
         <!-- <table mat-table [dataSource]="listaUsuarios" class="lessons-table mat-elevation-z8" style="align-content: center;">
       
@@ -143,7 +152,7 @@
                   <th  scope="col" class="col2">PERFIL</th>
                    <th  scope="col" class="col3">ESTADO</th>
                   <th  scope="col" class="col4">SEXO</th>
-                  <!-- <th  scope="col" class="col5">SEXO</th>  -->
+                  <th  scope="col" class="col5">AVATAR</th> 
         
                 </tr>
             </thead>
@@ -155,7 +164,7 @@
                           <td>{{item.perfil}}</td>
                           <td>{{item.estado}}</td>
                           <td>{{item.sexo}}</td>
-
+                          <td> <img [src]="item.avatar" class="img-thumbnail" style="height: 80px;width: 80px;"></td>
                           <td><button class="btn btn-warning" (click)="editar(item)"><i class="fa fa-edit"></i></button>
                           <app-btn-eliminar (enviarABorrar)="borrarUsuario(item)"></app-btn-eliminar></td>
       
