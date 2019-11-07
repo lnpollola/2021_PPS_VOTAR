@@ -26,24 +26,33 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 # ENTREGAS 
 
 ### Entrega 17/10 -
-#### README, Login con perfiles y pantallas 
+### README, Login con perfiles y pantallas 
 
-### Screenshots:
+## Screenshots:
 
 ## - Home
+### Version anterior:
 ![alt text](Screenshots/Home.jpg)
+### Update:
+![alt text](Screenshots/Homev2.jpg)
 
 ## - Login
+### Version anterior:
 ![alt text](Screenshots/Login.jpg)
+### Update:
+![alt text](Screenshots/Loginv2.jpg)
 
 ### Entrega 24/10 -
-#### Captcha, subido a la web.  
+### Captcha, subido a la web.  
 
 ## - Registro
+### Version anterior:
 ![alt text](Screenshots/Registro.jpg)
+### Update:
+![alt text](Screenshots/Registrov2.jpg)
 
 ## - Captcha
-![alt text](Screenshots/Captcha.jpg)
+![alt text](Screenshots/Loginv2.jpg)
 
 ### Entrega 07/11 -
 #### Generar documentos PDF, manejo de imagenes.  
@@ -54,5 +63,9 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 
 
 ## - Manejo de imagenes
-<!-- ![alt text](Screenshots/Captcha.jpg) -->
+##### En registro:
+![alt text](Screenshots/imagenes1.jpg)
 
+
+##### Desde administración:
+![alt text](Screenshots/imagenes2.jpg)
