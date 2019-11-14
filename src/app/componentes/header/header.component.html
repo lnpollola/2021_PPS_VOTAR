@@ -62,6 +62,11 @@
           <h1 letraYcolor>The Temple Bar</h1>
           <p>Bienvenido! Sistema de Gestion del bar</p>
       </div>
+      <div *ngIf="IngresoBool && (perfilUsuario == 'mozo')">
+        <br>
+        <h1 letraYcolor>The Temple Bar</h1>
+        <p>Bienvenido! Sistema de Gestion de mesas por el mozo</p>
+    </div>
 
     <div class="md-8">
       

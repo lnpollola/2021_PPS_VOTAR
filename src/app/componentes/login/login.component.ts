@@ -188,7 +188,7 @@ LoginCliente()
 
 LoginMozo()
 {
-  this.loginForm.controls['username'].setValue('mozo1@gmail.com');
+  this.loginForm.controls['username'].setValue('mozo@gmail.com');
   this.loginForm.controls['password'].setValue('1234');
 }
 

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>tr>td, .table>tr>th {
+    padding: 1px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: whitesmoke;
+}
+
+.col-md-5 {
+    width: 100%;
+}
+
+th{
+    margin-left: 10px;
+    margin-right: 10px;
+    /* color: whitesmoke; */
+}
+
+input[type=file] {
+    display: inherit;
+    width: 200px;
+}
+
+input{
+  
+    font-family: 'Roboto Slab', serif;
+}

@@ -138,7 +138,7 @@ export class RegistroComponent implements OnInit {
 
     reader.onloadend = function() {
       enviarFotoB64= reader.result;
-      localStorage.setItem("ImagenSeleccionada",enviarFotoB64)
+      localStorage.setItem("ImagenSeleccionada",enviarFotoB64);
       
       imageRef.putString(enviarFotoB64, firebase.storage.StringFormat.DATA_URL).then((snapshot) => {
        

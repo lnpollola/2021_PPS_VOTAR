@@ -1,0 +1,27 @@
+
+.mat-cell , .mat-footer-cell, .mat-header-cell {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+p-dialog
+{
+    color:whitesmoke;
+    
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+
+.listadoCentado 
+{
+        height: 10em;
+        display: flex;
+        align-items: center;
+        justify-content: center ;
+        margin-left: 10%;
+}

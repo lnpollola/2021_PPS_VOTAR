@@ -7,6 +7,8 @@ import { ClienteComponent } from "../app/componentes/cliente/cliente.component";
 import { AboutComponent } from "../app/componentes/about/about.component";
 import { RegistroComponent } from "../app/componentes/registro/registro.component";
 import { ContactComponent } from "../app/componentes/contact/contact.component";
+import { ListadoMesasComponent } from "../app/componentes/listado-mesas/listado-mesas.component";
+import { MenuComponent } from "../app/componentes/menu/menu.component";
 
 
 const routes: Routes = [
@@ -16,6 +18,10 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'contacto', component: ContactComponent },
+  { path: 'listadoMesas', component: ListadoMesasComponent },
+  { path: 'menu', component: MenuComponent },
+
+
 
 
 
