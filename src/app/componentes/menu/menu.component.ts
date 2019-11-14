@@ -4,6 +4,14 @@ import { Pedido } from "../../clases/pedido";
 import { FirebaseService } from '../../servicios/firebase.service';
 import * as firebase from "firebase";
 
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
+}
+
 
 
 @Component({
@@ -22,6 +30,10 @@ export class MenuComponent implements OnInit {
   respuestaAsync: any;
   listaMesas: any;
   @Input() mesasDisponibles:any;
+  selectedFile: ImageSnippet;
+  imagenNueva: any;
+  checkagregoimagen: boolean = false;
+  agregoimagenErrorMsg: boolean = false;
 
   constructor( private baseService:FirebaseService) {
     this.elPedido=new Pedido();
@@ -95,18 +107,14 @@ this.baseService.addItem('comanda/Pedidos', this.elPedido);
    console.log(this.mesaSeleccionada);
    this.elPedido.idMesa=this.mesaSeleccionada;
    
- 
-  // await this.httpPedido.IngresarPedido(this.elPedido)
-  //  .toPromise().then(
-       
-  //    (data)=>{
-  //   this.respuestaAsync =JSON.parse(data._body);
-   
-  //  })
-
 
  
  }
+ processFile(imageInput){
+
+  this.imagenNueva = imageInput;
+  this.checkagregoimagen = true; 
+}
  
    ngOnInit() {
      // this.dishServices.getDishes()
@@ -126,6 +134,78 @@ this.baseService.addItem('comanda/Pedidos', this.elPedido);
     }
     return result;
  }
+
+ descarga(){
+  // this.eliminOK = false;
+  const documentDefinition = { content: [
+      {
+          text: 'Listado de Usuarios',
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          decoration: 'underline',
+          margin: [0, 0, 0, 20]
+      },
+      this.getListaUsuariosPDF(),
+  
+    ],
+        styles: {
+          name: {
+            fontSize: 14,
+          },
+          jobTitle: {
+            fontSize: 16,
+            bold: true,
+            italics: true
+          }
+        }
+      }
+
+  
+  pdfMake.createPdf(documentDefinition).download('ListadoUsuarios.pdf');
+
+}
+getListaUsuariosPDF(){
+  const exs = [];
+  // this.listaProductos.forEach(element => {
+    exs.push(
+      [{
+        columns: [
+          [{
+            text: "Descripcion: "+ this.elPedido.detalle,
+            style: 'jobTitle'
+          },
+          {
+            text:  "Mesa: "+ this.elPedido.idMesa,
+            style: 'name'
+          },
+          // {
+          //   text:  "Perfil: "+ elPedido.perfil,
+          //   style: 'name'
+          // },
+          // {
+          //   text:  "Sexo: "+ element.sexo,
+          //   style: 'name'
+          // },
+          // {
+          //   text:  "Firebase Key: "+ element.key,
+          //   style: 'name'
+          // },
+        ]
+        ]
+      }]
+    );
+  // });
+  return {
+    table: {
+      widths: ['*'],
+      body: [
+        ...exs
+      ]
+    }
+  };
+
+}
  
 
 }
