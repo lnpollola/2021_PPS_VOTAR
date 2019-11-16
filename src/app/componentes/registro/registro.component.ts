@@ -109,6 +109,8 @@ export class RegistroComponent implements OnInit {
           this.cuentaRegistro.passwordR= "";
           this.isLoading = false;
           this.agregado = true;
+          localStorage.setItem("ImagenSeleccionada","");
+
           }
           else{
             this.isLoading = false;

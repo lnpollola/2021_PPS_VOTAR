@@ -62,6 +62,7 @@ import { ListadoMesasComponent } from './componentes/listado-mesas/listado-mesas
 import { MenuComponent } from './componentes/menu/menu.component';
 import { FiltroPipe } from './pipes/filtro.pipe';
 import { BtnAgregarComponent } from './componentes/btn-agregar/btn-agregar.component';
+import { TablaPendientesComponent } from './componentes/tabla-pendientes/tabla-pendientes.component';
 // import { AngularFireStorageModule  } from "angularfire2/storage";
 // import { AngularFireModule } from "@angular/fire";
 // import { FileSelectDirective } from 'ng2-file-upload';
@@ -89,6 +90,7 @@ import { BtnAgregarComponent } from './componentes/btn-agregar/btn-agregar.compo
     MenuComponent,
     FiltroPipe,
     BtnAgregarComponent,
+    TablaPendientesComponent,
     // FileSelectDirective
   ],
   imports: [

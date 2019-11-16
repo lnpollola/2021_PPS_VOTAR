@@ -28,3 +28,20 @@ input{
   
     font-family: 'Roboto Slab', serif;
 }
+
+/* .mat-radio-outer-circle{
+    margin-left: -20%;
+} */
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    margin-left: -20%;
+  }
+
+
+   .md-radio-inner-circle {
+    margin-left: -20%;  /* Pick your color */
+}
+
+ .md-radio-checked .md-radio-outer-circle {
+    margin-left: -20%;     /* Pick your color */
+}

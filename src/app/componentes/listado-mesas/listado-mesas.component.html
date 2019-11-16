@@ -69,7 +69,9 @@
                     
                             <td>{{item.idMesa }}</td>
                             <td>{{item.estado}}</td>
-                            <td>{{item.imgMesa}}</td>
+                            <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td>
+                            <td *ngIf="item.imgMesa == ''"><p>Imagen aun no seleccionada.</p></td>
+
                             <!-- <td>{{item.sexo}}</td>
                             <td> <img [src]="item.avatar" class="img-thumbnail" style="height: 80px;width: 80px;"></td> -->
                             <td>

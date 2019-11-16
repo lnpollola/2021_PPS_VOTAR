@@ -15,6 +15,7 @@ export class ListadoMesasComponent implements OnInit {
   importe;
   display: boolean = false;
   perfil;
+  noIMGcargada: boolean = false;
 
   constructor( private baseService:FirebaseService) {
     this.perfil=   JSON.parse(sessionStorage.getItem('Usuarios')).perfil;
@@ -30,9 +31,31 @@ export class ListadoMesasComponent implements OnInit {
       // setTimeout(() => this.spinner = false, 2000);
       
       this.listaMesas = mesas;
+
+   
+
       
     
     });
+
+ 
   }
+
+
+  ServirMesa(idMesa)
+  {
+    
+  }
+
+  Cobrar(idMesa)
+  {
+   
+  }
+
+  Cerrar(idMesa)
+  {
+   
+  }
+
 
 }

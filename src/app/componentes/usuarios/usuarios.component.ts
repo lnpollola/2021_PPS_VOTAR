@@ -46,6 +46,7 @@ export class UsuariosComponent implements OnInit {
     {name: 'mozo'},
     {name: 'cocina'},
     {name: 'barra'},
+    {name: 'chopera'},
     {name: 'candy'}
 
   ];
@@ -149,6 +150,8 @@ this.baseService.getItems("comanda/Usuarios").then(users => {
             this.agregoimagenErrorMsg = false;
             this.eliminOK = false;
             this.agregOK = true;
+            localStorage.setItem("ImagenSeleccionada","");
+
             this.registroForm.reset();
             
           }

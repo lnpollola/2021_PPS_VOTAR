@@ -89,7 +89,7 @@
           </table>
           <button class="btn btn-dark col-sm-12" (click)="IngresarPedido()">Confirmar pedido</button>
           <!-- <button class="btn btn-primary col-sm-12" (click)="IngresarPedidoPromise()">Ingresar pedido Promise</button> -->
-          <button class="btn btn-dark btn-block" (click)="descarga()"><i class="fa fa-cloud-download"></i> Descargar facturacion</button>
+          <button class="btn btn-dark btn-block" *ngIf="pedidoConfirmado" (click)="descarga()"><i class="fa fa-cloud-download"></i> Descargar descripcion del pedido</button>
 
 
         </div>
@@ -110,7 +110,7 @@
                 <li>{{p.nombre}}</li>
               </ul>
               <legend letraYcolor>Total:</legend>
-              <h4 *ngIf="elPedido.id" letraYcolor> {{totalPedido | currency: '$ ': "symbol": '1.1-2'}} </h4>
+              <h4 *ngIf="elPedido.id" letraYcolor> {{totalPedidoFactura | currency: '$ ': "symbol": '1.1-2'}} </h4>
               <!-- <div><app-csv *ngIf="elPedido.id" [pedido]="elPedido"></app-csv></div> -->
 
             </div>
