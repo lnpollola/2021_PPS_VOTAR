@@ -67,7 +67,7 @@
                   <tbody id="tBodyTable"  *ngFor="let item of listaMesas">
                       <tr> 
                     
-                            <td>{{item.nroMesa}}</td>
+                            <td>{{item.idMesa }}</td>
                             <td>{{item.estado}}</td>
                             <td>{{item.imgMesa}}</td>
                             <!-- <td>{{item.sexo}}</td>
@@ -75,11 +75,11 @@
                             <td>
                               <!-- FIJARSE BOTONES -->
                                 <div class="divider"></div>
-                                <!-- <button *ngIf="perfil=='admin'" class="btn btn-primary" (click)="Cerrar(element.idMesa)">Cerrar</button> -->
+                                <button *ngIf="perfil=='admin'" class="btn btn-primary" (click)="Cerrar(item.idMesa)">Cerrar</button>
                                 <div class="divider"></div>
-                                <!-- <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(element.idMesa)" >Cobrar</button>  -->
+                                <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Cobrar</button> 
                                 <div class="divider"></div>
-                                  <!-- <button *ngIf="perfil=='mozo'" class="btn btn-warning" (click)="ServirMesa(element.idMesa)" >Servir Mesa</button>  -->
+                                  <button *ngIf="perfil=='mozo'" class="btn btn-warning" (click)="ServirMesa(item.idMesa)" >Servir Mesa</button> 
                                   <div class="divider"></div>
         
         

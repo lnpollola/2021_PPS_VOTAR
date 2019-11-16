@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Producto } from "../../clases/producto";
 import { Pedido } from "../../clases/pedido";
 import { FirebaseService } from '../../servicios/firebase.service';
+import { Mesa } from "../../clases/mesa";
 import * as firebase from "firebase";
 
 import pdfMake from 'pdfmake/build/pdfmake';
@@ -28,12 +29,17 @@ export class MenuComponent implements OnInit {
   elPedido:Pedido;
   busqueda:string;
   respuestaAsync: any;
-  listaMesas: any;
+  // listaMesas: any;
   @Input() mesasDisponibles:any;
+  // listadoMesas:Array<Mesa>;
+  listadoMesas: any;
+
   selectedFile: ImageSnippet;
   imagenNueva: any;
   checkagregoimagen: boolean = false;
   agregoimagenErrorMsg: boolean = false;
+  msjDisponible: boolean = false;
+
 
   constructor( private baseService:FirebaseService) {
     this.elPedido=new Pedido();
@@ -56,9 +62,19 @@ export class MenuComponent implements OnInit {
    {
     this.baseService.getItems("comanda/Mesas").then(mesas => {
       // setTimeout(() => this.spinner = false, 2000);
-      
-      this.mesasDisponibles = mesas;
-      
+      this.mesasDisponibles = [];
+      this.listadoMesas = mesas;
+      this.listadoMesas.forEach(element => {
+        if(element.estado == "vacia" )
+        {
+          this.msjDisponible = false;
+            this.mesasDisponibles.push(element);
+        }
+       
+      });
+      if (!this.mesasDisponibles.length) {
+        this.msjDisponible = true;
+      }
     
     });
    }
@@ -88,28 +104,52 @@ export class MenuComponent implements OnInit {
  
    }
  
- IngresarPedido()
+ async IngresarPedido()
  {
    this.elPedido.detalle= this.productosPedido;
    this.elPedido.idMesa=this.mesaSeleccionada;
    this.elPedido.id= this.crearID(5);
-   console.log(this.elPedido);
+  //  console.log(this.elPedido);
    
-this.baseService.addItem('comanda/Pedidos', this.elPedido); 
+  await this.baseService.addItem('comanda/Pedidos', this.elPedido); 
+
+  // await this.baseService.getItems("comanda/Mesas").then( async mesas => {
+   
+    
+    // let listadoMesas = mesas;
+    console.log(this.listadoMesas);
+    let mesaporusar = this.listadoMesas.find(elem => (elem.idMesa == this.elPedido.idMesa));
+
+    console.log(this.elPedido);
+
+    let mesaporusarenviar= {
+      key: mesaporusar.key,
+      idMesa: mesaporusar.idMesa,
+      estado:"con cliente esperando pedido",
+      imgMesa: ""
+    }
+    console.log(mesaporusarenviar );
+    
+    this.baseService.updateItem('comanda/Mesas',mesaporusar.key,mesaporusarenviar); 
+    this.TraerMesasDisp();
+
+  // });
  
  
  }
+
  
- async IngresarPedidoPromise()
- {
-   this.elPedido.detalle= this.productosPedido;
  
-   console.log(this.mesaSeleccionada);
-   this.elPedido.idMesa=this.mesaSeleccionada;
+//  async IngresarPedidoPromise()
+//  {
+//    this.elPedido.detalle= this.productosPedido;
+ 
+//    console.log(this.mesaSeleccionada);
+//    this.elPedido.idMesa=this.mesaSeleccionada;
    
 
  
- }
+//  }
  processFile(imageInput){
 
   this.imagenNueva = imageInput;
@@ -139,7 +179,7 @@ this.baseService.addItem('comanda/Pedidos', this.elPedido);
   // this.eliminOK = false;
   const documentDefinition = { content: [
       {
-          text: 'Listado de Usuarios',
+          text: 'Facturacion',
           bold: true,
           fontSize: 20,
           alignment: 'center',
@@ -162,10 +202,12 @@ this.baseService.addItem('comanda/Pedidos', this.elPedido);
       }
 
   
-  pdfMake.createPdf(documentDefinition).download('ListadoUsuarios.pdf');
+  pdfMake.createPdf(documentDefinition).download('Facturacion.pdf');
 
 }
 getListaUsuariosPDF(){
+  console.log(this.elPedido);
+
   const exs = [];
   // this.listaProductos.forEach(element => {
     exs.push(

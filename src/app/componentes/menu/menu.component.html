@@ -17,10 +17,13 @@
           <!-- <input class="form-control miInput" id="numeroMesa" placeholder="mesa" type="text" name="mesa" value="0002" [(ngModel)]="mesa"> -->
         <br>
           <mat-radio-group letraYcolor  id="numeroMesa" class="example-radio-group" [(ngModel)]="mesaSeleccionada" [ngModelOptions]="{standalone: true}">
-              <mat-radio-button *ngFor="let mesa of mesasDisponibles" class="example-radio-button" [value]="mesa.idMesa">
+              <mat-radio-button  *ngFor="let mesa of mesasDisponibles"  class="example-radio-button" [value]="mesa.idMesa">
                Mesa número:  {{mesa.idMesa}}
              <br> </mat-radio-button>
+             <p letraYcolor *ngIf="msjDisponible">No hay mesas disponibles</p>
             </mat-radio-group>
+
+          
 
           <br>
           <label for="fotoMesa" letraYcolor>Foto mesa</label>

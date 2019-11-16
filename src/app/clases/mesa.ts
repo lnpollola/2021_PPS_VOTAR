@@ -1,13 +1,14 @@
 export class Mesa {
     
-    public nroMesa: string;
+    public idMesa: number;
     public estado: string;
     public acciones: string;
+  
    
   
 
-  constructor(nroMesa:string, estado:string, acciones:string) {
-    this.nroMesa = nroMesa;
+  constructor(nroMesa:number, estado:string, acciones:string) {
+    this.idMesa = nroMesa;
     this.estado = estado;
     this.acciones = acciones;
    
