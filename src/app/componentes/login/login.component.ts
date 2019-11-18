@@ -122,7 +122,7 @@ Entrar(){
      
     // });
     this.isLoading = true;
-    // setTimeout(() => this.isLoading = false, 2500);
+    setTimeout(() => this.isLoading = false, 8000);
     this.baseService.getItems("comanda/Usuarios").then(users => {
       // setTimeout(() => this.spinner = false, 2000);
       
@@ -131,8 +131,15 @@ Entrar(){
       let usuarioLogueado = this.usuarios.find(elem => (elem.username == this.f.username.value && elem.password == this.f.password.value));
 
       console.log(usuarioLogueado);
-      // console.log(usuarioLogueado);
-      // console.log(this.cuenta);
+      // let usuarioGuardaSesion = {
+      //     estado: usuarioLogueado.estado,
+      //     key: usuarioLogueado.key,
+      //     password: usuarioLogueado.password,
+      //     perfil: usuarioLogueado.perfil,
+      //     sexo: usuarioLogueado.sexo,
+      //     username: usuarioLogueado.username
+      // }
+    
       if (usuarioLogueado !== undefined) {
         this.error = false;
         // this.success = true;
@@ -150,10 +157,16 @@ Entrar(){
             // this.isLoading = false;
             this.router.navigateByUrl('/usuarios'); 
           }
-          if (usuarioLogueado.perfil == "cliente") {
+          else if (usuarioLogueado.perfil == "cliente") {
             // this.isLoading = false;
             this.router.navigateByUrl('/cliente'); 
           }
+          else
+              { 
+               
+                this.router.navigateByUrl('/listado'); 
+              }
+       
           
         }
         else{
@@ -222,7 +235,7 @@ renderReCaptch() {
     'sitekey' : '6LcNY78UAAAAANCSxOs6q84fn-fdu3x5fzSzmZWD',
     'callback': (response) => {
       this.captchaOK = true;
-        console.log(response);
+        // console.log(response);
         console.log(this.captchaOK);
     }
   });

@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
     }
     else{
       this.dialog.open(LoginComponent, {hasBackdrop: true, disableClose: false, width:'100%', height:'20%',panelClass: 'midialogEdit' });
-      //aasd
+
       this.dialogAbierto = true;
     }
     
