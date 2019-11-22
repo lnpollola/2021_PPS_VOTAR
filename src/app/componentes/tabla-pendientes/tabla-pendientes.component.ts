@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../servicios/firebase.service';
+
 
 @Component({
   selector: 'app-tabla-pendientes',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablaPendientesComponent implements OnInit {
 
-  constructor() { }
+  spinner:boolean;
+  listaPendientes: Array<any>;
+  tiempoPreparacion:number;
+  
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'preparacion', 'acciones'];
 
-  ngOnInit() {
+  constructor(private baseService:FirebaseService) { }
+
+  TraerTabla()
+  {
+    this.spinner=true;
+    this.baseService.getItems("comanda/Pedidos").then(pedidos => {
+
+      this.listaPendientes= pedidos;
+});
+
+
   }
+ ngOnInit() {
+   this.TraerTabla();
+ }
+
 
 }
