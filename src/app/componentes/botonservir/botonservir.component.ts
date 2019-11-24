@@ -14,14 +14,14 @@ export class BotonservirComponent implements OnInit {
 
   constructor() { }
 
-  // Servir()
-  // {
-  //   this.httpPedido.ServirPedido(this.idDetalle)
-  //   .subscribe((data)=>{
-  //     this.lanzador.emit();
-  //   })
+  Servir()
+  {
+    // this.httpPedido.ServirPedido(this.idDetalle)
+    // .subscribe((data)=>{
+    //   this.lanzador.emit();
+    // })
 
-  // }
+  }
 
   ngOnInit() {
   }
