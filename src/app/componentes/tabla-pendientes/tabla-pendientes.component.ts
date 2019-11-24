@@ -11,7 +11,8 @@ export class TablaPendientesComponent implements OnInit {
 
   spinner:boolean;
   listaPendientes: Array<any>;
-  tiempoPreparacion:number;
+  listaPedidos: Array<any>;
+  // tiempoPreparacion:number;
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'preparacion', 'acciones'];
 
@@ -21,8 +22,32 @@ export class TablaPendientesComponent implements OnInit {
   {
     this.spinner=true;
     this.baseService.getItems("comanda/Pedidos").then(pedidos => {
+      this.listaPendientes = [];
+      this.listaPedidos = [];
 
-      this.listaPendientes= pedidos;
+      this.listaPedidos= pedidos;
+      this.listaPedidos.forEach(element => {
+        
+            element.detalle.forEach(ele => {
+
+
+              element = {
+                id: element.id,
+                estado: element.estado,
+                detalle: {
+                nombre: ele.nombre,
+                sector: ele.sector,
+                tiempoPreparacion: 0
+                }
+
+             }
+            // delete element.detalle;
+            // element.add(detalleNS);
+            this.listaPendientes.push(element);
+            console.log(this.listaPendientes)
+          });
+      
+    });
 });
 
 

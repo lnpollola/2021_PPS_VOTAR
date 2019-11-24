@@ -6,5 +6,6 @@ export class Pedido {
     idMesa:number;
     tiempoInicio:string;
     fotoMesa:string;
+    estado:string;
     detalle:Array<Producto>;
 }

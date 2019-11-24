@@ -111,6 +111,7 @@ export class MenuComponent implements OnInit {
  
  async IngresarPedido()
  {
+   this.elPedido.estado = "pendiente"
    this.elPedido.detalle= this.productosPedido;
    this.elPedido.idMesa=this.mesaSeleccionada;
    this.elPedido.id= this.crearID(5);
