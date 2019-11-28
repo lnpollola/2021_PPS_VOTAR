@@ -4,9 +4,11 @@ import { Pedido } from "../../clases/pedido";
 import { FirebaseService } from '../../servicios/firebase.service';
 import { Mesa } from "../../clases/mesa";
 import * as firebase from "firebase";
+import { Pedidodetalle } from "../../clases/pedidodetalle";
 
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -35,6 +37,7 @@ export class MenuComponent implements OnInit {
   @Input() mesasDisponibles:any;
   // listadoMesas:Array<Mesa>;
   listadoMesas: any;
+  elDetallePedido: Pedidodetalle;
 
   selectedFile: ImageSnippet;
   imagenNueva: any;
@@ -112,13 +115,34 @@ export class MenuComponent implements OnInit {
  async IngresarPedido()
  {
    this.elPedido.estado = "pendiente"
-   this.elPedido.detalle= this.productosPedido;
+   let ticketPedido = this.crearID(5);
+
+   for (let i = 0; i < this.productosPedido.length; i++) {
+
+    this.elDetallePedido = new Pedidodetalle();
+    this.elDetallePedido.id = i+1;
+    this.elDetallePedido.idPedido = ticketPedido;
+    this.elDetallePedido.nombre = this.productosPedido[i].nombre;
+    this.elDetallePedido.precio = this.productosPedido[i].precio,
+    this.elDetallePedido.sector = this.productosPedido[i].sector,
+    this.elDetallePedido.tiempoPreparacion = 0;
+    this.elDetallePedido.estado = "pendiente";
+  
+  
+
+    await this.baseService.addItem('comanda/PedidosDetalle', this.elDetallePedido); 
+     
+   }
+
+  //  this.elPedido.detalle= this.productosPedido;
    this.elPedido.idMesa=this.mesaSeleccionada;
-   this.elPedido.id= this.crearID(5);
+   this.elPedido.id= ticketPedido;
+   this.elPedido.montoTotal = this.totalPedido;
    this.totalPedidoFactura = this.totalPedido;
-  //  console.log(this.elPedido);
+
    
   await this.baseService.addItem('comanda/Pedidos', this.elPedido); 
+
 
   // await this.baseService.getItems("comanda/Mesas").then( async mesas => {
    
@@ -128,8 +152,8 @@ export class MenuComponent implements OnInit {
     let mesaporusar = this.listadoMesas.find(elem => (elem.idMesa == this.elPedido.idMesa));
     this.agregarImagen();
     let imagen:string = localStorage.getItem("ImagenMesaSeleccionada");
+ 
 
-    console.log(this.elPedido);
 
     let mesaporusarenviar= {
       idMesa: mesaporusar.idMesa,
@@ -141,7 +165,7 @@ export class MenuComponent implements OnInit {
     this.productosPedido = [];
     this.totalPedido = 0;
     this.pedidoConfirmado = true;
-    localStorage.setItem("ImagenMesaSeleccionada","");
+    localStorage.removeItem("ImagenMesaSeleccionada");
 
     this.TraerMesasDisp();
 

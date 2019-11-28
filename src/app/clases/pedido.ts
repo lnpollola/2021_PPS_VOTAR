@@ -1,4 +1,4 @@
-import { Producto } from "./producto";
+// import { Producto } from "./producto";
 
 export class Pedido {
 
@@ -7,5 +7,6 @@ export class Pedido {
     tiempoInicio:string;
     fotoMesa:string;
     estado:string;
-    detalle:Array<Producto>;
+    montoTotal: number;
+    // detalle:Array<Producto>;
 }

@@ -67,6 +67,7 @@ import { FondoEstadoPipe } from './pipes/fondo-estado.pipe';
 import { EstadopedidoDirective } from './directivas/estadopedido.directive';
 import { BotonprepararComponent } from './componentes/botonpreparar/botonpreparar.component';
 import { BotonservirComponent } from './componentes/botonservir/botonservir.component';
+import { TEsperaPipe } from './pipes/t-espera.pipe';
 // import { AngularFireStorageModule  } from "angularfire2/storage";
 // import { AngularFireModule } from "@angular/fire";
 // import { FileSelectDirective } from 'ng2-file-upload';
@@ -99,6 +100,7 @@ import { BotonservirComponent } from './componentes/botonservir/botonservir.comp
     EstadopedidoDirective,
     BotonprepararComponent,
     BotonservirComponent,
+    TEsperaPipe,
     // FileSelectDirective
   ],
   imports: [

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { PedidoService } from '../services/pedido.service';
+import { FirebaseService } from '../../servicios/firebase.service';
+
 
 export interface DetallePedido {
   nroPedido: string;
@@ -21,14 +22,39 @@ valMozo:number;
 valCocinero:number;
 valMesa:number;
 valRest:number;
+listaPedidosDetalle: any;
+listaDetallePedidoUsuario= [];
+isLoading: boolean = false;
+
 
 displayedColumns: string[] = ['nroPedido', 'producto', 'tiempoRestante'];
 
 // private httpPedido: PedidoService
-  constructor() { }
+  constructor(private baseService:FirebaseService) { }
 
   TraerTiempo()
   {
+    this.isLoading = true;
+    // setTimeout(() => this.isLoading = false, 8000);
+    this.baseService.getItems("comanda/PedidosDetalle").then(pedidosDetalle => {
+
+      this.listaPedidosDetalle = pedidosDetalle;
+
+      this.listaPedidosDetalle.forEach(element => {
+        if(element.idPedido == this.idPedido)
+        {
+          this.listaDetallePedidoUsuario.push(element);
+        }
+      console.log(this.listaDetallePedidoUsuario)
+
+      });
+      this.isLoading = false
+      this.detalles = this.listaDetallePedidoUsuario;
+      // let pedidoDelUsuario = this.listaPedidosDetalle.find(elem => (elem.idPedido == this.idPedido ));
+
+    }); //FIN PEDIDODETALLE
+    
+
     // this.httpPedido.TiempoRestante(this.idPedido)
     // .subscribe(data=>{
     //   let respuesta= JSON.parse(data._body);

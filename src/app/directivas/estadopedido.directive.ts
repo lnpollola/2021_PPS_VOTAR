@@ -17,11 +17,11 @@ export class EstadopedidoDirective {
       this.renderer.setElementStyle( this.element.nativeElement, "color", "orangered");
       break;
       
-      case "en preparacion": 
+      case "preparacion": 
       this.renderer.setElementStyle( this.element.nativeElement, "color", "orange");
       break;
       
-      case "listo para servir": 
+      case "servido": 
       this.renderer.setElementStyle( this.element.nativeElement, "color", "greenyellow");
       break;
       

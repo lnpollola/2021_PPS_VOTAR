@@ -18,7 +18,7 @@
    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/encuesta" routerLinkActive="active" class="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
     
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'mozo'" routerLink="/menu" routerLinkActive="active" class="hbtn"><span class="fa fa-cutlery fa-lg"></span> Menu</a>
-    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario != 'mozo' && perfilUsuario != 'cliente')" routerLink="/listado" routerLinkActive="active" class="hbtn"><span class="fa fa-book fa-lg"></span> Listado pedidos</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'mozo' && perfilUsuario != 'cliente')" routerLink="/listado" routerLinkActive="active" class="hbtn"><span class="fa fa-book fa-lg"></span> Listado pedidos</a>
    
     <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'mozo' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
   

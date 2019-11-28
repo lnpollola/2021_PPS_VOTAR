@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { PedidoService } from '../services/pedido.service';
+import { FirebaseService } from '../../servicios/firebase.service';
+
 
 @Component({
   selector: 'app-botonpreparar',
@@ -9,20 +10,54 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class BotonprepararComponent implements OnInit {
 
   @Input() id:number;
+  @Input() idPedido: number;
   @Input() tiempoPreparacion:number;
   @Output() lanzador=new EventEmitter();
-  constructor() { }
+  listaPedidos: Array<any>;
+  constructor(private baseService:FirebaseService) { }
 
   ngOnInit() {
   }
 
   Preparar()
   {
-    // this.httpPedido.PrepararPedido(this.id, this.tiempoPreparacion)
+    this.baseService.getItems("comanda/Pedidos").then(pedidos => {
+      this.baseService.getItems("comanda/PedidosDetalle").then(detalle => {
+
+      this.listaPedidos = pedidos;
+      let listaDetalle = detalle;
+
+      let pedidoSeleccionadoApreparar = this.listaPedidos.find(elem => (elem.id == this.idPedido ));
+      let detalleSeleccionadoApreparar = listaDetalle.find(elem => (elem.id == this.id ));
+        console.log(pedidoSeleccionadoApreparar);
+        console.log(detalleSeleccionadoApreparar);
+
+      let objEnviarDetalle = {
+        idPedido: detalleSeleccionadoApreparar.idPedido,
+        id: detalleSeleccionadoApreparar.id, 
+        estado: "preparacion",
+        nombre: detalleSeleccionadoApreparar.nombre,
+        precio: detalleSeleccionadoApreparar.precio,
+        tiempoPreparacion: this.tiempoPreparacion,
+        sector: detalleSeleccionadoApreparar.sector,
+        }
+
+        let objEnviarPedido = {
+          id: pedidoSeleccionadoApreparar.id,
+          estado: "preparacion",
+          idMesa: pedidoSeleccionadoApreparar.idMesa,
+          montoTotal: pedidoSeleccionadoApreparar.montoTotal,
+   
+          }
+
+      this.baseService.updateItem('comanda/PedidosDetalle',detalleSeleccionadoApreparar.key,objEnviarDetalle); 
+      this.baseService.updateItem('comanda/Pedidos',pedidoSeleccionadoApreparar.key,objEnviarPedido); 
+      this.lanzador.emit();
     
-    // .subscribe((data)=>{
-    //   this.lanzador.emit();
-    // })
+
+    });
+   
+});
   
   }
 
