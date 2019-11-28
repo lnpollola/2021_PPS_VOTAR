@@ -1,0 +1,71 @@
+<app-header> </app-header>
+
+<div class="container">
+      
+      <div>
+          <h3>Envianos tus comentarios</h3>
+
+          <ngb-rating style="font-size:30px;" [(rate)]="currentRateMesa"></ngb-rating> <div style="color: whitesmoke;">Servicio de mesa: <b>{{currentRateMesa}}</b></div>
+          <ngb-rating style="font-size:30px;" [(rate)]="currentRateRest"><p> Restaurant</p></ngb-rating> <div style="color: whitesmoke;">Restaurant: <b>{{currentRateRest}}</b></div>
+          <ngb-rating style="font-size:30px;" [(rate)]="currentRateMozo"> <p>Mozo</p> </ngb-rating> <div style="color: whitesmoke;">Mozo: <b>{{currentRateMozo}}</b></div>
+          <ngb-rating style="font-size:30px;" [(rate)]="currentRateCoci"> <p>Cocinero</p></ngb-rating><div style="color: whitesmoke;">Cocinero: <b>{{currentRateCoci}}</b></div>
+         <br>
+          <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" >
+            <p>
+                Ingrese sus datos debajo:<br>
+              <mat-form-field class="half-width">
+                  <label for="Nombre">Nombre:</label>
+                <input matInput formControlName="firstname" id="Nombre" type="text" required>
+                <mat-error *ngIf="formErrors.firstname">
+                    {{formErrors.firstname}}                
+                </mat-error>
+              </mat-form-field>
+             
+              <mat-form-field class="half-width">
+                    <label for="Apellido">Apellido:</label>
+                <input matInput formControlName="lastname" id="Apellido" type="text" required>
+                <mat-error *ngIf="formErrors.lastname">
+                    {{formErrors.lastname}}                  
+                  </mat-error>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="half-width">
+                <label for="Telefono">Telefono:</label>
+                <input matInput formControlName="telnum" id="Telefono" type="tel" pattern="[0-9]*" required>
+                <mat-error *ngIf="formErrors.telnum">
+                    {{formErrors.telnum}}                  
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="half-width">
+                <label for="Email">Email:</label>
+                <input matInput formControlName="email" id="Email" type="email" email required>
+                <mat-error *ngIf="formErrors.email">
+                    {{formErrors.email}}                 
+                  </mat-error>
+              </mat-form-field>
+            </p>
+            <table class="form-size">
+              <td>
+              <mat-slide-toggle formControlName="agree">¿Podemos contactarte?</mat-slide-toggle>
+              </td>
+              <!-- <td>
+              <mat-select placeholder="¿Como?" formControlName="contacttype">
+                <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+                  {{ ctype }}
+                </mat-option>
+              </mat-select>
+              </td> -->
+              </table>
+            <p>
+              <mat-form-field style="width: 900px;" >
+                <label for="Comentarios">Por favor dejenos sus comentarios:</label>
+                <textarea matInput formControlName="message" id="Comentarios" rows=12></textarea>
+              </mat-form-field>
+            </p>
+            <button type="submit" mat-button class="btn btn-dark btn-block"
+              [disabled]="feedbackForm.invalid"> Enviar</button>
+          </form>
+        </div>
+<!-- </div> -->

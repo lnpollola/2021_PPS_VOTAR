@@ -68,6 +68,10 @@ import { EstadopedidoDirective } from './directivas/estadopedido.directive';
 import { BotonprepararComponent } from './componentes/botonpreparar/botonpreparar.component';
 import { BotonservirComponent } from './componentes/botonservir/botonservir.component';
 import { TEsperaPipe } from './pipes/t-espera.pipe';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
 // import { AngularFireStorageModule  } from "angularfire2/storage";
 // import { AngularFireModule } from "@angular/fire";
 // import { FileSelectDirective } from 'ng2-file-upload';
@@ -101,6 +105,7 @@ import { TEsperaPipe } from './pipes/t-espera.pipe';
     BotonprepararComponent,
     BotonservirComponent,
     TEsperaPipe,
+    EncuestaComponent,
     // FileSelectDirective
   ],
   imports: [
@@ -112,6 +117,7 @@ import { TEsperaPipe } from './pipes/t-espera.pipe';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgbModule,
     // AngularFireModule,
     // AngularFireStorageModule.initializeApp(),
     //material    

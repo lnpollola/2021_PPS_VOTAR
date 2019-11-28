@@ -35,7 +35,7 @@ export class BotonservirComponent implements OnInit {
       let listaMesas = mesas;
 
       let pedidoSeleccionadoApreparar = this.listaPedidos.find(elem => (elem.id == this.idPedido ));
-      let detalleSeleccionadoApreparar = listaDetalle.find(elem => (elem.id == this.id ));
+      let detalleSeleccionadoApreparar = listaDetalle.find(elem => (elem.idPedido == this.idPedido && elem.estado == "preparacion"));
       let mesaServida = listaMesas.find(elem => (elem.idMesa == pedidoSeleccionadoApreparar.idMesa ));
 
         console.log(pedidoSeleccionadoApreparar);
@@ -63,7 +63,8 @@ export class BotonservirComponent implements OnInit {
             estado: "Listo para cobrar",
             idMesa: pedidoSeleccionadoApreparar.idMesa,
             imgMesa: mesaServida.imgMesa,
-     
+            montoTotal: pedidoSeleccionadoApreparar.montoTotal
+
             }
 
       this.baseService.updateItem('comanda/PedidosDetalle',detalleSeleccionadoApreparar.key,objEnviarDetalle); 

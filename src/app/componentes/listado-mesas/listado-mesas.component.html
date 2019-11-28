@@ -56,9 +56,10 @@
                     <th  scope="col" class="col1">NRO MESA</th>
                     <th  scope="col" class="col2">ESTADO</th>
                      <th  scope="col" class="col3">IMG MESA</th>
-                   <th  scope="col" class="col4">ACCIONES</th>
-                    <!--  <th  scope="col" class="col5">AVATAR</th> 
-                    <th  scope="col" class="col6">ACT/SUSP/ELIM</th>  -->
+                     <th  scope="col" class="col4">MONTO</th> 
+                   <th  scope="col" class="col5">ACCIONES</th>
+                   
+                     <!--  <th  scope="col" class="col6">ACT/SUSP/ELIM</th>  -->
   
           
                   </tr>
@@ -72,17 +73,19 @@
                             <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td>
                             <td *ngIf="item.imgMesa == ''"><p>Imagen aun no seleccionada.</p></td>
 
-                            <!-- <td>{{item.sexo}}</td>
-                            <td> <img [src]="item.avatar" class="img-thumbnail" style="height: 80px;width: 80px;"></td> -->
+                            <td *ngIf="item.montoTotal != 0">${{item.montoTotal}}</td>
+                            <td *ngIf="item.montoTotal == 0"><p>Mesa no lista para cobrar.</p></td>
+
                             <td>
                               <!-- FIJARSE BOTONES -->
+                                <!-- <div class="divider"></div> -->
+                                <button *ngIf="perfil=='admin' && item.estado == 'con cliente pagando'" class="btn btn-primary" (click)="Cerrar(item.idMesa)">Cerrar</button>
                                 <!-- <div class="divider"></div>
-                                <button *ngIf="perfil=='admin'" class="btn btn-primary" (click)="Cerrar(item.idMesa)">Cerrar</button>
-                                <div class="divider"></div>
-                                <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Cobrar</button> 
-                                <div class="divider"></div> -->
-                                  <button *ngIf="perfil=='mozo'" class="btn btn-warning" (click)="Cobrar(item.idMesa)" >Cobrar Mesa</button> 
-                                  <div class="divider"></div>
+                                <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Cobrar</button>  -->
+                                <!-- <div class="divider"><hr></div> -->
+                                <hr>
+                                  <button *ngIf="item.estado == 'Listo para cobrar'" class="btn btn-warning" (click)="Cobrar(item.idMesa)" >Cobrar</button> 
+                                  <!-- <div class="divider"></div> -->
         
         
                        

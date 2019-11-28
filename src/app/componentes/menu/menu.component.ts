@@ -158,7 +158,8 @@ export class MenuComponent implements OnInit {
     let mesaporusarenviar= {
       idMesa: mesaporusar.idMesa,
       estado:"con cliente esperando pedido",
-      imgMesa: imagen
+      imgMesa: imagen,
+      montoTotal: this.totalPedido
     }
     
     this.baseService.updateItem('comanda/Mesas',mesaporusar.key,mesaporusarenviar); 

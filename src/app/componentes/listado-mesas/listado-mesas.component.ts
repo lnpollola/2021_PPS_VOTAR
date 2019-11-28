@@ -42,18 +42,63 @@ export class ListadoMesasComponent implements OnInit {
   }
 
 
-  ServirMesa(idMesa)
-  {
+  // ServirMesa(idMesa)
+  // {
     
-  }
+  // }
 
   Cobrar(idMesa)
   {
+    
+
+    this.baseService.getItems("comanda/Mesas").then(mesas => {
+      // setTimeout(() => this.spinner = false, 2000);
+      
+      let listadoMesas = mesas;
+      console.log(idMesa);
+      let mesaACobrar = listadoMesas.find(elem => (elem.idMesa == idMesa ));
+      console.log(mesaACobrar);
+
+      let mesaAEnviar = {
+        idMesa: mesaACobrar.idMesa,
+        estado: "con cliente pagando",
+        imgMesa: mesaACobrar.imgMesa,
+        montoTotal: mesaACobrar.montoTotal
+      }
+      
+      this.baseService.updateItem('comanda/Mesas',mesaACobrar.key,mesaAEnviar); 
+
+      this.TraerLasMesas();
+      
+    
+    });
    
   }
 
   Cerrar(idMesa)
   {
+
+    this.baseService.getItems("comanda/Mesas").then(mesas => {
+      // setTimeout(() => this.spinner = false, 2000);
+      
+      let listadoMesas = mesas;
+      console.log(idMesa);
+      let mesaACobrar = listadoMesas.find(elem => (elem.idMesa == idMesa ));
+      console.log(mesaACobrar);
+
+      let mesaAEnviar = {
+        idMesa: mesaACobrar.idMesa,
+        estado: "vacia",
+        imgMesa: "",
+        montoTotal: 0
+      }
+      
+      this.baseService.updateItem('comanda/Mesas',mesaACobrar.key,mesaAEnviar); 
+
+      this.TraerLasMesas();
+      
+    
+    });
    
   }
 

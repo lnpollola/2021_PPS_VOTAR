@@ -10,6 +10,8 @@ import { ContactComponent } from "../app/componentes/contact/contact.component";
 import { ListadoMesasComponent } from "../app/componentes/listado-mesas/listado-mesas.component";
 import { MenuComponent } from "../app/componentes/menu/menu.component";
 import { TablaPendientesComponent } from "../app/componentes/tabla-pendientes/tabla-pendientes.component";
+import { EncuestaComponent } from "../app/componentes/encuesta/encuesta.component";
+
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'listadoMesas', component: ListadoMesasComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'listado', component: TablaPendientesComponent },
+  { path: 'encuesta', component: EncuestaComponent },
+
 
 
 

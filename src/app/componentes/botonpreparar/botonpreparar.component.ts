@@ -14,9 +14,12 @@ export class BotonprepararComponent implements OnInit {
   @Input() tiempoPreparacion:number;
   @Output() lanzador=new EventEmitter();
   listaPedidos: Array<any>;
+  usuarioLogeado:any;
   constructor(private baseService:FirebaseService) { }
 
   ngOnInit() {
+    this.usuarioLogeado = JSON.parse(sessionStorage.getItem("Usuarios"));
+
   }
 
   Preparar()
@@ -28,7 +31,8 @@ export class BotonprepararComponent implements OnInit {
       let listaDetalle = detalle;
 
       let pedidoSeleccionadoApreparar = this.listaPedidos.find(elem => (elem.id == this.idPedido ));
-      let detalleSeleccionadoApreparar = listaDetalle.find(elem => (elem.id == this.id ));
+      let detalleSeleccionadoApreparar = listaDetalle.find(elem => (elem.idPedido == this.idPedido && elem.sector == this.usuarioLogeado.perfil ));
+     
         console.log(pedidoSeleccionadoApreparar);
         console.log(detalleSeleccionadoApreparar);
 
