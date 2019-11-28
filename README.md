@@ -69,3 +69,53 @@ Aplicación de restaurante y sistemas necesarios para administrar una comanda.
 
 ##### Desde administración:
 ![alt text](Screenshots/imagenes2.jpg)
+
+
+### Entrega Final 28/11 -
+## Circuito completo .  
+#### 1 Logearse como mozo 
+#### 2 Cargar pedido con imagen. 
+#### 3 Descagar detalle del pedido para darselo al cliente.
+#### 4 Logearse como cliente y verificar el pedido. 
+#### 5 Logearse con los respectivos usuarios responsables y preparar el pedido.
+#### 6 Logearse como cliente y verificar el pedido. 
+#### 7 Completar la encuesta.
+#### 8 Logearse como mozo y verificar el estado de la mesa.
+#### 9 Como mozo, servir el pedido. 
+#### 10 Como mozo, cobrar mesa.
+#### 11 Logearse como admin.
+#### 12 Cerrar la mesa. 
+
+
+##### Listado pedidos pendientes:
+![alt text](Screenshots/listadoPendientes.jpg)
+
+##### Crear pedido - Menu:
+![alt text](Screenshots/menu.jpg)
+
+##### Preparar pedido por perfiles:
+![alt text](Screenshots/prepararPedido.jpg)
+
+##### Servir pedido por perfiles:
+![alt text](Screenshots/servirPedido.jpg)
+
+##### Cobrar Mesa - Mozo/Admin:
+![alt text](Screenshots/cobrarMesa.jpg)
+
+##### Cerrar Mesa - Admin:
+![alt text](Screenshots/cerrarMesa.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

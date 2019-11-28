@@ -45,6 +45,8 @@ export class MenuComponent implements OnInit {
   agregoimagenErrorMsg: boolean = false;
   msjDisponible: boolean = false;
   pedidoConfirmado: boolean = false;
+  detalleDescarga = [];
+  totalPedidoParaDescarga : number;
 
 
   constructor( private baseService:FirebaseService) {
@@ -127,6 +129,7 @@ export class MenuComponent implements OnInit {
     this.elDetallePedido.sector = this.productosPedido[i].sector,
     this.elDetallePedido.tiempoPreparacion = 0;
     this.elDetallePedido.estado = "pendiente";
+    this.detalleDescarga.push(this.elDetallePedido);
   
   
 
@@ -242,7 +245,7 @@ agregarImagen()
 
  descarga(){
   // this.eliminOK = false;
-  console.log(this.elPedido);
+  console.log(this.detalleDescarga);
   if(this.elPedido.id != undefined)
   {
     const documentDefinition = { content: [
@@ -254,7 +257,7 @@ agregarImagen()
           decoration: 'underline',
           margin: [0, 0, 0, 20]
       },
-      this.getListaUsuariosPDF(this.elPedido),
+      this.getListaUsuariosPDF(this.detalleDescarga, this.elPedido),
   
     ],
         styles: {
@@ -277,10 +280,10 @@ agregarImagen()
   
 
 }
-getListaUsuariosPDF(elPedido){
-  console.log(elPedido);
+getListaUsuariosPDF(detalleDescarga, elPedido){
+  console.log(detalleDescarga);
   let detEnviar = "";
-  elPedido.detalle.forEach(element => {
+  detalleDescarga.forEach(element => {
     if (element.nombre != undefined) {
     detEnviar+="\n "+ element.nombre;
       
@@ -306,10 +309,10 @@ getListaUsuariosPDF(elPedido){
             text:  "\nNumero Pedido: "+ elPedido.id,
             style: 'name'
           },
-          // {
-          //   text:  "Sexo: "+ element.sexo,
-          //   style: 'name'
-          // },
+          {
+            text:  "Monto total: $"+ elPedido.montoTotal,
+            style: 'name'
+          },
           // {
           //   text:  "Firebase Key: "+ element.key,
           //   style: 'name'

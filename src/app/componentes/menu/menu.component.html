@@ -105,10 +105,10 @@
           
               <legend >Numero pedido:</legend>
               <h3 *ngIf="elPedido.id" style="text-align: center;"> {{elPedido.id }} </h3>
-              <legend letraYcolor>Detalle:</legend>
-              <ul *ngFor="let p of elPedido.detalle">
+              <!-- <legend letraYcolor>Detalle:</legend>
+              <ul *ngFor="let p of elDetallePedido">
                 <li>{{p.nombre}}</li>
-              </ul>
+              </ul> -->
               <legend letraYcolor>Total:</legend>
               <h4 *ngIf="elPedido.id" letraYcolor> {{totalPedidoFactura | currency: '$ ': "symbol": '1.1-2'}} </h4>
               <!-- <div><app-csv *ngIf="elPedido.id" [pedido]="elPedido"></app-csv></div> -->
