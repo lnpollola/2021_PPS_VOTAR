@@ -4,9 +4,7 @@
 
 # SISTEMA VOT.AR
 ## GRUPO 10
-# URL: https://lnpollola.github.io/2021_PPS_VOTAR/
 
-ULTIMO PRUEBA
 
 ## Tecnologías utilizadas:
 - Angular 8
