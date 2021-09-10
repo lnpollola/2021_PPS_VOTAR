@@ -13,17 +13,9 @@
 - CSS3
 - PHP-> MYSQL/FIREBASE
 
-## Perfiles de la aplicación
-
-- Cliente
-- Mozo
-- Chopera
-- Tragos&Vinos
-- CandyBar
-
 # ENTREGAS 
 
-### Entrega 17/10 -
+### Entrega X/X -
 ### README, Login con perfiles y pantallas 
 
 ## Screenshots:
