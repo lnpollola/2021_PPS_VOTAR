@@ -1,10 +1,9 @@
-# TP_Lab4_2c_2019 prueba 2021 branch prueba rompoalgo
-
+# 2021_PPS_VOTAR
 
    Link al form https://forms.gle/nauVzL5CmyP3rkLG6
 
 # LA COMANDA - THE TEMPLE BAR
-## GRAZIANO JULIAN 4° 
+## GRAZIANO JULIAN TESTASDASDASDASD
 # URL: https://jngraziano.github.io/TP_Lab4_2c_2019/
 Aplicación de restaurante y sistemas necesarios para administrar una comanda. 
 
