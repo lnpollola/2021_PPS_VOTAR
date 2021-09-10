@@ -2,11 +2,8 @@
 
    Link al form https://forms.gle/nauVzL5CmyP3rkLG6
 
-# SISTEMA VOT.AR
-## GRUPO 10
-# URL: https://lnpollola.github.io/2021_PPS_VOTAR/
-
-ULTIMO PRUEBA
+# VOT-AR
+## GRUPO 10 POLLOLA GRAZIANO PEREZ
 
 ## Tecnologías utilizadas:
 - Angular 8
