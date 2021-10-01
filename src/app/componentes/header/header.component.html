@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </header> -->
 <mat-toolbar class="header">
-    <span><img src="./assets/images/logo.png" height=auto width=30px></span>
+    <span><img src="./assets/images/solICON.png" height=auto width=30px></span>
 
     <!-- PAGINA DESLOGUEADA -->
     <a mat-button letraYcolor routerLink="/home" routerLinkActive="active" class="hbtn"><span class="fa fa-home fa-lg"></span>Inicio</a>
@@ -25,7 +25,7 @@
     <!-- <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/estadisticas" routerLinkActive="active" class="hbtn"><span class="fa fa-bar-chart fa-lg"></span> Estadísticas</a> -->
    
     <span class="fill-space"></span>
-    <img class="TTBlogo" src="./assets/images/TTB-logo.png" alt="Avatar">
+    <img class="TTBlogo" src="./assets/images/ARGf.png" alt="Avatar">
     <h6 letraYcolor class="hbtn" >¡Hola {{nombre | eliminoMail }}!</h6>
     <!-- LOGUEO -->
     <a mat-button  *ngIf="!IngresoBool" (click)="openLoginForm()" class="hbtn" ><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
@@ -47,9 +47,9 @@
 
       <div *ngIf="!IngresoBool">
         <br>
-        <h1 letraYcolor>Bienvenido a The Temple Bar</h1>
-        <p>Nos inspiramos en las mejores cocinas del mundo y somos una experiencia de fusión única.</p>
-        <p> ¡Nuestras creaciones te sorprenderán!</p>
+        <h1 letraYcolor>Bienvenido a Vot.AR</h1>
+        <p>Sistema electronico nacional de voto</p>
+        <p>Dirección Nacional Electoral</p>
       </div>
 
       <div *ngIf="IngresoBool && (perfilUsuario == 'cliente')">
@@ -78,7 +78,7 @@
         <mat-toolbar-row>
             
           
-            <img *ngIf="!IngresoBool" class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar">
+            <!-- <img *ngIf="!IngresoBool" class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar"> -->
             <img *ngIf="IngresoBool && (perfilUsuario == 'cliente') || IngresoBool && (perfilUsuario == 'admin')" class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar" style="margin-bottom: 10%;">
 
 

@@ -9,7 +9,7 @@ export class LetraYcolorDirective {
 
   ngOnInit(): void {
 
-    this.renderer.setElementStyle( this.element.nativeElement, 'color', 'blanchedalmond');
+    this.renderer.setElementStyle( this.element.nativeElement, 'color', 'whitesmoke');
     this.renderer.setElementStyle( this.element.nativeElement, 'text-shadow', '1px 0 black, 0 1px black, 1px 0 black, 0 -1px black');
 
     this.renderer.setElementStyle( this.element.nativeElement, 'font-family', "Skranji, cursive");
