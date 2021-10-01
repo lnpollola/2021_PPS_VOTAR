@@ -11,9 +11,9 @@ p{
     margin: 0px auto;
     padding: 0px 20px;
     /* background: lightsalmon; */
-    background: rgb(63, 67, 69);
+    background: rgb(158,187,198);
 
-    color: blanchedalmond;
+    color: whitesmoke;
     min-height: 100px;
     border-radius: 0rem;
     
@@ -21,7 +21,7 @@ p{
 
   .header 
   {
-    background-color: rgb(79, 47, 53);
+    background-color: rgb(110,153,170);
     /* background-color: #6D6875; */
     font-family: 'McLaren', cursive;
   }
@@ -29,14 +29,14 @@ p{
  
 
   .hbtn{
-    color: blanchedalmond;
+    color: whitesmoke;
   }
   .hbtn.hover{
-    color:crimson;
+    color:rgb(126,164,179);
   }
 
 .active {
-  background-color:crimson;
+  background-color:rgb(126,164,179);
   color: black;
   transition-duration: 1.8s;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -99,8 +99,8 @@ span{
   /* height: 200px; */
   /* background-image: url("../../../assets/imagenes/cabecera_pacman.jpg"); */
   margin-right: 3%;
-  width: 20%;
-  height: 90%;
+  width: 5%;
+  height: 100%;
   background-size: 100% 100%;
   background-position: top center;
 }
