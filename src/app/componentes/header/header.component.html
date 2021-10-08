@@ -8,7 +8,7 @@
     <a mat-button letraYcolor routerLink="/home" routerLinkActive="active" class="hbtn"><span class="fa fa-home fa-lg"></span>Inicio</a>
     <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/aboutus" routerLinkActive="active" class="hbtn"><span class="fa fa-info fa-lg"></span> Nosotros</a>
     <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contacto" routerLinkActive="active" class="hbtn"><span class="fa fa-address-card fa-lg"></span> Contacto</a>
-    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/registro" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Registro</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'mozo'" routerLink="/registro" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Registro</a>
    
 
    
@@ -28,8 +28,8 @@
     <img class="TTBlogo" src="./assets/images/ARGf.png" alt="Avatar">
     <h6 letraYcolor class="hbtn" >¡Hola {{nombre | eliminoMail }}!</h6>
     <!-- LOGUEO -->
-    <a mat-button  *ngIf="!IngresoBool" (click)="openLoginForm()" class="hbtn" ><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
-    <a mat-button letraYcolor *ngIf="IngresoBool"  (click)="logout()" class="hbtn" ><span class="fa fa-sign-out fa-lg"></span> Salir</a>
+    <a mat-raised-button  *ngIf="!IngresoBool" (click)="openLoginForm()" class="hbtn" ><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
+    <a mat-raised-button letraYcolor *ngIf="IngresoBool"  (click)="logout()" class="hbtn" ><span class="fa fa-sign-out fa-lg"></span> Salir</a>
    
 
   </mat-toolbar>
@@ -45,9 +45,9 @@
   
     <div fxFlex fxFlex.gt-sm="60%">
 
-      <div *ngIf="!IngresoBool">
+      <div class="headerCentral" *ngIf="!IngresoBool">
         <br>
-        <h1 letraYcolor>Bienvenido a Vot.AR</h1>
+         <h1>Bienvenido a Vot.AR</h1> 
         <p>Sistema electronico nacional de voto</p>
         <p>Dirección Nacional Electoral</p>
       </div>

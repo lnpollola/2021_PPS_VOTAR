@@ -22,6 +22,12 @@ input[type=text], input[type=password] , input[type=nombre], input[type=usuario]
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+
 .centro {
     display: block;
     margin-left: auto;
@@ -41,29 +47,54 @@ img {
     height: 149%;
 } */
 
+
+/* LOGIN ENTERO */
 ::ng-deep .cdk-overlay-container{
     font-family: 'Livvic', sans-serif;
     position: absolute;
-    /* top: 10%;
-    left: 40%; */
+    justify-content: center;
     background: black;
     box-shadow: 2px 5px 20px gray;
     margin-top: 15%;
     width: 22%;
 
-    /* position: absolute; */
+
      top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
     background: darkslategray;
-    /* padding: 50px; */
+   
     border-radius: 20px;
 
+
 }
-.midialogEdit .mat-dialog-container{
+
+/* mat-card-title,
+      mat-card-content{
+        display: flex;
+        justify-content: center;
+      } */
+
+      .mat-form-field {
+        width: 100%;
+        min-width: 300px;
+      }
+
+      .button {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+/* .midialogEdit .mat-dialog-container{
     width: 100%;
-}
+} */
+
+/* :host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+  } */
 
 /* #cdk-overlay-0 {
     width: 100%;
@@ -89,11 +120,11 @@ input[type=text], input[type=password] {
     font-weight: bold;
 }
 
-.inputs {
+/* .inputs {
     
    
     width: 100%;
-}
+} */
 
 
 .naranja{
@@ -102,4 +133,14 @@ input[type=text], input[type=password] {
 
 .mat-dialog-container{
     width: 70%;
+}
+
+/* .centrado{
+    width: 110px; 
+    margin-left: 50%;
+    transform: translateX(-50%);
+} */
+
+.botonesLogin, .captcha{
+    margin-left: 20%;
 }
