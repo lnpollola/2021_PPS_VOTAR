@@ -4,14 +4,14 @@
 <div class="row">
     <div class=" col-sm-3">
       <br>
-        <h3 letraYcolor>Nuevo empleado</h3>
+        <h3 letraYcolor>Nuevo usuario</h3>
         <hr style="border-color: white;">
       <form [formGroup]="registroForm" >
         <div class="form-group">
-          <input Temadark class="form-control" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
+          <input class="form-control" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
           pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"><br>
           <p letraYcolor *ngIf="usuarioRegistrado">Usuario ya utilizado.</p><br>
-          <input Temadark class="form-control" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
+          <input class="form-control" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
     
           <!-- <input type="text" class="form-control input-ingreso" placeholder="Perfil"  name="perfil"  [formControl]="perfil" required><br> -->
     
@@ -27,7 +27,7 @@
             </mat-select>
           </mat-form-field> -->
           <!-- formControlName="perfil"  -->
-          <select Temadark class="form-control" formControlName="perfil" >
+          <select class="form-control" formControlName="perfil" >
               <option [ngValue]="null" hidden disabled>Seleccione perfil</option>
               <option *ngFor="let perfil of perfiles" [ngValue]="perfil.name">
                   {{ perfil.name }}
@@ -59,14 +59,14 @@
                 <ul style="margin-left: 10%;" >
                   
                     <input type="radio" id="sexoh" name="sexo" formControlName="sexo" value="hombre" id="one" checked />
-                    <label for="one">HOMBRE</label>
+                    <label style="color: white;" for="one">HOMBRE</label>
                     
                     <div class="check"></div>
                
                   <br>
                   
                     <input type="radio" id="sexom" name="sexo" formControlName="sexo" value="mujer" id="two" />
-                    <label for="two">MUJER</label>
+                    <label style="color: white;" for="two">MUJER</label>
                     
                     <div class="check"></div>
                   

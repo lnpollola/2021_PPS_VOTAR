@@ -47,7 +47,7 @@
 } */
 
 .algd, dl{
-    text-align: center;
+    /* text-align: center; */
     font-size: 115%; 
     margin-bottom: 30%;
 }

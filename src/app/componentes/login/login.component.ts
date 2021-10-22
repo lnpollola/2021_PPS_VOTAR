@@ -123,7 +123,7 @@ Entrar(){
     // });
     this.isLoading = true;
     setTimeout(() => this.isLoading = false, 8000);
-    this.baseService.getItems("comanda/Usuarios").then(users => {
+    this.baseService.getItems("votar/Usuarios").then(users => {
       // setTimeout(() => this.spinner = false, 2000);
       
       this.usuarios = users;

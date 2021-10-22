@@ -8,19 +8,19 @@
     <a mat-button letraYcolor routerLink="/home" routerLinkActive="active" class="hbtn"><span class="fa fa-home fa-lg"></span>Inicio</a>
     <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/aboutus" routerLinkActive="active" class="hbtn"><span class="fa fa-info fa-lg"></span> Nosotros</a>
     <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contacto" routerLinkActive="active" class="hbtn"><span class="fa fa-address-card fa-lg"></span> Contacto</a>
-    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'mozo'" routerLink="/registro" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Registro</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'presidente'" routerLink="/registro" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Registro</a>
    
 
    
    <!-- PERFILES -->
-   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Administrador </a>
-   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/cliente" routerLinkActive="active" class="hbtn"><span class="fa fa-search-plus fa-lg"></span> Ver estado Pedido</a>
-   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'cliente')" routerLink="/encuesta" routerLinkActive="active" class="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Gestion de Usuarios </a>
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'votante')" routerLink="/cliente" routerLinkActive="active" class="hbtn"><span class="fa fa-search-plus fa-lg"></span> Ver estado Pedido</a>
+   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'votante')" routerLink="/encuesta" routerLinkActive="active" class="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
     
-    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'mozo'" routerLink="/menu" routerLinkActive="active" class="hbtn"><span class="fa fa-cutlery fa-lg"></span> Menu</a>
-    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario != 'cliente')" routerLink="/listado" routerLinkActive="active" class="hbtn"><span class="fa fa-book fa-lg"></span> Listado pedidos</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'presidente'" routerLink="/menu" routerLinkActive="active" class="hbtn"><span class="fa fa-address-book fa-lg"></span> Postulados</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario != 'votante')" routerLink="/listado" routerLinkActive="active" class="hbtn"><span class="fa fa-book fa-lg"></span> Listado votantes</a>
    
-    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'mozo' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'presidente' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
   
     <!-- <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/estadisticas" routerLinkActive="active" class="hbtn"><span class="fa fa-bar-chart fa-lg"></span> Estadísticas</a> -->
    
@@ -50,27 +50,36 @@
          <h1>Bienvenido a Vot.AR</h1> 
         <p>Sistema electronico nacional de voto</p>
         <p>Dirección Nacional Electoral</p>
+        <p>Perfil: {{perfilUsuario}}</p>
       </div>
 
-      <div *ngIf="IngresoBool && (perfilUsuario == 'cliente')">
+      <div *ngIf="IngresoBool && (perfilUsuario == 'votante')">
         <br>
-        <h1 letraYcolor>The Temple Bar</h1>
-        <p>Bienvenido! Gestione su pedido</p>
+        <h1>Bienvenido a Vot.AR</h1> 
+        <p>Sistema electronico nacional de voto</p>
+        <p>Dirección Nacional Electoral</p>
+        <p>Perfil: {{perfilUsuario}}</p>
       </div>
       <div *ngIf="IngresoBool && (perfilUsuario == 'admin')">
           <br>
-          <h1 letraYcolor>The Temple Bar</h1>
-          <p>Bienvenido! Sistema de Gestion del bar</p>
+          <h1>Bienvenido a Vot.AR</h1> 
+          <p>Sistema electronico nacional de voto</p>
+          <p>Dirección Nacional Electoral</p>
+          <p>Perfil: {{perfilUsuario}}</p>
       </div>
-      <div *ngIf="IngresoBool && (perfilUsuario == 'mozo')">
+      <div *ngIf="IngresoBool && (perfilUsuario == 'presidente')">
         <br>
-        <h1 letraYcolor>The Temple Bar</h1>
-        <p>Bienvenido! Sistema de Gestion de mesas por el mozo</p>
+        <h1 >Bienvenido a Vot.AR</h1> 
+        <p>Sistema electronico nacional de voto</p>
+        <p>Dirección Nacional Electoral</p>
+        <p>Perfil: {{perfilUsuario}}</p>
     </div>
-    <div *ngIf="IngresoBool && (perfilUsuario != 'mozo' && perfilUsuario != 'admin' && perfilUsuario != 'cliente')">
+    <div *ngIf="IngresoBool && (perfilUsuario != 'presidente' && perfilUsuario != 'admin' && perfilUsuario != 'votante')">
         <br>
-        <h1 letraYcolor>The Temple Bar</h1>
-        <p>Bienvenido! Sistema de Gestion de realizacion de pedidos: {{perfilUsuario}}</p>
+        <h1 >Bienvenido a Vot.AR</h1> 
+        <p>Sistema electronico nacional de voto</p>
+        <p>Dirección Nacional Electoral</p>
+        <p>Perfil: {{perfilUsuario}}</p>
     </div>
 
     <div class="md-8">
@@ -79,7 +88,7 @@
             
           
             <!-- <img *ngIf="!IngresoBool" class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar"> -->
-            <img *ngIf="IngresoBool && (perfilUsuario == 'cliente') || IngresoBool && (perfilUsuario == 'admin')" class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar" style="margin-bottom: 10%;">
+            <!-- <img *ngIf="IngresoBool && (perfilUsuario == 'cliente') || IngresoBool && (perfilUsuario == 'admin')" class="enmarcada" src="./assets/images/temple-icon.png" alt="Avatar" style="margin-bottom: 10%;"> -->
 
 
           </mat-toolbar-row>
