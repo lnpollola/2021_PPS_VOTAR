@@ -100,7 +100,7 @@ export class RegistroComponent implements OnInit {
          
             let usuarioNuev = new Usuario(this.cuentaRegistro.username,
                                           this.cuentaRegistro.password,
-                                          "cliente",
+                                          "votante",
                                           this.sexoElegido,
                                           imagen);
           this.baseService.addItem('votar/Usuarios', usuarioNuev); 
@@ -135,7 +135,7 @@ export class RegistroComponent implements OnInit {
     let filename: string = this.cuentaRegistro.username;
     const file: File = this.imagenNueva.files[0];
     const reader = new FileReader();
-    const imageRef = storageRef.child(`votar/usuarios/${filename}.jpg`);
+    const imageRef = storageRef.child(`votar/Usuarios/${filename}.jpg`);
     let enviarFotoB64;
 
     reader.onloadend = function() {

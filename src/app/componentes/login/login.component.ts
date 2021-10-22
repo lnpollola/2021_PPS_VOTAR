@@ -161,6 +161,10 @@ Entrar(){
             // this.isLoading = false;
             this.router.navigateByUrl('/cliente'); 
           }
+          else if (usuarioLogueado.perfil == "presidente") {
+            // this.isLoading = false;
+            this.router.navigateByUrl('/registro'); 
+          }
           else
               { 
                

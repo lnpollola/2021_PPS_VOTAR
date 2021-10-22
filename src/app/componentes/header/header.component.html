@@ -28,7 +28,7 @@
     <img class="TTBlogo" src="./assets/images/ARGf.png" alt="Avatar">
     <h6 letraYcolor class="hbtn" >¡Hola {{nombre | eliminoMail }}!</h6>
     <!-- LOGUEO -->
-    <a mat-raised-button  *ngIf="!IngresoBool" (click)="openLoginForm()" class="hbtn" ><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
+    <a mat-raised-button letraYcolor *ngIf="!IngresoBool" (click)="openLoginForm()" class="hbtn" ><span class="fa fa-sign-in fa-lg"></span> Ingresar</a>
     <a mat-raised-button letraYcolor *ngIf="IngresoBool"  (click)="logout()" class="hbtn" ><span class="fa fa-sign-out fa-lg"></span> Salir</a>
    
 
@@ -50,7 +50,7 @@
          <h1>Bienvenido a Vot.AR</h1> 
         <p>Sistema electronico nacional de voto</p>
         <p>Dirección Nacional Electoral</p>
-        <p>Perfil: {{perfilUsuario}}</p>
+        <!-- <p>Perfil: {{perfilUsuario}}</p> -->
       </div>
 
       <div *ngIf="IngresoBool && (perfilUsuario == 'votante')">

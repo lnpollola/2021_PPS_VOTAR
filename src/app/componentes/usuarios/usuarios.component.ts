@@ -318,7 +318,7 @@ this.baseService.getItems("votar/Usuarios").then(users => {
     let filename: string = this.registroForm.get('email').value;
     const file: File = this.imagenNueva.files[0];
     const reader = new FileReader();
-    const imageRef = storageRef.child(`votar/usuarios/${filename}.jpg`);
+    const imageRef = storageRef.child(`votar/Usuarios/${filename}.jpg`);
     let enviarFotoB64;
 
     reader.onloadend = function() {
