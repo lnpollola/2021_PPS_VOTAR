@@ -7,14 +7,15 @@
     <!-- PAGINA DESLOGUEADA -->
     <a mat-button letraYcolor routerLink="/home" routerLinkActive="active" class="hbtn"><span class="fa fa-home fa-lg"></span>Inicio</a>
     <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/aboutus" routerLinkActive="active" class="hbtn"><span class="fa fa-info fa-lg"></span> Nosotros</a>
-    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contacto" routerLinkActive="active" class="hbtn"><span class="fa fa-address-card fa-lg"></span> Contacto</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/contacto" routerLinkActive="active" class="hbtn"><span class="fa fa-at fa-lg"></span> Contacto</a>
+    <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/cliente" routerLinkActive="active" class="hbtn"><span class="fa fa-address-card-o fa-lg"></span> Ingrese con su DNI</a>
+
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'presidente'" routerLink="/registro" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Registro</a>
    
 
    
    <!-- PERFILES -->
    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Gestion de Usuarios </a>
-   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'votante')" routerLink="/cliente" routerLinkActive="active" class="hbtn"><span class="fa fa-search-plus fa-lg"></span> Ver estado Pedido</a>
    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'votante')" routerLink="/encuesta" routerLinkActive="active" class="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
     
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'presidente'" routerLink="/menu" routerLinkActive="active" class="hbtn"><span class="fa fa-address-book fa-lg"></span> Postulados</a>
