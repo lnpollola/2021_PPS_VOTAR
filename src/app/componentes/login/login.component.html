@@ -6,46 +6,55 @@
 
 <mat-card>
 <form novalidate [formGroup]="loginForm" (ngSubmit)="Entrar()"  >
+  
 
     <mat-toolbar mat-dialog-title color="gray">
         <h4 letraYcolor >Ingresar <button mat-button mat-dialog-close class="close">&times;</button></h4>
     </mat-toolbar>
 
     <mat-card-content>
-      <div class="centro" >    
-        <img class="img-thumbnail"   src="./assets/images/login.png" alt="Avatar" >
-      </div>
-      <br>
-      <mat-form-field >
-        <label>Ingrese usuario:</label>
-        <!-- <input matInput type="text" formControlName="username"  class="inputs" style="width: 94%;" name="usuario" required> -->
-        <input matInput type="text" letraYcolor formControlName="username"  name="usuario" required>    
-      </mat-form-field>
-      <mat-form-field >
-        <label>Ingrese contraseña:</label>
-        <input matInput  formControlName="password" letraYcolor  name="password" [type]="hide ?  'text': 'password' ">
-        <mat-icon matSuffix (click)="hide = !hide"><i class="fa fa-eye"></i></mat-icon>
-      </mat-form-field>  
+   
+    
+        <div class="centro" >    
+          <img mat-card-avatar src="./assets/images/login.png">
+        </div>
+    </mat-card-content> 
 
-        <!-- CAPTCHA -->
+    <div class="form-group">
+        <label for="uslabel">Ingrese usuario:</label>
+        <!-- <input matInput type="text" formControlName="username"  class="inputs" style="width: 94%;" name="usuario" required> -->
+        <input type="text" class="form-control" id="uslabel" formControlName="username"  name="usuario" required>    
+    </div>  
+    <div class="form-group">
+        <label for="passlabel">Ingrese contraseña:</label>
+        <div style="
+            display: flex; 
+            justify-content: end; ">
+        <mat-icon matSuffix (click)="hide = !hide"><i class="fa fa-eye"></i></mat-icon>
+        </div>
+        <input formControlName="password" class="form-control" id="passlabel"  name="password" [type]="hide ?  'text': 'password' ">
         
-        <div data-theme="dark" class="captcha" #recaptcha style="
-        padding:0.3rem;
-        "></div>
-        <!--style by transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0; -->
-        <br>
-        <p class="form-text naranja" *ngIf="captchaE">Acepte el captcha por favor.</p>
-        <p class="form-text naranja" *ngIf="error">Usuario Incorrecto</p>
-        <br>
+    </div>  
+        
+    
 
         <!-- BOTON INGRESAR -->
-        <div class="button">
+        <!-- <div class="button"> -->
           <!-- <button class="btn btn-danger btn-block"  mat-dialog-close >Cancelar</button> -->
-          <button type="submit" class="btn btn-success btn-block" >Ingresar</button>
-          <br>
+          
+             
+        <!-- CAPTCHA -->
+        <div class="form-group">
+        <div data-theme="dark" #recaptcha ></div>
+        <p class="form-text naranja" *ngIf="captchaE">Acepte el captcha por favor.</p>
+        <p class="form-text naranja" *ngIf="error">Usuario incorrecto o no existe.</p>
         </div>
-                        
-        <br><br>
+
+        <mat-card-actions> 
+        <button type="submit" class="btn btn-success btn-block btn-lg" >Ingresar</button>
+        </mat-card-actions>
+        
+        <br>
 
         <!-- SPINNER -->
         <div *ngIf="isLoading" class="d-flex justify-content-center">
@@ -53,7 +62,7 @@
         </div>
         <br>
 
-      </mat-card-content>
+      
 </form>
 
 <!-- <div class="botonesLogin" >
