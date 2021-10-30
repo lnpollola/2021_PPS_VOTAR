@@ -2,53 +2,167 @@
 
 <body>
 <div class="divMayor">
-    <div class="row ">
-<div class="form-ingreso" style="text-align: center; width: 100%;">
-  <br>      
-  <h3 letraYcolor >Ingrese Documento Nacional de Identidad  </h3><br>
-  <div class="form-goup">
-  <input Temadark  type="text" class="form-control form-control-lg" style="text-align: center;" [(ngModel)]="idPedido" placeholder="DNI / CI / LE / LC" > <br><br>
-  <button class="btn btn-dark btn-block btn-lg" (click)="TraerTiempo()" >Ingresar</button>
-</div>
-</div>
+  <div class="row ">
+    <div class="form-ingreso" style="text-align: center; width: 100%;">
+    <br>      
+    <h3 letraYcolor >Ingrese Documento Nacional de Identidad  </h3><br>
+    <div class="form-goup">
+    <input Temadark  type="text" class="form-control form-control-lg" style="text-align: center;" [(ngModel)]="idDocumento" placeholder="DNI / CI / LE / LC" > <br><br>
+    <button class="btn btn-dark btn-block btn-lg" (click)="TraerVotante()" >Ingresar</button>
     </div>
+  </div>
+</div>
     <br>
 
-<!-- <div class="row"> -->
-  <!-- <div class="info-cliente col-sm-8"> -->
-    <h1 *ngIf="idPedido" letraYcolor>
-      DNI ingresado: {{idPedido}}
+    <h1 *ngIf="idDocumento" letraYcolor>
+      DNI ingresado: {{idDocumento}}
     </h1>
    
-    <mat-card>
-       <table *ngIf="detalles" mat-table [dataSource]="detalles" class="mat-elevation-z8 border border-dark" style="color:black; background: rgba(119, 136, 153, 0.481); align-content: center;">
+    <table *ngIf="detalles" class="table  table-striped table-dark table-bordered table-hover" id="tablaID">
+    <thead>
+      <tr>    
+        <th  scope="col" class="col1">DOCUMENTO</th>
+        <th  scope="col" class="col2">NOMBRE</th>
+        <th  scope="col" class="col3">SEXO</th>
+        <th  scope="col" class="col4">ESTABLECIMIENTO</th> 
+        <th  scope="col" class="col5">MESA</th>
+        <th  scope="col" class="col6">ORDEN</th>
+      </tr>
+    </thead>
+    <tbody id="tBodyTable">
+      <tr> 
+        
+                <td>{{idDocumento }}</td>
+                <td>{{nombre}}</td>
+                <!-- <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td> -->
+                <td >{{sexo}}</td>
+                <td >{{escuelaVotante.nombre}} {{escuelaVotante.direccion}}</td>
+                <td >{{idMesa}}</td>
+                <td >{{orden}}</td>
+
+
+
+                <!-- <td *ngIf="item.imgMesa == ''"><p>Imagen aun no seleccionada.</p></td> -->
+
+                <!-- <td *ngIf="item.montoTotal != 0">${{item.montoTotal}}</td> -->
+                <!-- <td *ngIf="item.montoTotal == 0"><p>Mesa no lista para cobrar.</p></td> -->
+
+                <hr>
+                      
+                          
+      </tr> 
+      
+    </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+       <!-- <table *ngIf="detalles"  class="mat-elevation-z8 border border-dark" style="color:black; background: rgba(119, 136, 153, 0.481); align-content: center;"> -->
      
             <!-- Position Column -->
-            <ng-container matColumnDef="nroPedido">
-              <th mat-header-cell *matHeaderCellDef> Nro de Pedido </th>
-              <td mat-cell *matCellDef="let element"> {{element.idPedido}} </td>
-            </ng-container>
+            <!-- <ng-container matColumnDef="idDocumento">
+              <th mat-header-cell *matHeaderCellDef> Nro de Documento </th>
+              <td mat-cell *matCellDef="let element"> {{element.idDocumento}} </td>
+            </ng-container> -->
           
             <!-- Name Column -->
-            <ng-container matColumnDef="producto">
-              <th mat-header-cell *matHeaderCellDef> Productos Pedidos </th>
+            <!-- <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre y Apellido </th>
               <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-            </ng-container>
+            </ng-container> -->
           
             <!-- Weight Column -->
 
-            <ng-container  matColumnDef="tiempoRestante">
-              <th mat-header-cell *matHeaderCellDef> Tiempo Estimado de Preparación </th>
-              <td mat-cell *matCellDef="let element"> {{element.tiempoPreparacion | tEspera: element.tiempoPreparacion}} min.<br> <p *ngIf="element.tiempoPreparacion == 0">Pedido a ser tomado por responsable.</p> </td>
-              <!-- <td *ngIf="element.tiempoPreparacion == 0"></td> -->
+            <!-- <ng-container  matColumnDef="sexo">
+              <th mat-header-cell *matHeaderCellDef>Sexo</th>
+              <td mat-cell *matCellDef="let element"> {{element.sexo}}  </td>
+              
+             
+            </ng-container>
+
+            <ng-container  matColumnDef="escuela">
+              <th mat-header-cell *matHeaderCellDef>Establecimiento </th>
+              
+              <td mat-cell *matCellDef="let element"> {{element.escuela}}  </td>
+              
+              
+            </ng-container>
+            <ng-container  matColumnDef="mesa">
+              <th mat-header-cell *matHeaderCellDef>Mesa </th>
+              
+              <td mat-cell *matCellDef="let element"> {{element.Mesa}}  </td>
+              
+     
+            </ng-container>
+            <ng-container  matColumnDef="orden">
+              <th mat-header-cell *matHeaderCellDef>Orden </th>
+             
+              <td mat-cell *matCellDef="let element"> {{element.orden}}  </td>
+              
+          
             </ng-container>
      
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-        </mat-card>
-  <!-- </div> -->
+          </table> -->
+       
   <br><br>
   <div *ngIf="isLoading" class="d-flex justify-content-center">
     <div class="spinner-border" role="status">
