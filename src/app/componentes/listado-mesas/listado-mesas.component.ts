@@ -27,12 +27,7 @@ export class ListadoMesasComponent implements OnInit {
   agregOK:boolean = false;
   eliminOK:boolean = false;
   perfiles = [
-    {name: 'admin'},
-    {name: 'presidente'},
-    {name: 'funcionario'},
-    {name: 'auxiliar'},
-    {name: 'fiscal'},
-    {name: 'votante'}
+    
 
   ];
 
@@ -54,7 +49,7 @@ export class ListadoMesasComponent implements OnInit {
   ]);
   
 
-  sexo = new FormControl('');
+  // sexo = new FormControl('');
 
 
   registroForm: FormGroup = this.builder.group({
@@ -85,8 +80,17 @@ export class ListadoMesasComponent implements OnInit {
       // setTimeout(() => this.spinner = false, 2000);
       
       this.listaEscuelas = escuelas;
-
-   
+      console.log(this.listaEscuelas[0].nombre);
+      var long = [];
+      
+      for (let index = 0; index < this.listaEscuelas.length; index++) {
+        this.perfiles[index] = this.listaEscuelas[index].nombre;
+        
+      }
+     
+      
+     
+      console.log(this.perfiles);
 
       
     
@@ -111,11 +115,6 @@ export class ListadoMesasComponent implements OnInit {
  
   }
 
-
-  // ServirMesa(idMesa)
-  // {
-    
-  // }
 
   Cobrar(idMesa)
   {
@@ -172,5 +171,57 @@ export class ListadoMesasComponent implements OnInit {
    
   }
 
+  borrarMesa(mesa){
+    console.log(mesa);
+    this.baseService.removeItem('votar/Mesas', mesa.key );
 
-}
+    this.agregOK = false;
+    this.eliminOK = true;
+    this.TraerLasMesas();
+  }
+
+  IngresarMesa()
+   {
+ 
+
+                                                             
+        // let mesaNueva = 
+        // {
+        //   num : this.registroForm.get('num').value,
+        
+        // }
+
+        // let usuarioLogueado = this.listaUsuarios.find(elem => (elem.username == usuarioNuevo.username));
+        // if (usuarioLogueado != undefined) {
+
+        //   this.usuarioRegistrado = true;
+        // }
+        // else{
+          // if(this.checkagregoimagen)
+          // {
+            // this.agregarImagen();
+            // let imagen:string = localStorage.getItem("ImagenSeleccionada");
+            // console.log(imagen);
+            let mesaNuev = new Mesa(this.registroForm.get('num').value,"cerrada",this.registroForm.get('perfil').value);
+           
+            this.baseService.addItem('votar/Mesas', mesaNuev); 
+            // this.usuarioRegistrado = false;
+            // this.agregoimagenErrorMsg = false;
+            this.eliminOK = false;
+            this.agregOK = true;
+            // localStorage.setItem("ImagenSeleccionada","");
+
+            this.registroForm.reset();
+            
+          // }
+          // else{
+          //   this.agregoimagenErrorMsg = true;
+          // }
+          
+          this.TraerLasMesas();
+        // }
+
+
+
+
+}}
