@@ -12,14 +12,14 @@
 
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'presidente'" routerLink="/registro" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Registro</a>
    
-
-   
    <!-- PERFILES -->
    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Gestion de Usuarios </a>
    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'votante')" routerLink="/encuesta" routerLinkActive="active" class="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
     
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'presidente'" routerLink="/menu" routerLinkActive="active" class="hbtn"><span class="fa fa-address-book fa-lg"></span> Postulados</a>
-    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario != 'votante')" routerLink="/listado" routerLinkActive="active" class="hbtn"><span class="fa fa-book fa-lg"></span> Listado votantes</a>
+    
+    <!-- MODIFICACION LISTADO DE ESCUELAS  -->
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario != 'votante')" routerLink="/listado" routerLinkActive="active" class="hbtn"><span class="fa fa-university fa-lg"></span> GESTION DE ESCUELAS</a>
    
     <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'presidente' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
   
