@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+  }
+
+  .listadoCentado 
+{
+        height: 10em;
+        display: flex;
+        align-items: center;
+        justify-content: center ;
+        margin-left: 10%;
+}
+
+.mat-table {
+    background: rgba(119, 136, 153, 0.481);
+}

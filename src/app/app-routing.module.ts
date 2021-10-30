@@ -11,6 +11,7 @@ import { ListadoMesasComponent } from "../app/componentes/listado-mesas/listado-
 import { MenuComponent } from "../app/componentes/menu/menu.component";
 import { TablaPendientesComponent } from "../app/componentes/tabla-pendientes/tabla-pendientes.component";
 import { EncuestaComponent } from "../app/componentes/encuesta/encuesta.component";
+import { GestionEscuelasComponent } from '../app/componentes/gestion-escuelas/gestion-escuelas.component';
 
 
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'contacto', component: ContactComponent },
   { path: 'listadoMesas', component: ListadoMesasComponent },
   { path: 'menu', component: MenuComponent },
-  { path: 'listado', component: TablaPendientesComponent },
+  // { path: 'listado', component: TablaPendientesComponent },
+  { path: 'gestionEscuelas', component: GestionEscuelasComponent },
   { path: 'encuesta', component: EncuestaComponent },
 
 
