@@ -1,47 +1,67 @@
 <app-header></app-header>
 
+<body>
 <div class="listadoCentrado container">
     <div class="row">
+      <div class=" col shadow-lg p-4  bg-dark rounded border border-dark">
   
+      <h3 letraYcolor>Nuevo Mesa</h3>
+      <hr style="border-color: white;">
+      <form [formGroup]="registroForm" >
+        <div class="form-group">
+          <input class="form-control" placeholder="Numero de Mesa" type="number" id="num"  name="num" [formControl]="num" required>
+          <br>
+          <p letraYcolor *ngIf="usuarioRegistrado">Mesa ya ingresada.</p><br>
 
-      <!-- <table mat-table [dataSource]="listaMesas" class="lessons-table mat-elevation-z8" style="align-content: center;"> -->
-          <!-- Position Column -->
-          <!-- <ng-container matColumnDef="nroMesa">
-            <th mat-header-cell *matHeaderCellDef> Nro de Mesa </th>
-            <td mat-cell *matCellDef="let element"> {{element.idMesa}} </td>
-          </ng-container> -->
-        
-          <!-- Name Column -->
-          <!-- <ng-container matColumnDef="estado">
-            <th mat-header-cell *matHeaderCellDef> Estado </th>
-            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
-          </ng-container> -->
-        
-          <!-- Weight Column -->
-          <!-- <ng-container matColumnDef="acciones">
-            <th mat-header-cell *matHeaderCellDef> Acciones </th>
-            <td *matCellDef="let element">
-
-                <div class="divider"></div>
-            <button *ngIf="perfil=='admin'" class="btn btn-primary" (click)="Cerrar(element.idMesa)">Cerrar</button>
-            <div class="divider"></div>
-            <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(element.idMesa)" >Cobrar</button> 
-            <div class="divider"></div>
-              <button *ngIf="perfil=='mozo'" class="btn btn-warning" (click)="ServirMesa(element.idMesa)" >Servir Mesa</button> 
-              <div class="divider"></div>
-          </td>
-          </ng-container>
-        
-        
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table> -->
-  
-      <!-- <p-dialog header="Cobrar Mesa" [(visible)]="display">
-          <h1>Total: {{importe}}</h1>
-      </p-dialog> -->
+          <!-- <input class="form-control" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br> -->
+    
+         
+          <select class="form-control" formControlName="perfil" >
+              <option [ngValue]="null" hidden disabled>Seleccione establecimiento</option>
+              <option *ngFor="let perfil of perfiles" [ngValue]="perfil.name">
+                  {{ perfil.name }}
+                </option>
+             
+            </select>
+       
 
 
+         
+            <br>
+
+            <!-- <div class="form-group"  name="sexo">
+                <h4 letraYcolor>Sexo</h4>
+                
+                <ul style="margin-left: 10%;" >
+                  
+                    <input type="radio" id="sexoh" name="sexo" formControlName="sexo" value="hombre" id="one" checked />
+                    <label style="color: white;" for="one">HOMBRE</label>
+                    
+                    <div class="check"></div>
+               
+                  <br>
+                  
+                    <input type="radio" id="sexom" name="sexo" formControlName="sexo" value="mujer" id="two" />
+                    <label style="color: white;" for="two">MUJER</label>
+                    
+                    <div class="check"></div>
+                  
+                </ul>
+              </div> -->
+        
+          
+
+
+            
+            <button (click)="IngresarUsuario()" class="btn btn-success btn-lg col-sm-12" [disabled]="!registroForm.valid">Agregar</button>
+          <br><br>
+          <p letraYcolor *ngIf="agregOK" style="text-align: center;">Usuario agregado</p>
+          <p letraYcolor *ngIf="eliminOK" style="text-align: center;">Usuario eliminado</p>
+         
+         </div>
+    
+      </form>
+      </div>
       <div class="mat-elevation-z8 col-sm-7" style="color:black; background: rgba(119, 136, 153, 0.481);">
         <br>
           <h3 letraYcolor>Lista de mesas</h3>
@@ -55,8 +75,8 @@
                   
                     <th  scope="col" class="col1">NRO MESA</th>
                     <th  scope="col" class="col2">ESTADO</th>
-                     <th  scope="col" class="col3">ESCUELA</th>
-                     <th  scope="col" class="col4">ORDEN</th> 
+                     <th  scope="col" class="col3">ESTABLECIMIENTO</th>
+                     <!-- <th  scope="col" class="col4">DIRECCION</th>  -->
                    <th  scope="col" class="col5">ACCIONES</th>
                    
                      <!--  <th  scope="col" class="col6">ACT/SUSP/ELIM</th>  -->
@@ -70,21 +90,24 @@
                     
                             <td>{{item.idMesa }}</td>
                             <td>{{item.estado}}</td>
-                            <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td>
-                            <td *ngIf="item.imgMesa == ''"><p>Imagen aun no seleccionada.</p></td>
+                            <!-- <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td> -->
+                            <td >{{item.escuela}}</td>
 
-                            <td *ngIf="item.montoTotal != 0">${{item.montoTotal}}</td>
-                            <td *ngIf="item.montoTotal == 0"><p>Mesa no lista para cobrar.</p></td>
+                            <!-- <td *ngIf="item.imgMesa == ''"><p>Imagen aun no seleccionada.</p></td> -->
+
+                            <!-- <td *ngIf="item.montoTotal != 0">${{item.montoTotal}}</td> -->
+                            <!-- <td *ngIf="item.montoTotal == 0"><p>Mesa no lista para cobrar.</p></td> -->
 
                             <td>
                               <!-- FIJARSE BOTONES -->
                                 <!-- <div class="divider"></div> -->
-                                <button *ngIf="perfil=='admin' && item.estado == 'con cliente pagando'" class="btn btn-primary" (click)="Cerrar(item.idMesa)">Cerrar</button>
+                                <button *ngIf="perfil == 'admin'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Abrir</button> 
+                                <button *ngIf="perfil=='admin'" class="btn btn-danger" (click)="Cerrar(item.idMesa)">Cerrar</button>
                                 <!-- <div class="divider"></div>
                                 <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Cobrar</button>  -->
                                 <!-- <div class="divider"><hr></div> -->
                                 <hr>
-                                  <button *ngIf="item.estado == 'Listo para cobrar'" class="btn btn-warning" (click)="Cobrar(item.idMesa)" >Cobrar</button> 
+                                  
                                   <!-- <div class="divider"></div> -->
         
         
@@ -100,3 +123,4 @@
     </div>
   
   </div>
+</body>
