@@ -13,46 +13,20 @@
           <p letraYcolor *ngIf="usuarioRegistrado">Usuario ya utilizado.</p><br>
           <input class="form-control" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
     
-          <!-- <input type="text" class="form-control input-ingreso" placeholder="Perfil"  name="perfil"  [formControl]="perfil" required><br> -->
-    
-          
-          <!-- <mat-form-field>
-            <mat-select  [formControl]="perfil" placeholder="Seleccione Perfil">
-              <mat-option name="perfil"  value="admin"> ADMINISTRADOR</mat-option>
-              <mat-option name="perfil"  value="mozo"> MOZO </mat-option>
-              <mat-option name="perfil"  value="cocina"> COCINA</mat-option>
-              <mat-option name="perfil"  value="chopera"> CHOPERA</mat-option>
-              <mat-option name="perfil"  value="barra"> BARRA </mat-option>
-              <mat-option name="perfil"  value="candy"> CANDY BAR</mat-option>
-            </mat-select>
-          </mat-form-field> -->
-          <!-- formControlName="perfil"  -->
+         
           <select class="form-control" formControlName="perfil" >
               <option [ngValue]="null" hidden disabled>Seleccione perfil</option>
               <option *ngFor="let perfil of perfiles" [ngValue]="perfil.name">
                   {{ perfil.name }}
                 </option>
-              <!-- <option [ngValue]="admin">ADMINISTRADOR</option>
-              <option [ngValue]="mozo">MOZO</option>
-              <option [ngValue]="cocina">COCINA</option>
-              <option [ngValue]="chopera">CHOPERA</option>
-              <option [ngValue]="barra">BARRA</option>
-              <option [ngValue]="candy">CANDY BAR</option> -->
-
              
             </select>
        
 
 
-            <!-- <legend >Sexo</legend>
-
-            <mat-radio-group  [formControl]="sexo">
-                <mat-radio-button value="Hombre"  type="radio" id="sexoh"  name="sexo"  required >HOMBRE</mat-radio-button>
-                <br>
-                <mat-radio-button value="Mujer"  type="radio" id="sexom"  name="sexo"  required >MUJER</mat-radio-button>
-            </mat-radio-group> -->
+         
             <br>
-            <!-- [formControl]="sexo" -->
+
             <div class="form-group"  name="sexo">
                 <h4 letraYcolor>Sexo</h4>
                 
@@ -91,9 +65,7 @@
           <br><br>
           <p letraYcolor *ngIf="agregOK" style="text-align: center;">Usuario agregado</p>
           <p letraYcolor *ngIf="eliminOK" style="text-align: center;">Usuario eliminado</p>
-          <!-- <legend letraYcolor>Verificar Captcha</legend> -->
-          <!-- <app-captcha-propio (lanzador)="RecibirCaptcha($event)"></app-captcha-propio>  -->
-          <!-- <p-messages [(value)]="msgs" ></p-messages> -->
+         
          </div>
     
       </form>
@@ -104,47 +76,7 @@
       <br>
         <h3 letraYcolor>Lista de usuarios</h3>
         <hr style="border-color: white;">
-        <!-- <table mat-table [dataSource]="listaUsuarios" class="lessons-table mat-elevation-z8" style="align-content: center;">
-      
      
-            
-            <ng-container matColumnDef="usuario">
-              <th mat-header-cell *matHeaderCellDef> Nombre de Usuario </th>
-              <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
-            </ng-container>
-        
-            <ng-container matColumnDef="perfil">
-              <th mat-header-cell *matHeaderCellDef> Perfil </th>
-              <td mat-cell *matCellDef="let element"> {{element.perfil}} </td>
-            </ng-container>
-          
-           
-            <ng-container matColumnDef="estado">
-              <th mat-header-cell *matHeaderCellDef> Estado </th>
-              <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
-            </ng-container>
-
-          
-            <ng-container matColumnDef="accionesSusp">
-                <th mat-header-cell *matHeaderCellDef> SUSP </th>
-                <td mat-cell *matCellDef="let element">  -->
-                <!-- <boton-suspender [id]="element.id" [estado]="element.estado" (lanzador)="TraerTodosLosUsuarios($event)"></boton-suspender> -->
-                <!-- </td>
-              </ng-container>
-
-              <ng-container matColumnDef="accionesDel">
-                  <th mat-header-cell *matHeaderCellDef> DEL </th>
-                  <td mat-cell *matCellDef="let element">  -->
-                  <!-- <app-btn-borrar-usuario [id]="element.id" (lanzador)="TraerTodosLosUsuarios($event)" style="align-content: center; text-align: center;" ></app-btn-borrar-usuario>  -->
-                  <!-- </td>
-        
-                </ng-container> 
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table> -->
-
-
 
           <table class="table  table-striped table-dark table-bordered table-hover" id="tablaID">
               <thead>
