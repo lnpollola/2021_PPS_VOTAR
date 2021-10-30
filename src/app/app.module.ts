@@ -70,7 +70,7 @@ import { BotonservirComponent } from './componentes/botonservir/botonservir.comp
 import { TEsperaPipe } from './pipes/t-espera.pipe';
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { GestionEscuelasComponent } from './componentes/gestion-escuelas/gestion-escuelas.component';
 
 // import { AngularFireStorageModule  } from "angularfire2/storage";
 // import { AngularFireModule } from "@angular/fire";
@@ -106,6 +106,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BotonservirComponent,
     TEsperaPipe,
     EncuestaComponent,
+    GestionEscuelasComponent,
     // FileSelectDirective
   ],
   imports: [
