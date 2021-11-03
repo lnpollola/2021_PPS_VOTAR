@@ -17,7 +17,7 @@
     
          
           <select class="form-control" formControlName="perfil" >
-              <option value="Seleccione establecimiento" disabled selected>Seleccione establecimiento</option>
+              <option selected disabled>Seleccione establecimiento</option>
               <option *ngFor="let perfil of perfiles" [ngValue]="perfil">
                   {{ perfil }}
                 </option>
@@ -76,7 +76,6 @@
                     <th  scope="col" class="col1">NRO MESA</th>
                     <th  scope="col" class="col2">ESTADO</th>
                      <th  scope="col" class="col3">ESTABLECIMIENTO</th>
-                     <!-- <th  scope="col" class="col4">DIRECCION</th>  -->
                    <th  scope="col" class="col5">ACCIONES</th>
                    
                      <!--  <th  scope="col" class="col6">ACT/SUSP/ELIM</th>  -->

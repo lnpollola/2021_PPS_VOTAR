@@ -39,15 +39,18 @@ export class ListadoMesasComponent implements OnInit {
     // Validators.minLength(5)
   ]);
   
-  clave = new FormControl('', [
-    Validators.required
-  ]);
+  // clave = new FormControl('', [
+  //   Validators.required
+  // ]);
 
   perfil = new FormControl(null, [
-    // null
+    Validators.required,
     // Validators.required
+    
+    
   ]);
   
+
 
   // sexo = new FormControl('');
 
@@ -69,8 +72,9 @@ export class ListadoMesasComponent implements OnInit {
 
   constructor( private builder: FormBuilder,
     private baseService:FirebaseService) {
+      
     this.perfilLog=   JSON.parse(sessionStorage.getItem('Usuarios')).perfil;
-  
+ 
     this.TraerLasMesas();
     this.TraerLasEscuelas();
    }

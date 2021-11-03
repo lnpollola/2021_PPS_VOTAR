@@ -14,3 +14,8 @@ table {
 .mat-table {
     background: rgba(119, 136, 153, 0.481);
 }
+.row
+{
+    margin-right: 0px;
+    /* margin-left: 5px; */
+}
