@@ -236,7 +236,7 @@ LoginCandy()
 
 renderReCaptch() {
   window['grecaptcha'].render(this.recaptchaElement.nativeElement, {
-    'sitekey' : '6LcNY78UAAAAANCSxOs6q84fn-fdu3x5fzSzmZWD',
+    'sitekey' : '6LcJHxEdAAAAAFQjsnXQEXil926yvskavzAEMC7y',
     'callback': (response) => {
       this.captchaOK = true;
         // console.log(response);
