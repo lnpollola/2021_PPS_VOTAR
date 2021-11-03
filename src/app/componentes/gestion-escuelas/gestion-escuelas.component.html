@@ -26,9 +26,6 @@
               <p letraYcolor *ngIf="usuarioRegistrado">Escuela ya ingresada.</p><br>
 
                 <br>
-    
-             
-                
                 <button (click)="IngresarEscuela()" class="btn btn-success btn-lg col-sm-12" [disabled]="!registroForm.valid">Agregar</button>
               <br><br>
               <p letraYcolor *ngIf="agregOK" style="text-align: center;">Escuela agregada</p>

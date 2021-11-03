@@ -15,6 +15,5 @@ export class Usuario {
     this.sexo = sexo;
     this.avatar = avatar;
     this.estado = "activo";
-    
   }
 }
