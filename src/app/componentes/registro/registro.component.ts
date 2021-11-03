@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FirebaseService } from '../../servicios/firebase.service';
-import { Usuario } from "../../clases/usuario";
+import { Votante } from "../../clases/votante";
 
 import * as firebase from "firebase";
 
@@ -20,26 +20,23 @@ export class RegistroComponent implements OnInit {
   contraError: boolean = false;
   agregado: boolean = false;
   faltancampos: boolean = false;
-  emailincompleto: boolean = false;
+  dniincompleto: boolean = false;
   listadoUsuarios:any=[];
   isLoading: boolean = false;
 
   public cuentaRegistro  =
   {
-    "username" : "",
-    "password" : "",
-    "passwordR" : ""
-
-
+    "DNI" : "",
+    "SEXO" : "",
+    "NOMBRE": "",
+    "IDMESA": 0,
+    "IDESCUELA":0 ,
+    "ORDEN": 0,
+    "DVALIDADOR" : 0
   }
 
   sexoElegido:string = "hombre";
   radioSelected:string;
-
-  selectedFile: ImageSnippet;
-  imagenNueva: any;
-  checkagregoimagen: boolean = false;
-  agregoimagenErrorMsg: boolean = false;
 
   constructor(private baseService:FirebaseService ) { }
 
@@ -49,40 +46,44 @@ export class RegistroComponent implements OnInit {
   registrarme(){
     this.agregado = false;
     this.usuarioUtilizado = false;
-    this.emailincompleto = false;
-    if(!this.validateEmail(this.cuentaRegistro.username))
+    this.dniincompleto = false;
+    if(!this.validateDNI(this.cuentaRegistro.DNI))
     {
-      this.emailincompleto = true;
+      this.dniincompleto = true;
     }
     else{
-      this.emailincompleto = false;
+      this.dniincompleto = false;
     }
-    if (this.cuentaRegistro.username == "" || this.cuentaRegistro.password == "" ||
-        this.cuentaRegistro.passwordR == "") {
-          this.faltancampos = true;
-          
-    }
+
+    if (
+        this.cuentaRegistro.DNI == "" || 
+        // this.cuentaRegistro.SEXO == "" ||
+        // this.cuentaRegistro.NOMBRE == "" ||
+        this.cuentaRegistro.NOMBRE == "") 
+        {
+          this.faltancampos = true;  
+        }
     else{
       this.faltancampos = false;
     }
 
-    if(this.cuentaRegistro.password != this.cuentaRegistro.passwordR)
-    {
-      this.contraError = true;
-    }
-    else{
-      this.contraError = false;
-    }
+    // if(this.cuentaRegistro.password != this.cuentaRegistro.passwordR)
+    // {
+    //   this.contraError = true;
+    // }
+    // else{
+    //   this.contraError = false;
+    // }
   
-    if(this.faltancampos == false && this.contraError == false && this.emailincompleto == false )
+    if(this.faltancampos == false &&  this.dniincompleto == false )
     {
       this.isLoading = true;
     
-      this.baseService.getItems("votar/Usuarios").then(users => {
+      this.baseService.getItems("votar/Votantes").then(users => {
      
         this.listadoUsuarios = users;
   
-        let usuarioLogueado = this.listadoUsuarios.find(elem => (elem.username == this.cuentaRegistro.username));
+        let usuarioLogueado = this.listadoUsuarios.find(elem => (elem.DNI == this.cuentaRegistro.DNI));
         console.log(usuarioLogueado);
      
         if (usuarioLogueado !== undefined) {
@@ -91,33 +92,35 @@ export class RegistroComponent implements OnInit {
           
         }
         else{
-          if(this.checkagregoimagen)
+          // if(this.checkagregoimagen)
           {
-            this.agregarImagen();
-            let imagen:string = localStorage.getItem("ImagenSeleccionada");
-            console.log(imagen);
+            // this.agregarImagen();
+            // let imagen:string = localStorage.getItem("ImagenSeleccionada");
+            // console.log(imagen);
             this.usuarioUtilizado = false;
          
-            let usuarioNuev = new Usuario(this.cuentaRegistro.username,
-                                          this.cuentaRegistro.password,
-                                          "votante",
-                                          this.sexoElegido,
-                                          imagen);
-          this.baseService.addItem('votar/Usuarios', usuarioNuev); 
-          this.cuentaRegistro.username= "";
-          this.cuentaRegistro.password= "";
-          this.cuentaRegistro.passwordR= "";
+            let usuarioNuev = new Votante(
+                                          this.cuentaRegistro.DNI         ,
+                                          this.cuentaRegistro.SEXO        ,     
+                                          this.cuentaRegistro.NOMBRE      , 
+                                          this.cuentaRegistro.IDMESA      , 
+                                          this.cuentaRegistro.IDESCUELA   , 
+                                          this.cuentaRegistro.ORDEN       ,   
+                                          this.cuentaRegistro.DVALIDADOR   
+                                          );
+          this.baseService.addItem('votar/Votantes', usuarioNuev); 
+          this.cuentaRegistro.DNI= "";
+          this.cuentaRegistro.SEXO= "";
+          this.cuentaRegistro.NOMBRE= "";
+          this.cuentaRegistro.IDMESA= 0;
+          this.cuentaRegistro.IDESCUELA= 0;
+          this.cuentaRegistro.ORDEN= 0;
+          this.cuentaRegistro.DVALIDADOR= 0;
           this.isLoading = false;
           this.agregado = true;
-          localStorage.setItem("ImagenSeleccionada","");
 
           }
-          else{
-            this.isLoading = false;
-            this.agregoimagenErrorMsg = true;
-          }
-          
-  
+ 
           
         }
     
@@ -127,44 +130,48 @@ export class RegistroComponent implements OnInit {
     
   
   }
-  agregarImagen()
-  {
-    let storageRef = firebase.storage().ref();
-    let errores: number = 0;
-    let usuarioLogueado: any = JSON.parse(sessionStorage.getItem('Usuarios'));
-    let filename: string = this.cuentaRegistro.username;
-    const file: File = this.imagenNueva.files[0];
-    const reader = new FileReader();
-    const imageRef = storageRef.child(`votar/Usuarios/${filename}.jpg`);
-    let enviarFotoB64;
+  // agregarImagen()
+  // {
+  //   let storageRef = firebase.storage().ref();
+  //   let errores: number = 0;
+  //   let usuarioLogueado: any = JSON.parse(sessionStorage.getItem('Usuarios'));
+  //   let filename: string = this.cuentaRegistro.username;
+  //   const file: File = this.imagenNueva.files[0];
+  //   const reader = new FileReader();
+  //   const imageRef = storageRef.child(`votar/Usuarios/${filename}.jpg`);
+  //   let enviarFotoB64;
 
-    reader.onloadend = function() {
-      enviarFotoB64= reader.result;
-      localStorage.setItem("ImagenSeleccionada",enviarFotoB64);
+  //   reader.onloadend = function() {
+  //     enviarFotoB64= reader.result;
+  //     localStorage.setItem("ImagenSeleccionada",enviarFotoB64);
       
-      imageRef.putString(enviarFotoB64, firebase.storage.StringFormat.DATA_URL).then((snapshot) => {
+  //     imageRef.putString(enviarFotoB64, firebase.storage.StringFormat.DATA_URL).then((snapshot) => {
        
-      })
-        .catch(() => {
-          errores++;
-        });
-    }
+  //     })
+  //       .catch(() => {
+  //         errores++;
+  //       });
+  //   }
     
-    reader.readAsDataURL(file);
+  //   reader.readAsDataURL(file);
+  // }
+
+  // processFile(imageInput){
+
+  //   this.imagenNueva = imageInput;
+  //   this.checkagregoimagen = true; 
+  // }
+
+
+  validateDNI(DNI) {
+   if( DNI.toString().length == 8 )
+    {
+      return 1;
+    }  
+    else {
+      return 0;
+    }
   }
-
-  processFile(imageInput){
-
-    this.imagenNueva = imageInput;
-    this.checkagregoimagen = true; 
-  }
-
-
-    validateEmail(email) {
-    // let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(String(email).toLowerCase());
-}
 
 onItemChange(value)
 {

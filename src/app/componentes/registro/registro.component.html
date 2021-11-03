@@ -8,68 +8,77 @@
 <hr style="border-color: black;">
 <div class="form-group " style="text-align: center;">
   <br>
-    <label letraYcolor for="username">Usuario</label>
-    <input type="email" Temadark class="form-control form-control-lg" ngModel style="text-align: center;" [email]="true" [(ngModel)]="cuentaRegistro.username" id="username" name="username" aria-describedby="emailHelp" placeholder="Ingrese mail"
+    <label letraYcolor for="DNI">DNI</label>
+    <input type="number" Temadark class="form-control form-control-lg" ngModel style="text-align: center;"  [(ngModel)]="cuentaRegistro.DNI" id="DNI" name="DNI" aria-describedby="emailHelp" placeholder="Ingrese DNI para dar de alta"
      required>
-    <small letraYcolor id="emailHelp" class="form-text " *ngIf="usuarioUtilizado">Usuario ya utilizado. </small>
-    <small letraYcolor id="emailHelp" class="form-text " *ngIf="emailincompleto">Ingrese email valido. </small>
-    
+    <small letraYcolor id="DNIlHelp" class="form-text " *ngIf="usuarioUtilizado">Usuario ya habilitado. </small>
+    <small letraYcolor id="DNIHelp" class="form-text " *ngIf="dniincompleto">Ingrese DNI valido (8 dígitos). </small>
   </div>
-  <div class="form-group" style="text-align: center;">
-    <label  letraYcolor for="password">Contraseña</label>
-    <input type="password" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.password" id="password" name="password" placeholder="Ingrese contraseña" required>
-  </div>
-  <div class="form-group" style="text-align: center;">
-    <label letraYcolor for="passwordR" >Reingrese contraseña</label>
-    <input type="password" Temadark class="form-control form-control-lg" style="text-align: center;" [(ngModel)]="cuentaRegistro.passwordR" id="passwordR" name="passwordR" placeholder="Reingrese contraseña" required>
-    <small letraYcolor id="emailHelp" class="form-text " *ngIf="contraError">Las contraseñas no coinciden.</small>
-    
-</div>
-<div letraYcolor class="form-group radioS">
-    <br>
-    <!-- [formControl]="sexo" -->
-    <div class="form-group">
-        <h3 >Sexo</h3>
-        
-        <ul >
-          <!-- <li *ngFor="let item of tipoSexo"> -->
-         
-
-            <input type="radio" name="sexo" [(ngModel)]="radioSelected" value="hombre"  id="one" (change)="onItemChange(radioSelected)"/>
-            <label  for="one">HOMBRE</label>
-            
-            <div class="check"></div>
-        
-          <br>
-          
-            <input type="radio"  name="sexo" [(ngModel)]="radioSelected"  value="mujer" id="two"  (change)="onItemChange(radioSelected)"/>
-            <label for="two">MUJER</label>
-            
-            <div class="check"></div>
-          
-        </ul>
-      </div>
-      <label>
-          <span class="file-name" style="margin-left: -35%;">  <i class="fa fa-file-image-o"></i> Has click para seleccionar el avatar</span>
-          
-          <input style="opacity:0;" #imageInput
-                 type="file"
-
-                 accept="image/*"
-
-                 (change)="processFile(imageInput)">
-      <p letraYcolor *ngIf="agregoimagenErrorMsg" class="faltaIMG">Debe ingresar imagen</p>
-      
-        </label>
+ 
+<div class="form-group" style="text-align: center;">
+  <label  letraYcolor for="NOMBRE">NOMBRE</label>
+  <input type="string" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.NOMBRE" id="NOMBRE" name="NOMBRE" placeholder="Ingrese NOMBRE Y APELLIDO" required>
 </div>
 <br>
+<div class="form-group" style="text-align: center;">
+  <label  letraYcolor for="IDMESA">IDMESA</label>
+  <input type="number" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.IDMESA" id="IDMESA" name="IDMESA" placeholder="Ingrese Mesa" required>
+</div>
+<br>
+<div class="form-group" style="text-align: center;">
+  <label  letraYcolor for="IDESCUELA">IDESCUELA</label>
+  <input type="number" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.IDESCUELA" id="IDESCUELA" name="IDESCUELA" placeholder="Ingrese IDESCUELA" required>
+</div>
+<br>
+<div class="form-group" style="text-align: center;">
+  <label  letraYcolor for="ORDEN">ORDEN</label>
+  <input type="number" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.ORDEN" id="ORDEN" name="ORDEN" placeholder="Ingrese ORDEN" required>
+</div>
+<br>
+<div class="form-group" style="text-align: center;">
+  <label  letraYcolor for="DVALIDADOR">DIGITO VALIDADOR</label>
+  <input type="number" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.DVALIDADOR" id="DVALIDADOR" name="DVALIDADOR" placeholder="Ingrese DIGITO VALIDADOR" required>
+</div>
+<br>
+
+<div letraYcolor class="form-group radioS">
+  <br>
+  <div class="form-group">
+      <h3 >Sexo</h3>
+      <ul >
+          <input type="radio" name="SEXO" [(ngModel)]="radioSelected" value="hombre"  id="one" (change)="onItemChange(radioSelected)"/>
+          <label  for="one">HOMBRE</label>
+          <div class="check"></div>
+      
+        <br>
+        
+          <input type="radio"  name="SEXO" [(ngModel)]="radioSelected"  value="mujer" id="two"  (change)="onItemChange(radioSelected)"/>
+          <label for="two">MUJER</label>
+          <div class="check"></div>
+        
+      </ul>
+    </div>
+    <!-- <label>
+        <span class="file-name" style="margin-left: -35%;">  <i class="fa fa-file-image-o"></i> Has click para seleccionar el avatar</span>
+        
+        <input style="opacity:0;" #imageInput
+               type="file"
+
+               accept="image/*"
+
+               (change)="processFile(imageInput)">
+    <p letraYcolor *ngIf="agregoimagenErrorMsg" class="faltaIMG">Debe ingresar imagen</p>
+    
+      </label> -->
+</div>
+
+
+<br>
+
+
 
 <small letraYcolor id="emailHelp" class="form-text" *ngIf="faltancampos">Por favor completar todos los campos.</small>
 <br>
-  <!-- <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div> -->
   <button letraYcolor class="btn btn-success btn-block btn-lg" (click)="registrarme()">Agregar</button>
   <br>
   <div *ngIf="isLoading" class="d-flex justify-content-center">
