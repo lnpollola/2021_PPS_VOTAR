@@ -8,14 +8,14 @@ h2{
 
 }
 
-
-
-body{
-    background-color: beige;
-    font-family: 'Roboto Slab', serif;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+input{
+    color: lightgrey;
+  font-size: 190%;
+   
+    font-family: 'Bebas Neue', cursive;
 }
+
+
 /* input{
     background-color: rgb(126, 126, 118);
     font-family: 'Roboto Slab', serif;
@@ -33,7 +33,7 @@ label{
     text-align: center;
 }
 .divMayor{
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -47,20 +47,20 @@ label{
 }
 /* Reset */
 input#one ~ .check { 
-	transform: translate(-50px, -25px); 
+	transform: translate(-50px, -47px); 
 	background: var(--secondary-c); 
 }
 input#two ~ .check { 
-	transform: translate(-50px, -67px); 
+	transform: translate(-50px, -100px); 
 	background: #003047;
 	box-shadow: 0 6px 12px white;
 }
 
 /* Radio Input #1 */
-input#one:checked ~ .check { transform: translate(-50px, -67px); }
+input#one:checked ~ .check { transform: translate(-50px, -100px); }
 
 /* Radio Input #2  */
-input#two:checked ~ .check { transform: translate(-50px, -25px); }
+input#two:checked ~ .check { transform: translate(-50px, -47px); }
 
 input[type=radio] {
 	position: absolute;
@@ -69,7 +69,7 @@ input[type=radio] {
 
 label { 
 	cursor: pointer; 
-	font-weight: 400;
+	font-weight: 600;
 }
 
 .radioS{

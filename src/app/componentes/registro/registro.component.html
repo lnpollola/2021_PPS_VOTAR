@@ -5,11 +5,11 @@
 <div class="divMayor shadow-lg mb-5 bg-dark rounded border border-dark ">
   <br>
 <h2 >Nuevo votante</h2>
-<hr style="border-color: black;">
+<hr style="border-color: white;">
 <div class="form-group " style="text-align: center;">
   <br>
     <label letraYcolor for="DNI">DNI</label>
-    <input type="number" Temadark class="form-control form-control-lg" ngModel style="text-align: center;"  [(ngModel)]="cuentaRegistro.DNI" id="DNI" name="DNI" aria-describedby="emailHelp" placeholder="Ingrese DNI para dar de alta"
+    <input type="number" class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.DNI" id="DNI" name="DNI" aria-describedby="emailHelp" placeholder="Ingrese DNI para dar de alta"
      required>
     <small letraYcolor id="DNIlHelp" class="form-text " *ngIf="usuarioUtilizado">Usuario ya habilitado. </small>
     <small letraYcolor id="DNIHelp" class="form-text " *ngIf="dniincompleto">Ingrese DNI valido (8 dígitos). </small>
@@ -17,34 +17,37 @@
  
 <div class="form-group" style="text-align: center;">
   <label  letraYcolor for="NOMBRE">NOMBRE</label>
-  <input type="string" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.NOMBRE" id="NOMBRE" name="NOMBRE" placeholder="Ingrese NOMBRE Y APELLIDO" required>
+  <input type="string"  class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.NOMBRE" id="NOMBRE" name="NOMBRE" placeholder="Ingrese NOMBRE Y APELLIDO" required>
 </div>
 <br>
 <div class="form-group" style="text-align: center;">
-  <label  letraYcolor for="IDMESA">IDMESA</label>
-  <input type="number" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.IDMESA" id="IDMESA" name="IDMESA" placeholder="Ingrese Mesa" required>
+  <label  letraYcolor for="IDMESA">N° MESA</label>
+  <input type="number" letraYcolor  class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.IDMESA" id="IDMESA" name="IDMESA" placeholder="Ingrese Mesa" required>
 </div>
 <br>
 <div class="form-group" style="text-align: center;">
-  <label  letraYcolor for="IDESCUELA">IDESCUELA</label>
-  <input type="number" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.IDESCUELA" id="IDESCUELA" name="IDESCUELA" placeholder="Ingrese IDESCUELA" required>
+  <label  letraYcolor for="IDESCUELA">N° ESCUELA</label>
+  <input type="number" letraYcolor class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.IDESCUELA" id="IDESCUELA" name="IDESCUELA" placeholder="Ingrese IDESCUELA" required>
 </div>
 <br>
 <div class="form-group" style="text-align: center;">
   <label  letraYcolor for="ORDEN">ORDEN</label>
-  <input type="number" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.ORDEN" id="ORDEN" name="ORDEN" placeholder="Ingrese ORDEN" required>
+  <input type="number" letraYcolor class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.ORDEN" id="ORDEN" name="ORDEN" placeholder="Ingrese ORDEN" required>
 </div>
 <br>
 <div class="form-group" style="text-align: center;">
   <label  letraYcolor for="DVALIDADOR">DIGITO VALIDADOR</label>
-  <input type="number" Temadark class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.DVALIDADOR" id="DVALIDADOR" name="DVALIDADOR" placeholder="Ingrese DIGITO VALIDADOR" required>
+  <input type="number" letraYcolor class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="cuentaRegistro.DVALIDADOR" id="DVALIDADOR" name="DVALIDADOR" placeholder="Ingrese DIGITO VALIDADOR" required>
 </div>
 <br>
 
 <div letraYcolor class="form-group radioS">
   <br>
   <div class="form-group">
-      <h3 >Sexo</h3>
+    
+      <label >Sexo</label>
+<hr style="border-color: white; margin-right: 75%;">
+
       <ul >
           <input type="radio" name="SEXO" [(ngModel)]="radioSelected" value="hombre"  id="one" (change)="onItemChange(radioSelected)"/>
           <label  for="one">HOMBRE</label>
