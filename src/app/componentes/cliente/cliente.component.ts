@@ -45,11 +45,11 @@ votanteBuscado:any;
     this.isLoading = true;
     
     // setTimeout(() => this.isLoading = false, 8000);
-    
     this.baseService.getItems("votar/Escuelas").then(listaEscuelas => {
       this.listaEscuelas = listaEscuelas;
     }); 
     
+
 
     this.baseService.getItems("votar/Votantes").then(usuarios => {
       
@@ -101,6 +101,7 @@ votanteBuscado:any;
     // this.baseService.getItems("votar/PedidosDetalle").then(pedidosDetalle => {
 
     //   this.listaPedidosDetalle = pedidosDetalle;
+
 
     //   this.listaPedidosDetalle.forEach(element => {
     //     if(element.idPedido == this.idDocumento)

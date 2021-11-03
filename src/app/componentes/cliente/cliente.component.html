@@ -16,6 +16,7 @@
 
     <h1 *ngIf="idDocumento" letraYcolor>
       DNI ingresado: {{idDocumento}}
+
     </h1>
 
     <h1 *ngIf="DNIError" letraYcolor>
@@ -37,6 +38,7 @@
       <tr> 
         
                 <td>{{this.votanteBuscado.dni}}</td>
+
                 <td>{{nombre}}</td>
                 <!-- <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td> -->
                 <td >{{sexo}}</td>
@@ -58,6 +60,7 @@
       
     </tbody>
     </table>
+
        
   <br><br>
   <div *ngIf="isLoading" class="d-flex justify-content-center text-primary">
