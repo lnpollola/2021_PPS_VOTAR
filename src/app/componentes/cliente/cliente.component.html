@@ -17,6 +17,10 @@
     <h1 *ngIf="idDocumento" letraYcolor>
       DNI ingresado: {{idDocumento}}
     </h1>
+
+    <h1 *ngIf="DNIError" letraYcolor>
+      El DNI ingresado no fue encontrado. Reingrese.
+    </h1>
    
     <table *ngIf="detalles" class="table  table-striped table-dark table-bordered table-hover" id="tablaID">
     <thead>
@@ -32,7 +36,7 @@
     <tbody id="tBodyTable">
       <tr> 
         
-                <td>{{idDocumento }}</td>
+                <td>{{this.votanteBuscado.dni}}</td>
                 <td>{{nombre}}</td>
                 <!-- <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td> -->
                 <td >{{sexo}}</td>
@@ -54,117 +58,9 @@
       
     </tbody>
     </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-       <!-- <table *ngIf="detalles"  class="mat-elevation-z8 border border-dark" style="color:black; background: rgba(119, 136, 153, 0.481); align-content: center;"> -->
-     
-            <!-- Position Column -->
-            <!-- <ng-container matColumnDef="idDocumento">
-              <th mat-header-cell *matHeaderCellDef> Nro de Documento </th>
-              <td mat-cell *matCellDef="let element"> {{element.idDocumento}} </td>
-            </ng-container> -->
-          
-            <!-- Name Column -->
-            <!-- <ng-container matColumnDef="nombre">
-              <th mat-header-cell *matHeaderCellDef> Nombre y Apellido </th>
-              <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-            </ng-container> -->
-          
-            <!-- Weight Column -->
-
-            <!-- <ng-container  matColumnDef="sexo">
-              <th mat-header-cell *matHeaderCellDef>Sexo</th>
-              <td mat-cell *matCellDef="let element"> {{element.sexo}}  </td>
-              
-             
-            </ng-container>
-
-            <ng-container  matColumnDef="escuela">
-              <th mat-header-cell *matHeaderCellDef>Establecimiento </th>
-              
-              <td mat-cell *matCellDef="let element"> {{element.escuela}}  </td>
-              
-              
-            </ng-container>
-            <ng-container  matColumnDef="mesa">
-              <th mat-header-cell *matHeaderCellDef>Mesa </th>
-              
-              <td mat-cell *matCellDef="let element"> {{element.Mesa}}  </td>
-              
-     
-            </ng-container>
-            <ng-container  matColumnDef="orden">
-              <th mat-header-cell *matHeaderCellDef>Orden </th>
-             
-              <td mat-cell *matCellDef="let element"> {{element.orden}}  </td>
-              
-          
-            </ng-container>
-     
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table> -->
        
   <br><br>
-  <div *ngIf="isLoading" class="d-flex justify-content-center">
+  <div *ngIf="isLoading" class="d-flex justify-content-center text-primary">
     <div class="spinner-border" role="status">
 
     </div>
