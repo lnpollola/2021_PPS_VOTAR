@@ -17,7 +17,7 @@
     
          
           <select class="form-control" formControlName="perfil" >
-              <option [ngValue]="null" hidden disabled>Seleccione establecimiento</option>
+              <option value="Seleccione establecimiento" disabled selected>Seleccione establecimiento</option>
               <option *ngFor="let perfil of perfiles" [ngValue]="perfil">
                   {{ perfil }}
                 </option>
@@ -101,9 +101,9 @@
                             <td>
                               <!-- FIJARSE BOTONES -->
                                 <!-- <div class="divider"></div> -->
-                                <button *ngIf="perfil == 'presidente'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Abrir</button> 
-                                <button *ngIf="perfil=='presidente'" class="btn btn-danger" (click)="Cerrar(item.idMesa)">Cerrar</button>
-                                <app-btn-eliminar *ngIf="perfil=='admin'"(enviarABorrar)="borrarMesa(item)"></app-btn-eliminar></td>
+                                <button *ngIf="perfilLog == 'presidente'" class="btn btn-success" (click)="Abrir(item.idMesa)" >Abrir</button> 
+                                <button *ngIf="perfilLog == 'presidente'" class="btn btn-danger" (click)="Cerrar(item.idMesa)">Cerrar</button>
+                                <app-btn-eliminar *ngIf="perfilLog == 'admin'" (enviarABorrar)="borrarMesa(item)"></app-btn-eliminar></td>
                                 <!-- <div class="divider"></div>
                                 <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Cobrar</button>  -->
                                 <!-- <div class="divider"><hr></div> -->
