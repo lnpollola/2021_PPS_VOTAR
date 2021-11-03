@@ -17,7 +17,7 @@
               <!-- <input class="form-control" placeholder="Distrito" type="string" id="distrito"  name="distrito" [formControl]="distrito" required> -->
               <br>
               <select class="form-control" placeholder="Localidad" formControlName="distrito" >
-                <option [ngValue]="Avellaneda"  hidden disabled>Default</option>
+                <option  hidden disabled>Default</option>
                 <option> Lanus </option>
                 <option> Avellaneda </option>
                 <option> Quilmes </option>
@@ -71,9 +71,9 @@
     
                                 <td>
                                   <!-- FIJARSE BOTONES -->
-                                    <button *ngIf="perfil == 'presidente'" class="btn btn-success" (click)="Cobrar(item.idEscuela)" >Abrir</button> 
+                                    <!-- <button *ngIf="perfil == 'presidente'" class="btn btn-success" (click)="Abrir(item.idEscuela)" >Abrir</button> 
                                     <button *ngIf="perfil=='presidente'" class="btn btn-danger" (click)="Cerrar(item.idEscuela)">Cerrar</button>
-                                    <app-btn-eliminar *ngIf="perfil=='admin'"(enviarABorrar)="borrarEscuela(item)"></app-btn-eliminar></td>
+                                    <app-btn-eliminar *ngIf="perfil=='admin'"(enviarABorrar)="borrarEscuela(item)"></app-btn-eliminar></td> -->
                                     <hr>
                           </tr> 
                       

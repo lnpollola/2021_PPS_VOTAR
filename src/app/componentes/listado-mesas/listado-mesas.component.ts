@@ -17,7 +17,7 @@ export class ListadoMesasComponent implements OnInit {
   listaEscuelas;
   importe;
   display: boolean = false;
-
+  perfilLog;
   noIMGcargada: boolean = false;
   // mesa = new Mesa();
  
@@ -69,7 +69,7 @@ export class ListadoMesasComponent implements OnInit {
 
   constructor( private builder: FormBuilder,
     private baseService:FirebaseService) {
-    this.perfil=   JSON.parse(sessionStorage.getItem('Usuarios')).perfil;
+    this.perfilLog=   JSON.parse(sessionStorage.getItem('Usuarios')).perfil;
   
     this.TraerLasMesas();
     this.TraerLasEscuelas();
@@ -116,11 +116,11 @@ export class ListadoMesasComponent implements OnInit {
   }
 
 
-  Cobrar(idMesa)
+  Abrir(idMesa)
   {
     
 
-    this.baseService.getItems("comanda/Mesas").then(mesas => {
+    this.baseService.getItems("votar/Mesas").then(mesas => {
       // setTimeout(() => this.spinner = false, 2000);
       
       let listadoMesas = mesas;

@@ -18,11 +18,11 @@ export class ClienteComponent implements OnInit {
   detalles:boolean = false;
   idMesa;
   idDocumento;
-  nombre:any;
+  nombre:string;
   sexo:any;
   orden:any;
   listaEscuelas:any;
-  escuelaVotante = [];
+  escuelaVotante:any;
   DNIError: boolean = false;
 
 valMozo:number;
