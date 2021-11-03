@@ -57,11 +57,8 @@ export class RegistroComponent implements OnInit {
 
     if (
         this.cuentaRegistro.DNI == "" || 
-        this.cuentaRegistro.SEXO == "" ||
-        this.cuentaRegistro.NOMBRE == "" ||
-        this.cuentaRegistro.IDMESA == 0 ||
-        this.cuentaRegistro.IDESCUELA == 0 ||
-        this.cuentaRegistro.SEXO == "" ||
+        // this.cuentaRegistro.SEXO == "" ||
+        // this.cuentaRegistro.NOMBRE == "" ||
         this.cuentaRegistro.NOMBRE == "") 
         {
           this.faltancampos = true;  
@@ -167,7 +164,7 @@ export class RegistroComponent implements OnInit {
 
 
   validateDNI(DNI) {
-   if( DNI.length() == 8 )
+   if( DNI.toString().length == 8 )
     {
       return 1;
     }  
