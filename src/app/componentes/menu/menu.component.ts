@@ -48,45 +48,145 @@ export class MenuComponent implements OnInit {
   detalleDescarga = [];
   totalPedidoParaDescarga : number;
 
+  dish: boolean=true;
+  promotion: boolean=true;
+  imagesNacion = [  
+    { img: "./assets/images/boletaDIPUTADOSPCIA_FDI.jpg" },
+    { img: "./assets/images/boletaDIPUTADOSPCIA_FDT.jpg" },
+    { img: "./assets/images/boletaDIPUTADOSPCIA_JUNTOS.jpg" },
+    { img: "./assets/images/boletaDIPUTADOSPCIA_VCV.jpg" },
+    { img: "./assets/images/boletaDIPUTADOSPCIA_AV.jpg" }
+
+  ];  
+  muestroCandidato: boolean= false;
+  candidatoSeleccionadoLabel: string;
+  candidatoConfirmado: string;
+  listaCandidatos: any;
+  partidoBuscado: any;
+  yaVoto: boolean = false;
+isLoading: boolean = false;
+candidatosCard: boolean = true;
+
+
+
+
+  // CAROUSEL IMG CFG
+  slideConfig = {  
+    "slidesToShow": 1,  
+    "slidesToScroll": 1,  
+    "dots": true,  
+    // "autoplay": true,
+    // "infinite": true  
+  };  
+
+
+  
+  // addSlide() {
+  //   this.slides.push({img: "http://placehold.it/350x150/777777"})
+  // }
+  
+  // removeSlide() {
+  //   this.slides.length = this.slides.length - 1;
+  // }
+  
+  // slickInit(e) {
+  //   console.log('slick initialized');
+  // }
+  
+  // breakpoint(e) {
+  //   console.log('breakpoint');
+  // }
+  
+  afterChange(e) {
+    this.muestroCandidato = false;
+
+  }
+  
+  beforeChange(e) {
+    this.muestroCandidato = false;
+
+  }  
+
+  candidatoElegido(image){
+    // console.log("clicked img " + image);
+
+    switch (image) {
+      case "./assets/images/boletaDIPUTADOSPCIA_FDI.jpg":
+        this.muestroCandidato = true;
+        this.candidatoSeleccionadoLabel = "NICOLAS DEL CAÑO - Frente de Izquierda";
+        this.candidatoConfirmado = "FDI";
+        break;
+
+      case "./assets/images/boletaDIPUTADOSPCIA_FDT.jpg":
+        this.muestroCandidato = true;
+        this.candidatoSeleccionadoLabel = "VICTORIA TOLOSA PAZ - Frente de Todos";
+        this.candidatoConfirmado = "FDT";
+        break;
+
+      case "./assets/images/boletaDIPUTADOSPCIA_JUNTOS.jpg":
+        this.muestroCandidato = true;
+        this.candidatoSeleccionadoLabel = "DIEGO CESAR SANTILLI - Juntos";
+        this.candidatoConfirmado = "JUNTOS";
+        break;
+
+      case "./assets/images/boletaDIPUTADOSPCIA_VCV.jpg":
+        this.muestroCandidato = true;
+        this.candidatoSeleccionadoLabel = "FLORENCIO RANDAZZO - Vamos con Vos";
+        this.candidatoConfirmado = "VCV";
+
+        break;
+
+      case "./assets/images/boletaDIPUTADOSPCIA_AV.jpg":
+        this.muestroCandidato = true;
+        this.candidatoSeleccionadoLabel = "CYNTHIA LILIANA HOTTON - Alianza + Valores";
+        this.candidatoConfirmado = "AV";
+        break;
+    
+      default:
+        break;
+    }
+ 
+  }
+
+  confirmoCandidato(){
+    console.log(this.candidatoConfirmado);
+    
+    this.isLoading = true;
+    setTimeout(() => this.muestroCandidato = false, 8000);
+  
+    this.baseService.getItems("votar/Votos").then(candidatos => {
+      
+
+      this.listaCandidatos = candidatos;
+      console.log(this.listaCandidatos);
+     
+      this.partidoBuscado = this.listaCandidatos.find(elem => (elem.key == this.candidatoConfirmado ));
+     
+      console.log(this.partidoBuscado);
+
+      var agregovoto = {
+        cantidad: this.partidoBuscado.cantidad+1
+      }
+
+      this.baseService.updateItem('votar/Votos',this.partidoBuscado.key,agregovoto); 
+    
+
+
+    });
+    this.isLoading = false;
+    this.candidatosCard = false;
+    this.yaVoto = true;
+
+  }
+
+
 
   constructor( private baseService:FirebaseService) {
-    this.elPedido=new Pedido();
-    this.TraerProductos();
-    this.TraerMesasDisp();
+
    }
 
-   TraerProductos()
-   {
-    this.baseService.getItems("comanda/Productos").then(productos => {
-      // setTimeout(() => this.spinner = false, 2000);
-      
-      this.listaProductos = productos;
-      
-    
-    });
-   }
- 
-   TraerMesasDisp()
-   {
-    this.baseService.getItems("comanda/Mesas").then(mesas => {
-      // setTimeout(() => this.spinner = false, 2000);
-      this.mesasDisponibles = [];
-      this.listadoMesas = mesas;
-      this.listadoMesas.forEach(element => {
-        if(element.estado == "vacia" )
-        {
-          this.msjDisponible = false;
-            this.mesasDisponibles.push(element);
-        }
-       
-      });
-      if (!this.mesasDisponibles.length) {
-        this.msjDisponible = true;
-      }
-    
-    });
-   }
- 
+   
+   
    AgregarAlPedido(producto:Producto)
    {
      this.pedidoConfirmado = false;
@@ -171,7 +271,7 @@ export class MenuComponent implements OnInit {
     this.pedidoConfirmado = true;
     localStorage.removeItem("ImagenMesaSeleccionada");
 
-    this.TraerMesasDisp();
+    // this.TraerMesasDisp();
 
   // });
  

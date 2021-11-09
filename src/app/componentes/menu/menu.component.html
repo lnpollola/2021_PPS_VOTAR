@@ -1,125 +1,58 @@
 <app-header> </app-header>
 
-<div class="container-fluid"
-     fxLayout="column"
-     fxLayoutGap="10px">
+<div class="container">
+  <!-- <div class="row ">   -->
+    <div *ngIf="candidatosCard" class="card">    
+      <div class="card-header">
+        <h2 letraYcolor  style="text-align: center;">DIPUTADAS/OS NACIONALES por la PCIA de BUENOS AIRES</h2>
+      </div>
+      <div class="card-body">
+        <ngx-slick-carousel class="carousel slide pb-4 pointer-event" #slickModal="slick-carousel" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)" [config]="slideConfig">  
+          <div ngxSlickItem *ngFor="let image of imagesNacion" (click)="candidatoElegido(image.img)" class="slide">  
+            <img src="{{ image.img }}" style="margin-left: 25%;" width="50%">  
+          </div>  
+        </ngx-slick-carousel>  
+      </div>
+  
 
-  <div fxFlex>
+      <div *ngIf="muestroCandidato" class="card-body text-center">
+        <label letraYcolor class="agregado"  style="width: 100%">Elección: {{candidatoSeleccionadoLabel}} </label>
+        <button letraYcolor class="btn btn-lg btn-info" (click)="confirmoCandidato()">Confirmar candidato elegido</button>
 
-    <div class="container">
-    
-      <div class="row">
-      <div class="tabla-prod col-sm-4" style="padding: 5%">
-        <form class="form-group" action="">
-          <br>
-       
-          <label for="numeroMesa" letraYcolor>Mesas Disponibles</label>
-          <!-- <input class="form-control miInput" id="numeroMesa" placeholder="mesa" type="text" name="mesa" value="0002" [(ngModel)]="mesa"> -->
-        <br>
-          <mat-radio-group letraYcolor  id="numeroMesa" class="example-radio-group" [(ngModel)]="mesaSeleccionada" [ngModelOptions]="{standalone: true}">
-              <mat-radio-button  *ngFor="let mesa of mesasDisponibles"  class="example-radio-button" [value]="mesa.idMesa">
-               Mesa número:  {{mesa.idMesa}}
-             <br> </mat-radio-button>
-             <p letraYcolor *ngIf="msjDisponible">No hay mesas disponibles</p>
-            </mat-radio-group>
-
-          
-
-          <br>
-          <label for="fotoMesa" letraYcolor>Foto mesa</label>
-          <br>
-          <label>
-                <span letraYcolor class="file-name" style="margin-left: -30%;">  <i class="fa fa-file-image-o"></i> Has click para seleccionar foto de la mesa</span>
-                
-                <input style="opacity:0;" #imageInput
-                       type="file"
-      
-                       accept="image/*"
-      
-                       (change)="processFile(imageInput)">
-            <p letraYcolor *ngIf="agregoimagenErrorMsg" class="faltaIMG">Debe ingresar imagen</p>
-            
-              </label>
         
-        </form>
-        <input type="text" Temadark placeholder="Busqueda" class="form-control" [(ngModel)]="busqueda" >
-        <br>
-
-
-
-        <div class="mat-elevation-z8 col-md-15" style="text-align: center; background: rgba(119, 136, 153, 0.481);">
-    
-        <table class="table" letraYcolor>
-            <thead>
-              <th>Producto</th> <th>Precio</th> <th>Accion</th>
-            </thead>
-            <tbody *ngIf="listaProductos">
-              <tr *ngFor="let producto of (listaProductos | filtro: busqueda)">
-                    <!-- [tipo]="producto.responsable" -->
-                  <td estilo>{{producto.nombre}}</td>
-                  <td >{{producto.precio | currency: '$ ' : 'symbol' : '1.0'}}</td>
-                  
-                  <td><app-btn-agregar [producto]="producto" (enviar)="AgregarAlPedido($event)"></app-btn-agregar></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
 
       </div>
-      
-  <div class="mat-elevation-z8 col-sm-4" style="color:whitesmoke; background: rgba(119, 136, 153, 0.481);">
       <br>
-        <h3 letraYcolor>PEDIDO</h3>
-
-          <table letraYcolor class="table" >            
-            <thead *ngIf="productosPedido" style="text-align: center;">
-              <th>Producto</th> <th>Precio</th> <th>Accion</th>
-            </thead>
-            <tbody *ngIf="productosPedido" style="text-align: center;">
-              <tr *ngFor="let producto of productosPedido" >
-                
-                  <td>{{producto.nombre}}</td>
-                  <td>{{producto.precio | currency: '$ ': "symbol": '1.1-2'}}</td>
-                  <td > <app-btn-eliminar [objeto]="producto" (enviarABorrar)="QuitarAlPedido($event)" ></app-btn-eliminar> </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <td>Total</td> <td>{{totalPedido | currency: '$ ': "symbol": '1.1-2'}} </td>
-            </tfoot>
-          </table>
-          <button class="btn btn-dark col-sm-12" (click)="IngresarPedido()">Confirmar pedido</button>
-          <!-- <button class="btn btn-primary col-sm-12" (click)="IngresarPedidoPromise()">Ingresar pedido Promise</button> -->
-          <button class="btn btn-dark btn-block" *ngIf="pedidoConfirmado" (click)="descarga()"><i class="fa fa-cloud-download"></i> Descargar descripcion del pedido</button>
-
-
-        </div>
-        
-        <div class="btn-ingresar col-sm-4 ">
-          
-         
-
-
-        <div class="mat-elevation-z8 col-md-10" style="color:black; background: rgba(119, 136, 153, 0.481);">
+      
+    </div>
+    <br>
+    <div *ngIf="isLoading" class="d-flex justify-content-center text-primary">
+      <div class="spinner-border" role="status">
+  
+      </div>
+    </div>
+   
     
-            <div letraYcolor class="card-pedido col-sm-12" style="padding: 5%"> 
-          
-              <legend >Numero pedido:</legend>
-              <h3 *ngIf="elPedido.id" style="text-align: center;"> {{elPedido.id }} </h3>
-              <!-- <legend letraYcolor>Detalle:</legend>
-              <ul *ngFor="let p of elDetallePedido">
-                <li>{{p.nombre}}</li>
-              </ul> -->
-              <legend letraYcolor>Total:</legend>
-              <h4 *ngIf="elPedido.id" letraYcolor> {{totalPedidoFactura | currency: '$ ': "symbol": '1.1-2'}} </h4>
-              <!-- <div><app-csv *ngIf="elPedido.id" [pedido]="elPedido"></app-csv></div> -->
 
-            </div>
-        </div>
+    <div *ngIf="yaVoto" class="card">
+      <div class="card-header"><h2 letraYcolor  style="text-align: center;">VOTO CONFIRMADO</h2></div>
+      <div class="card-body">
+        Usted confirmó el voto para {{candidatoSeleccionadoLabel}}. <br>Muchas gracias por utilizar el sistema electrónico Vot.AR. 
+        Por favor completar la encuesta de calidad.
       </div>
-      </div>
-      </div>
-  </div>
+     
+    </div>
+    <br>
+   <!-- <h2 >DIPUTADAS/OS PROVINCIA</h2>
+    <hr style="border-color: white;">
+
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">  
+      <div ngxSlickItem *ngFor="let image of imagesPcia" class="slide">  
+        <img src="{{ image.img }}" style="margin-left: 25%;" width="50%">  
+      </div>  
+    </ngx-slick-carousel>   -->
+
+
+
 </div>
 
-
- 

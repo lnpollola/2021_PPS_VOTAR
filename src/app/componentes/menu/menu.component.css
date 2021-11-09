@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>tr>td, .table>tr>th {
-    padding: 1px;
-    line-height: 1.42857143;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: whitesmoke;
-}
+
 
 .col-md-5 {
     width: 100%;
@@ -44,4 +35,32 @@ input{
 
  .md-radio-checked .md-radio-outer-circle {
     margin-left: -20%;     /* Pick your color */
+}
+
+
+.slick-slider {
+    width: 88%;
+    margin: auto;
+    background: white;
+  }
+  
+body .slick-prev, 
+body .slick-next {
+    height: 45px;
+    width: 40px;
+    background: grey !important;
+    z-index: 100;
+}
+
+
+
+.slick-prev:before, .slick-next:before {
+    color: black!important;
+}
+
+.agregado{
+    background-color: #479F41;
+font-size: 290%;
+color: white;
+text-align: center;
 }
