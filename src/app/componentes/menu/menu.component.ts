@@ -169,6 +169,7 @@ export class MenuComponent implements OnInit {
        dni: this.votante.dni,
        dvalidador: this.votante.dvalidador,
        flagvoto: true,
+       validoauxiliar: true,
        idEscuela: this.votante.idEscuela,
        idMesa: this.votante.idMesa,
        nombre: this.votante.nombre,

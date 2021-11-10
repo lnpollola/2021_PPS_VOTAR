@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<body>
+<div class="divMayor">
+  <div class="row ">
+    <div class="form-ingreso" style="text-align: center; width: 100%;">
+    <br>      
+    <h3 letraYcolor >Ingrese Documento Nacional de Identidad  </h3><br>
+    <div class="form-goup">
+    <input Temadark  type="text" class="form-control form-control-lg" style="text-align: center;" [(ngModel)]="idDocumento" placeholder="DNI / CI / LE / LC" > <br><br>
+    <button class="btn btn-dark btn-block btn-lg" (click)="TraerVotante()" >Ingresar</button>
+    </div>
+  </div>
+</div>
+    <br>
+
+    <h1 *ngIf="idDocumento" letraYcolor>
+      DNI ingresado: {{idDocumento}}
+
+    </h1>
+
+    <h1 *ngIf="DNIError" letraYcolor>
+      El DNI ingresado no fue encontrado. Reingrese.
+    </h1>
+   
+    <table *ngIf="detalles" class="table  table-striped table-dark table-bordered table-hover" id="tablaID">
+    <thead>
+      <tr>    
+        <th  scope="col" class="col1">DOCUMENTO</th>
+        <th  scope="col" class="col2">NOMBRE</th>
+        <th  scope="col" class="col3">SEXO</th>
+        <th  scope="col" class="col4">ESTABLECIMIENTO</th> 
+        <th  scope="col" class="col5">MESA</th>
+        <th  scope="col" class="col6">ORDEN</th>
+        <th  scope="col" class="col6">ACCIONES</th>
+
+      </tr>
+    </thead>
+    <tbody id="tBodyTable">
+      <tr> 
+        
+                <td>{{this.votanteBuscado.dni}}</td>
+
+                <td>{{nombre}}</td>
+                <!-- <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td> -->
+                <td >{{sexo}}</td>
+                <td >{{escuelaVotante.nombre}} {{escuelaVotante.direccion}}</td>
+                <td >{{idMesa}}</td>
+                <td >{{orden}}</td>
+                <td>
+                    <button *ngIf="perfilLog == 'auxiliar' && votanteBuscado.validoauxiliar == false" class="btn btn-success" (click)="CheckAuxiliar()" >Check Auxiliar</button> 
+                    <button *ngIf="perfilLog == 'auxiliar' && votanteBuscado.validoauxiliar == true" class="btn btn-dark" disabled>Habilitación otorgada</button>
+
+
+                    <button *ngIf="perfilLog == 'presidente' && votanteBuscado.validoauxiliar == true && votanteBuscado.validovotar != true" class="btn btn-info" (click)="CheckPresidente()" >Check Presidente</button> 
+                    <button *ngIf="perfilLog == 'presidente' && votanteBuscado.validovotar == true" class="btn btn-dark" disabled>Habilitación otorgada</button> 
+
+                    
+                    <!-- <button *ngIf="perfilLog == 'presidente'" class="btn btn-danger" (click)="Cerrar(item.idMesa)">Cerrar</button> -->
+        
+                </td>
+
+
+
+                <!-- <td *ngIf="item.imgMesa == ''"><p>Imagen aun no seleccionada.</p></td> -->
+
+                <!-- <td *ngIf="item.montoTotal != 0">${{item.montoTotal}}</td> -->
+                <!-- <td *ngIf="item.montoTotal == 0"><p>Mesa no lista para cobrar.</p></td> -->
+
+                <hr>
+                      
+                          
+      </tr> 
+      
+    </tbody>
+    </table>
+
+       
+  <br><br>
+  <div *ngIf="isLoading" class="d-flex justify-content-center text-primary">
+    <div class="spinner-border" role="status">
+
+    </div>
+  </div>
+  <br>
+</div>
+</body>
