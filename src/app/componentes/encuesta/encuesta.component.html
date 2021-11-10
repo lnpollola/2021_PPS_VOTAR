@@ -4,13 +4,13 @@
       
       <div>
           <h3 letraYcolor>Envianos tus comentarios</h3>
-
-          <ngb-rating style="font-size:30px;" [(rate)]="currentRateMesa"></ngb-rating> <div letraYcolor>Servicio de mesa: <b letraYcolor>{{currentRateMesa}}</b></div>
-          <ngb-rating style="font-size:30px;" [(rate)]="currentRateRest"><p> Restaurant</p></ngb-rating> <div letraYcolor>Restaurant: <b letraYcolor>{{currentRateRest}}</b></div>
-          <ngb-rating style="font-size:30px;" [(rate)]="currentRateMozo"> <p>Mozo</p> </ngb-rating> <div letraYcolor>Mozo: <b letraYcolor>{{currentRateMozo}}</b></div>
-          <ngb-rating style="font-size:30px;" [(rate)]="currentRateCoci"> <p>Cocinero</p></ngb-rating><div letraYcolor>Cocinero: <b letraYcolor>{{currentRateCoci}}</b></div>
-         <br>
           <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" >
+          <!-- <ngb-rating  formControlName="currentRateMesa"  style="font-size:30px;" [(rate)]="currentRateMesa"></ngb-rating> <div letraYcolor>Servicio de mesa: <b letraYcolor>{{currentRateMesa}}</b></div>
+          <ngb-rating formControlName="currentRateRest"  style="font-size:30px;" [(rate)]="currentRateRest"><p> Restaurant</p></ngb-rating> <div letraYcolor>Restaurant: <b letraYcolor>{{currentRateRest}}</b></div>
+          <ngb-rating formControlName="currentRateMozo"  style="font-size:30px;" [(rate)]="currentRateMozo"> <p>Mozo</p> </ngb-rating> <div letraYcolor>Mozo: <b letraYcolor>{{currentRateMozo}}</b></div> -->
+          <ngb-rating formControlName="currentRateCoci"  style="font-size:30px;" [(rate)]="currentRateCoci"> <p>Cocinero</p></ngb-rating><div letraYcolor>Cocinero: <b letraYcolor>{{currentRateCoci}}</b></div>
+         <br>
+     
             <p letraYcolor>
                 Ingrese sus datos debajo:<br>
               <mat-form-field class="half-width">
@@ -64,8 +64,7 @@
                 <textarea matInput formControlName="message" id="Comentarios" rows=12></textarea>
               </mat-form-field>
             </p>
-            <button type="submit" letraYcolor mat-button class="btn btn-dark btn-block"
-              [disabled]="feedbackForm.invalid"> Enviar</button>
+            <button type="submit" letraYcolor mat-button class="btn btn-dark btn-block"> Enviar</button>
           </form>
         </div>
 <!-- </div> -->

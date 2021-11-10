@@ -14,7 +14,7 @@
    
    <!-- PERFILES -->
    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'admin')" routerLink="/usuarios" routerLinkActive="active" class="hbtn"><span class="fa fa-user fa-lg"></span> Gestion de Usuarios </a>
-   <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'votante')" routerLink="/encuesta" routerLinkActive="active" class="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
+   <a mat-button letraYcolor *ngIf="!IngresoBool" routerLink="/encuesta" routerLinkActive="active" class="hbtn"><span class="fa fa-check-square-o fa-lg"></span> Completar encuesta</a>
     
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'presidente'" routerLink="/menu" routerLinkActive="active" class="hbtn"><span class="fa fa-address-book fa-lg"></span> Candidatos</a>
     
