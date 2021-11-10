@@ -211,7 +211,7 @@ export class MenuComponent implements OnInit {
     this.yaVoto = true;
     // setTimeout(() => this.isLoading = false, 8000);
     
-    setTimeout(() => this.router.navigateByUrl('/encuesta'), 5000);
+    setTimeout(() => this.router.navigateByUrl('/encuesta'), 3000);
     
 
     
