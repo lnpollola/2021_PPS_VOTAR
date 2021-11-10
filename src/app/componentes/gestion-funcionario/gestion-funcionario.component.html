@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<body>
+    <!-- <div class="listadoCentrado container"> -->
+        <div class="row">
+          <div class="mat-elevation-z8 col-12 border border-dark" style="color:black; background: rgba(119, 136, 153, 0.481);">
+            <br>
+              <h3 letraYcolor>Lista de Escuelas</h3>
+              <hr style="border-color: white;">
+              
+      
+      
+                <table class="table  table-striped table-dark table-bordered table-hover" id="tablaID">
+                    <thead>
+                      <tr>
+                      
+                        <th  scope="col" class="col1">NRO Escuela</th>
+                        <th  scope="col" class="col2">NOMBRE</th>
+                         <th  scope="col" class="col3">LOCALIDAD</th>
+                       <th  scope="col" class="col4">DIRECCION</th>
+                       <th  scope="col" class="col5">ESTADO</th>
+                       <th  scope="col" class="col5">ACCIONES</th>
+                       
+                       
+                      </tr>
+                  </thead>
+              
+                      <tbody id="tBodyTable"  *ngFor="let item of listaEscuelas">
+                          <tr> 
+                        
+                                <td>{{item.idEscuela}}</td>
+                                <td>{{item.nombre}}</td>
+                                <td >{{item.distrito}}</td>
+                                <td >{{item.direccion}}</td>
+                                <td >{{item.estado}}</td>
+    
+                                <td>
+                                  <!-- FIJARSE BOTONES -->
+                                    <button *ngIf="perfil == 'funcionario'  && (item.estado == 'cerrada') " class="btn btn-success" (click)="Abrir(item)" >Abrir</button> 
+                                    <button *ngIf="perfil=='funcionario'  && (item.estado == 'abierta') " class="btn btn-danger" (click)="Cerrar(item)">Cerrar</button>
+                                    <!-- <app-btn-eliminar *ngIf="perfil=='admin'"(enviarABorrar)="borrarEscuela(item)"></app-btn-eliminar></td> -->
+                                    <hr>
+                          </tr> 
+                      
+                         </tbody>
+                        </table>
+      
+              <br>
+              <button class="btn btn-info btn-block btn-lg" (click)="descarga()"><i class="fa fa-cloud-download"></i> Descargar detalle lista de Escuelas</button>
+    
+            </div>
+      
+        </div>
+      
+      <!-- </div> -->
+    </body>

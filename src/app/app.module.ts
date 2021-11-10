@@ -71,6 +71,7 @@ import { TEsperaPipe } from './pipes/t-espera.pipe';
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { GestionEscuelasComponent } from './componentes/gestion-escuelas/gestion-escuelas.component';
+import { GestionFuncionarioComponent } from './componentes/gestion-funcionario/gestion-funcionario.component';
 
 // import { AngularFireStorageModule  } from "angularfire2/storage";
 // import { AngularFireModule } from "@angular/fire";
@@ -107,6 +108,7 @@ import { GestionEscuelasComponent } from './componentes/gestion-escuelas/gestion
     TEsperaPipe,
     EncuestaComponent,
     GestionEscuelasComponent,
+    GestionFuncionarioComponent,
     // FileSelectDirective
   ],
   imports: [
