@@ -64,6 +64,7 @@ export class EncuestaComponent implements OnInit {
     this.createForm();
     config.max = 10;
     config.readonly = false;
+    this.logout();
    }
 
   ngOnInit() {
@@ -115,6 +116,13 @@ export class EncuestaComponent implements OnInit {
       puntuacionGeneral: ''
 
     });
+  }
+
+  logout()
+  {
+    sessionStorage.clear();
+   
+    
   }
 
 
