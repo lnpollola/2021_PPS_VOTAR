@@ -165,6 +165,10 @@ Entrar(){
             // this.isLoading = false;
             this.router.navigateByUrl('/registro'); 
           }
+          else if (usuarioLogueado.perfil == "funcionario") {
+            // this.isLoading = false;
+            this.router.navigateByUrl('/gestionFuncionario'); 
+          }
           else
               { 
                
