@@ -18,6 +18,11 @@ export class EncuestaComponent implements OnInit {
   currentRateMozo = 0;
   currentRateCoci = 0;
 
+  puntuacionMesa = 0;
+  puntuacionEscuela = 0;
+  puntacionBoleta = 0;
+  puntuacionGeneral = 0;
+
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
@@ -78,41 +83,22 @@ export class EncuestaComponent implements OnInit {
     this.feedbackForm.valueChanges
     .subscribe(data => this.onValueChanged(data));
 
-    this.onValueChanged();  //reset validation message now
+    this.onValueChanged(); 
   }
 
   onValueChanged(data?: any) {
-    // if (!this.feedbackForm) { return; }
    
 
       this.feedbackForm = this.fb.group({
-        firstname: [''],
-        lastname: [''],
-        telnum: [this.currentRateCoci],
-        email: [''],
-        agree: false,
-        contacttype: 'None',
         message: '',
-        currentRateCoci: ''
+        puntuacionMesa: '',
+        puntuacionEscuela: '',
+        puntacionBoleta: '',
+        puntuacionGeneral: ''
       });
 
       const form = this.feedbackForm;
     return;
-    // for (const field in this.formErrors) {
-    //   if (this.formErrors.hasOwnProperty(field)) {
-    //     // clear previous error message (if any)
-    //     this.formErrors[field] = '';
-    //     const control = form.get(field);
-    //     if (control && control.dirty && !control.valid) {
-    //       const messages = this.validationMessages[field];
-    //       for (const key in control.errors) {
-    //         if (control.errors.hasOwnProperty(key)) {
-    //           this.formErrors[field] += messages[key] + ' ';
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   onSubmit() {
@@ -123,13 +109,11 @@ export class EncuestaComponent implements OnInit {
 
 
     this.feedbackForm.reset({
-      firstname: '',
-      lastname: '',
-      telnum: '',
-      email: '',
-      agree: false,
-      contacttype: 'None',
-      message: ''
+      puntuacionMesa: '',
+      puntuacionEscuela: '',
+      puntacionBoleta: '',
+      puntuacionGeneral: ''
+
     });
   }
 

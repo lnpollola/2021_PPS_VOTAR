@@ -5,13 +5,13 @@
       <div>
           <h3 letraYcolor>Envianos tus comentarios</h3>
           <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" >
-          <!-- <ngb-rating  formControlName="currentRateMesa"  style="font-size:30px;" [(rate)]="currentRateMesa"></ngb-rating> <div letraYcolor>Servicio de mesa: <b letraYcolor>{{currentRateMesa}}</b></div>
-          <ngb-rating formControlName="currentRateRest"  style="font-size:30px;" [(rate)]="currentRateRest"><p> Restaurant</p></ngb-rating> <div letraYcolor>Restaurant: <b letraYcolor>{{currentRateRest}}</b></div>
-          <ngb-rating formControlName="currentRateMozo"  style="font-size:30px;" [(rate)]="currentRateMozo"> <p>Mozo</p> </ngb-rating> <div letraYcolor>Mozo: <b letraYcolor>{{currentRateMozo}}</b></div> -->
-          <ngb-rating formControlName="currentRateCoci"  style="font-size:30px;" [(rate)]="currentRateCoci"> <p>Cocinero</p></ngb-rating><div letraYcolor>Cocinero: <b letraYcolor>{{currentRateCoci}}</b></div>
+          <ngb-rating  formControlName="puntuacionMesa"  style="font-size:30px;" [(rate)]="puntuacionMesa"></ngb-rating> <div letraYcolor>Estado de MESA: <b letraYcolor>{{puntuacionMesa}}</b></div>
+          <ngb-rating formControlName="puntuacionEscuela"  style="font-size:30px;" [(rate)]="puntuacionEscuela"><p> Estado de ESCUELA:</p></ngb-rating> <div letraYcolor>Estado de ESCUELA: <b letraYcolor>{{puntuacionEscuela}}</b></div>
+          <ngb-rating formControlName="puntacionBoleta"  style="font-size:30px;" [(rate)]="puntacionBoleta"> <p>Estado de BOLETAS:</p> </ngb-rating> <div letraYcolor>Estado de BOLETAS: <b letraYcolor>{{puntacionBoleta}}</b></div>
+          <ngb-rating formControlName="puntuacionGeneral"  style="font-size:30px;" [(rate)]="puntuacionGeneral"> <p>Estado GENERAL:</p></ngb-rating><div letraYcolor>Estado GENERAL: <b letraYcolor>{{puntuacionGeneral}}</b></div>
          <br>
      
-            <p letraYcolor>
+            <!-- <p letraYcolor>
                 Ingrese sus datos debajo:<br>
               <mat-form-field class="half-width">
                   <label letraYcolor for="Nombre">Nombre:</label>
@@ -49,7 +49,7 @@
             <table class="form-size">
               <td>
               <mat-slide-toggle letraYcolor formControlName="agree">¿Podemos contactarte?</mat-slide-toggle>
-              </td>
+              </td> -->
               <!-- <td>
               <mat-select placeholder="¿Como?" formControlName="contacttype">
                 <mat-option *ngFor="let ctype of contactType" [value]="ctype">
@@ -57,7 +57,7 @@
                 </mat-option>
               </mat-select>
               </td> -->
-              </table>
+              <!-- </table> -->
             <p letraYcolor>
               <mat-form-field style="width: 900px;" >
                 <label letraYcolor for="Comentarios">Por favor dejenos sus comentarios:</label>
