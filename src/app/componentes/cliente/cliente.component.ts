@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseService } from '../../servicios/firebase.service';
 
 
@@ -38,19 +39,20 @@ votanteBuscado:any;
 // displayedColumns: string[] = ['idDocumento', 'nombre', 'sexo','escuela','mesa','orden'];
 
 // private httpPedido: PedidoService
-  constructor(private baseService:FirebaseService) { }
+      
+      constructor(private baseService:FirebaseService,private router: Router) { }
 
   TraerVotante()
   {
     this.isLoading = true;
     
     // setTimeout(() => this.isLoading = false, 8000);
+    
+
     this.baseService.getItems("votar/Escuelas").then(listaEscuelas => {
       this.listaEscuelas = listaEscuelas;
     }); 
     
-
-
     this.baseService.getItems("votar/Votantes").then(usuarios => {
       
 
@@ -61,10 +63,16 @@ votanteBuscado:any;
      
       console.log(this.votanteBuscado);
 
-      if(this.votanteBuscado !== undefined)
+      if(this.votanteBuscado === undefined)
       {
-        
+        this.isLoading = false
+        this.detalles= false;
+        this.DNIError = true;
 
+      }
+      else if(this.votanteBuscado.flagvoto === false && this.votanteBuscado.validovotar === false){
+     
+        
         this.DNIError = false;
         this.detalles = true;
         this.idDocumento = this.votanteBuscado.dni;
@@ -76,22 +84,18 @@ votanteBuscado:any;
        this.escuelaVotante = this.listaEscuelas.find(elem => (elem.idEscuela == this.votanteBuscado.idEscuela ));
        console.log(this.escuelaVotante);
        this.isLoading = false
+      }
+      else if ( this.votanteBuscado.validovotar === true && this.votanteBuscado.flagvoto === false) {
+        sessionStorage.setItem('Votantes', JSON.stringify(this.votanteBuscado));
+        this.router.navigateByUrl('/menu'); 
         
-
+      }
+      else if(this.votanteBuscado.flagvoto === true){
+        // sessionStorage.setItem('Votantes', JSON.stringify(this.votanteBuscado));
+        this.router.navigateByUrl('/encuesta'); 
 
       }
-      else{
-        this.isLoading = false
-        this.detalles= false;
-        this.DNIError = true;
-
-        // this.idDocumento = null;
   
-      }
-     
-     
-      
-
 
     });
 

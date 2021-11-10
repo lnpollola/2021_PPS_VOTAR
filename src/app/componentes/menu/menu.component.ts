@@ -8,6 +8,7 @@ import { Pedidodetalle } from "../../clases/pedidodetalle";
 
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { Router } from '@angular/router';
 
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -64,8 +65,8 @@ export class MenuComponent implements OnInit {
   listaCandidatos: any;
   partidoBuscado: any;
   yaVoto: boolean = false;
-isLoading: boolean = false;
-candidatosCard: boolean = true;
+  isLoading: boolean = false;
+  candidatosCard: boolean = true;
 
 
 
@@ -78,6 +79,9 @@ candidatosCard: boolean = true;
     // "autoplay": true,
     // "infinite": true  
   };  
+  listaVotantes: any;
+  usuario: any;
+  votante: any;
 
 
   
@@ -153,6 +157,32 @@ candidatosCard: boolean = true;
     
     this.isLoading = true;
     setTimeout(() => this.muestroCandidato = false, 8000);
+    this.usuario = JSON.parse(sessionStorage.getItem('Votantes')) ;
+
+    this.baseService.getItems("votar/Votantes").then(usuarios => {
+      this.listaVotantes = usuarios;
+    
+     
+      this.votante = this.listaVotantes.find(elem => (elem.dni == this.usuario.dni ));
+      
+      var agregoVotante = {
+       dni: this.votante.dni,
+       dvalidador: this.votante.dvalidador,
+       flagvoto: true,
+       idEscuela: this.votante.idEscuela,
+       idMesa: this.votante.idMesa,
+       nombre: this.votante.nombre,
+       orden: this.votante.orden,
+       sexo: this.votante.sexo,
+       validovotar: true
+        
+      }
+      
+      this.baseService.updateItem('votar/Votantes',this.votante.key,agregoVotante); 
+
+     
+    });
+      
   
     this.baseService.getItems("votar/Votos").then(candidatos => {
       
@@ -173,15 +203,25 @@ candidatosCard: boolean = true;
 
 
     });
+
+    
+
     this.isLoading = false;
     this.candidatosCard = false;
     this.yaVoto = true;
+    // setTimeout(() => this.isLoading = false, 8000);
+    
+    setTimeout(() => this.router.navigateByUrl('/encuesta'), 5000);
+    
+
+    
 
   }
+  
 
 
 
-  constructor( private baseService:FirebaseService) {
+  constructor( private baseService:FirebaseService,private router: Router) {
 
    }
 
