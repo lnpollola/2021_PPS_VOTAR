@@ -59,7 +59,6 @@ export class GestionEscuelasComponent implements OnInit {
     this.baseService.getItems("votar/Escuelas").then(escuelas => {
       
       this.listaEscuelas = escuelas;
-      // console.log(this.listaEscuelas[0].nombre);
       var long = [];
       
       for (let index = 0; index < this.listaEscuelas.length; index++) {
@@ -67,8 +66,6 @@ export class GestionEscuelasComponent implements OnInit {
         
       }
      
-      console.log(this.perfiles);
-    
     });
   }
 
