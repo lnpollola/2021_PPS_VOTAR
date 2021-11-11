@@ -78,61 +78,50 @@ export class GestionFuncionarioComponent implements OnInit {
   ngOnInit() {
   }
 
+  
   Cerrar(escuela){
-    this.usuario = JSON.parse(sessionStorage.getItem('Votantes')) ;
+
+    
     this.escuela = escuela;
-
-    this.baseService.removeItem('votar/Escuelas', escuela.key );
-
     this.baseService.getItems("votar/Escuelas").then(escuelas => {
       
-      this.listaEscuelas = escuelas;
-      var long = [];
-      
+      this.listaEscuelas = escuelas;      
       var agregoEscuela = {
         direccion : this.escuela.direccion,
         distrito: this.escuela.distrito,
         estado: 'cerrada',
         idEscuela: this.escuela.idEscuela,
-        nombre: this.escuela.nombre,
-        key: this.escuela.key 
+        nombre: this.escuela.nombre
        }
        
-       this.baseService.addItem('votar/Escuelas', agregoEscuela); 
+      //  this.baseService.addItem('votar/Escuelas', agregoEscuela); 
+      this.baseService.updateItem('votar/Escuelas',this.escuela.key,agregoEscuela); 
        this.TraerLasEscuelas();
     
     });
-
-   
+  
   }
 
-
   Abrir(escuela){
-    this.usuario = JSON.parse(sessionStorage.getItem('Votantes')) ;
+
+    
     this.escuela = escuela;
-
-    this.baseService.removeItem('votar/Escuelas', escuela.key );
-
     this.baseService.getItems("votar/Escuelas").then(escuelas => {
       
-      this.listaEscuelas = escuelas;
-      var long = [];
-      
+      this.listaEscuelas = escuelas;      
       var agregoEscuela = {
         direccion : this.escuela.direccion,
         distrito: this.escuela.distrito,
         estado: 'abierta',
         idEscuela: this.escuela.idEscuela,
-        nombre: this.escuela.nombre,
-        key: this.escuela.key 
+        nombre: this.escuela.nombre
        }
        
-       this.baseService.addItem('votar/Escuelas', agregoEscuela); 
+      //  this.baseService.addItem('votar/Escuelas', agregoEscuela); 
+      this.baseService.updateItem('votar/Escuelas',this.escuela.key,agregoEscuela); 
        this.TraerLasEscuelas();
     
     });
-
-
   
   }
 
