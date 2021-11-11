@@ -22,11 +22,12 @@
     
     <!-- MODIFICACION LISTADO DE ESCUELAS  -->
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/gestionEscuelas" routerLinkActive="active" class="hbtn"><span class="fa fa-university fa-lg"></span> GESTION DE ESCUELAS</a>
-   
     <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'presidente' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
   
-    <!-- <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/estadisticas" routerLinkActive="active" class="hbtn"><span class="fa fa-bar-chart fa-lg"></span> Estadísticas</a> -->
-   
+
+    <!-- SECCION FUNCIONARIO -->
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'funcionario')" routerLink="/gestionFuncionario" routerLinkActive="active" class="hbtn"><span class="fa fa-university fa-lg"></span> GESTION DE ESCUELAS</a>
+
     <span class="fill-space"></span>
     <img class="TTBlogo" src="./assets/images/ARGf.png" alt="Avatar">
     <h6 letraYcolor class="hbtn" >¡Hola {{nombre | eliminoMail }}!</h6>

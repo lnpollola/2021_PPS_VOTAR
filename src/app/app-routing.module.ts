@@ -13,7 +13,7 @@ import { TablaPendientesComponent } from "../app/componentes/tabla-pendientes/ta
 import { EncuestaComponent } from "../app/componentes/encuesta/encuesta.component";
 import { GestionEscuelasComponent } from '../app/componentes/gestion-escuelas/gestion-escuelas.component';
 import { ValidovotanteComponent } from './componentes/validovotante/validovotante.component';
-
+import { GestionFuncionarioComponent} from '../app/componentes/gestion-funcionario/gestion-funcionario.component';
 
 
 const routes: Routes = [
@@ -25,6 +25,8 @@ const routes: Routes = [
   { path: 'contacto', component: ContactComponent },
   { path: 'listadoMesas', component: ListadoMesasComponent },
   { path: 'menu', component: MenuComponent },
+  { path: 'gestionFuncionario', component: GestionFuncionarioComponent },
+
   // { path: 'listado', component: TablaPendientesComponent },
   { path: 'gestionEscuelas', component: GestionEscuelasComponent },
   { path: 'encuesta', component: EncuestaComponent },
