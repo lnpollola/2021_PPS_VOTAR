@@ -165,6 +165,9 @@ Entrar(){
             // this.isLoading = false;
             this.router.navigateByUrl('/registro'); 
           }
+          else if (usuarioLogueado.perfil == "auxiliar") {
+            // this.isLoading = false;
+            this.router.navigateByUrl('/validovotante'); 
           else if (usuarioLogueado.perfil == "funcionario") {
             // this.isLoading = false;
             this.router.navigateByUrl('/gestionFuncionario'); 

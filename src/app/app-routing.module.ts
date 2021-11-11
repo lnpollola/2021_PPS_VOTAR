@@ -12,8 +12,8 @@ import { MenuComponent } from "../app/componentes/menu/menu.component";
 import { TablaPendientesComponent } from "../app/componentes/tabla-pendientes/tabla-pendientes.component";
 import { EncuestaComponent } from "../app/componentes/encuesta/encuesta.component";
 import { GestionEscuelasComponent } from '../app/componentes/gestion-escuelas/gestion-escuelas.component';
+import { ValidovotanteComponent } from './componentes/validovotante/validovotante.component';
 import { GestionFuncionarioComponent} from '../app/componentes/gestion-funcionario/gestion-funcionario.component';
-
 
 
 const routes: Routes = [
@@ -30,6 +30,8 @@ const routes: Routes = [
   // { path: 'listado', component: TablaPendientesComponent },
   { path: 'gestionEscuelas', component: GestionEscuelasComponent },
   { path: 'encuesta', component: EncuestaComponent },
+  { path: 'validovotante', component: ValidovotanteComponent },
+
 
 
 
