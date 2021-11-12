@@ -36,8 +36,8 @@
     
                                 <td>
                                   <!-- FIJARSE BOTONES -->
-                                    <button *ngIf="perfil == 'funcionario'  && (item.estado == 'cerrada') " class="btn btn-success" (click)="Abrir(item)" >Abrir</button> 
-                                    <button *ngIf="perfil=='funcionario'  && (item.estado == 'abierta') " class="btn btn-danger" (click)="Cerrar(item)">Cerrar</button>
+                                    <button *ngIf="perfilog == 'funcionario'  && (item.estado == 'cerrada') " class="btn btn-success" (click)="Abrir(item)" >Abrir</button> 
+                                    <button *ngIf="perfilog =='funcionario'  && (item.estado == 'abierta') " class="btn btn-danger" (click)="Cerrar(item)">Cerrar</button>
                                     <!-- <app-btn-eliminar *ngIf="perfil=='admin'"(enviarABorrar)="borrarEscuela(item)"></app-btn-eliminar></td> -->
                                     <hr>
                           </tr> 
