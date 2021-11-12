@@ -188,44 +188,19 @@ export class ListadoMesasComponent implements OnInit {
    {
  
 
-                                                             
-        // let mesaNueva = 
-        // {
-        //   num : this.registroForm.get('num').value,
-        
-        // }
-
-        // let usuarioLogueado = this.listaUsuarios.find(elem => (elem.username == usuarioNuevo.username));
-        // if (usuarioLogueado != undefined) {
-
-        //   this.usuarioRegistrado = true;
-        // }
-        // else{
-          // if(this.checkagregoimagen)
-          // {
-            // this.agregarImagen();
-            // let imagen:string = localStorage.getItem("ImagenSeleccionada");
-            // console.log(imagen);
-            let mesaNuev = new Mesa(this.registroForm.get('num').value,"cerrada",this.registroForm.get('perfil').value);
+            let mesaNuev = new Mesa(
+                              this.registroForm.get('num').value,
+                              "cerrada",
+                              this.registroForm.get('perfil').value
+                              );
            
             this.baseService.addItem('votar/Mesas', mesaNuev); 
-            // this.usuarioRegistrado = false;
-            // this.agregoimagenErrorMsg = false;
+          
             this.eliminOK = false;
             this.agregOK = true;
-            // localStorage.setItem("ImagenSeleccionada","");
-
-            this.registroForm.reset();
-            
-          // }
-          // else{
-          //   this.agregoimagenErrorMsg = true;
-          // }
           
-          this.TraerLasMesas();
-        // }
-
-
-
+            this.registroForm.reset();
+    
+            this.TraerLasMesas();
 
 }}

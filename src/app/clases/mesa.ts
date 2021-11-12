@@ -3,17 +3,15 @@ export class Mesa {
     public idMesa: number;
     public escuela: string;
     public estado: string;
-    // public acciones: string;
-  
-   
-  
+    public validofiscal: boolean;
+    public validopresidente: boolean;
 
   constructor(nroMesa:number, estado:string, escuela:string) {
     this.idMesa = nroMesa;
     this.estado = estado;
     this.escuela = escuela;
-    // this.acciones = acciones;
-   
-    
+    this.validofiscal = false;
+    this.validopresidente = false; 
+
   }
 }

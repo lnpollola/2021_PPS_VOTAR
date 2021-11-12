@@ -21,14 +21,10 @@
                 </option>
              
             </select>
-       
-
 
          
             <br>   
           
-
-
             
             <button (click)="IngresarMesa()" class="btn btn-success btn-lg col-sm-12" [disabled]="!registroForm.valid">Agregar</button>
           <br><br>
@@ -53,8 +49,7 @@
                     <th  scope="col" class="col1">NRO MESA</th>
                     <th  scope="col" class="col2">ESTADO</th>
                      <th  scope="col" class="col3">ESTABLECIMIENTO</th>
-                   <th  scope="col" class="col5">ACCIONES</th>
-                   
+
                      <!--  <th  scope="col" class="col6">ACT/SUSP/ELIM</th>  -->
   
           
@@ -66,27 +61,7 @@
                     
                             <td>{{item.idMesa }}</td>
                             <td>{{item.estado}}</td>
-                            <!-- <td *ngIf="item.imgMesa != ''"><img [src]="item.imgMesa" class="img-thumbnail" style="height: 80px;width: 80px;"></td> -->
                             <td >{{item.escuela}}</td>
-
-                            <!-- <td *ngIf="item.imgMesa == ''"><p>Imagen aun no seleccionada.</p></td> -->
-
-                            <!-- <td *ngIf="item.montoTotal != 0">${{item.montoTotal}}</td> -->
-                            <!-- <td *ngIf="item.montoTotal == 0"><p>Mesa no lista para cobrar.</p></td> -->
-
-                            <td>
-                              <!-- FIJARSE BOTONES -->
-                                <!-- <div class="divider"></div> -->
-                                <button *ngIf="perfilLog == 'presidente'" class="btn btn-success" (click)="Abrir(item.idMesa)" >Abrir</button> 
-                                <button *ngIf="perfilLog == 'presidente'" class="btn btn-danger" (click)="Cerrar(item.idMesa)">Cerrar</button>
-                                <app-btn-eliminar *ngIf="perfilLog == 'admin'" (enviarABorrar)="borrarMesa(item)"></app-btn-eliminar></td>
-                                <!-- <div class="divider"></div>
-                                <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Cobrar</button>  -->
-                                <!-- <div class="divider"><hr></div> -->
-                                <hr>
-                                  
-                                  <!-- <div class="divider"></div> -->
-        
         
                        
                       </tr> 
