@@ -1,13 +1,15 @@
 export class Votante {
 
-    public DNI: string;
-    public SEXO: string;
-    public NOMBRE: string;
-    public IDMESA: number;
-    public IDESCUELA:number;
-    public ORDEN:number;
-    public DVALIDADOR: number;
-  
+    public dni: string;
+    // public dvalidador: string;
+    public flagvoto: boolean;
+    public idEscuela:number;
+    public idMesa: number;
+    public nombre: string;
+    public orden:number;
+    public sexo: string;
+    public validoauxiliar: boolean;
+    public validovotar: boolean;
  
   constructor(
       DNI:string, 
@@ -15,16 +17,19 @@ export class Votante {
       NOMBRE:string, 
       IDMESA:number, 
       IDESCUELA:number,
-      ORDEN:number,
-      DVALIDADOR:number      
+      ORDEN:number
       ) {
           
-      this.DNI = DNI;
-      this.SEXO = SEXO;
-      this.NOMBRE = NOMBRE;
-      this.IDMESA = IDMESA;
-      this.IDESCUELA = IDESCUELA;
-      this.ORDEN = ORDEN;
-      this.DVALIDADOR =  DVALIDADOR ;
+      this.dni = DNI; 
+      // this.dvalidador = DVALIDADOR;
+      this.flagvoto = false;
+      this.idEscuela = IDESCUELA;
+      this.idMesa = IDMESA;
+      this.nombre = NOMBRE;
+      this.orden = ORDEN ; 
+      this.sexo = SEXO;
+      this.validoauxiliar = false; 
+      this.validovotar = false;
+
   }
 }

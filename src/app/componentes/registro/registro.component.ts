@@ -37,6 +37,7 @@ export class RegistroComponent implements OnInit {
 
   sexoElegido:string = "hombre";
   radioSelected:string;
+  
 
   constructor(private baseService:FirebaseService ) { }
 
@@ -67,13 +68,6 @@ export class RegistroComponent implements OnInit {
       this.faltancampos = false;
     }
 
-    // if(this.cuentaRegistro.password != this.cuentaRegistro.passwordR)
-    // {
-    //   this.contraError = true;
-    // }
-    // else{
-    //   this.contraError = false;
-    // }
   
     if(this.faltancampos == false &&  this.dniincompleto == false )
     {
@@ -84,7 +78,6 @@ export class RegistroComponent implements OnInit {
         this.listadoUsuarios = users;
   
         let usuarioLogueado = this.listadoUsuarios.find(elem => (elem.DNI == this.cuentaRegistro.DNI));
-        console.log(usuarioLogueado);
      
         if (usuarioLogueado !== undefined) {
           this.usuarioUtilizado = true;
@@ -92,21 +85,16 @@ export class RegistroComponent implements OnInit {
           
         }
         else{
-          // if(this.checkagregoimagen)
           {
-            // this.agregarImagen();
-            // let imagen:string = localStorage.getItem("ImagenSeleccionada");
-            // console.log(imagen);
             this.usuarioUtilizado = false;
          
             let usuarioNuev = new Votante(
                                           this.cuentaRegistro.DNI         ,
-                                          this.cuentaRegistro.SEXO        ,     
+                                          this.sexoElegido              ,     
                                           this.cuentaRegistro.NOMBRE      , 
                                           this.cuentaRegistro.IDMESA      , 
                                           this.cuentaRegistro.IDESCUELA   , 
-                                          this.cuentaRegistro.ORDEN       ,   
-                                          this.cuentaRegistro.DVALIDADOR   
+                                          this.cuentaRegistro.ORDEN        
                                           );
           this.baseService.addItem('votar/Votantes', usuarioNuev); 
           this.cuentaRegistro.DNI= "";
@@ -115,7 +103,7 @@ export class RegistroComponent implements OnInit {
           this.cuentaRegistro.IDMESA= 0;
           this.cuentaRegistro.IDESCUELA= 0;
           this.cuentaRegistro.ORDEN= 0;
-          this.cuentaRegistro.DVALIDADOR= 0;
+          // this.cuentaRegistro.DVALIDADOR= 0;
           this.isLoading = false;
           this.agregado = true;
 
