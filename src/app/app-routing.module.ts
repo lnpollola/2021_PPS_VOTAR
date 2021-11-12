@@ -14,6 +14,7 @@ import { EncuestaComponent } from "../app/componentes/encuesta/encuesta.componen
 import { GestionEscuelasComponent } from '../app/componentes/gestion-escuelas/gestion-escuelas.component';
 import { ValidovotanteComponent } from './componentes/validovotante/validovotante.component';
 import { GestionFuncionarioComponent} from '../app/componentes/gestion-funcionario/gestion-funcionario.component';
+import { ValidomesaComponent } from './componentes/validomesa/validomesa.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,8 @@ const routes: Routes = [
   { path: 'gestionEscuelas', component: GestionEscuelasComponent },
   { path: 'encuesta', component: EncuestaComponent },
   { path: 'validovotante', component: ValidovotanteComponent },
+  { path: 'validomesa', component: ValidomesaComponent },
+
 
 
 

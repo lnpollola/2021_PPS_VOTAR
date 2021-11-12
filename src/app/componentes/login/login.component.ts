@@ -173,6 +173,10 @@ Entrar(){
             // this.isLoading = false;
             this.router.navigateByUrl('/gestionFuncionario'); 
           }
+          else if (usuarioLogueado.perfil == "fiscal") {
+            // this.isLoading = false;
+            this.router.navigateByUrl('/validomesa'); 
+          }
           else
               { 
                
