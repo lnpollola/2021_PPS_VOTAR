@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { stringify } from 'querystring';
 import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { FirebaseService } from '../../servicios/firebase.service';
 })
 export class ValidomesaComponent implements OnInit {
 
-  listaMesas;
+  // listaMesas;
   listaEscuelas;
   importe;
   display: boolean = false;
@@ -22,57 +23,105 @@ export class ValidomesaComponent implements OnInit {
     
 
   ];
-  listaMesasabiertas = [];
-  listadoEscuelasAbiertas:any;
+  listaMesas : Array<any>;
+  listadoMesasAbiertas : Array<any>;
+  listadoMesasAbiertasArray : Array<any>;
+
+  listadoMesasEscuelasAbiertas : Array<any>;
+
+  listadoEscuelasAbiertasArray : Array<any>;
+  listadoEscuelasAbiertas : Array<any>;
+
+  
 
 
   constructor( private baseService:FirebaseService) {
     this.perfilLog=   JSON.parse(sessionStorage.getItem('Usuarios')).perfil;
-    this.listadoEscuelasAbiertas = [];
-    this.TraerLasMesas();
+    // this.listadoEscuelasAbiertas = [];
+    // this.listadoEscuelasAbiertas = [];
+    // this.TraerLasMesas();
     this.TraerLasEscuelas();
    }
 
    TraerLasEscuelas() {
+
     this.baseService.getItems("votar/Escuelas").then(escuelas => {
-      // setTimeout(() => this.spinner = false, 2000);
-      
+     
+      this.listadoEscuelasAbiertas = [];
       this.listaEscuelas = escuelas;
 
+      this.listaEscuelas.forEach(element => {
+        element = {
+       direccion: element.direccion,
+       distrito: element.distrito, 
+       estado: element.estado,
+       idEscuela: element.idEscuela,
+       nombre: element.nombre
+       }
+
+       if (element.estado == "abierta") {
+        this.listadoEscuelasAbiertas.push(element);
+       }
+
+       this.listadoEscuelasAbiertasArray = this.listadoEscuelasAbiertas;
+       
+      });
+      // console.log( this.listadoEscuelasAbiertasArray );
+      this.TraerMesasAbiertas(this.listadoEscuelasAbiertasArray);
+      
+     });
+  }
+
+
+TraerMesasAbiertas (listadoEscuelasAbiertas){
   
-      for (let index = 0; index < this.listaEscuelas.length; index++) {
+    this.listadoMesasAbiertas = [];
+    this.listaMesas = [];
+    // this.listaEscuelas = escuelas;
 
-        if (this.listaEscuelas[index].estado == "abierta") {
-         this.listadoEscuelasAbiertas[index] = this.listaEscuelas[index]
+    this.baseService.getItems("votar/Mesas").then(mesas => {
+
+    this.listaMesas = mesas;
+
+    listadoEscuelasAbiertas.forEach(escuela => {
+        // ESCUELA
+        escuela = {
+          direccion: escuela.direccion,
+          distrito: escuela.distrito, 
+          estado: escuela.estado,
+          idEscuela: escuela.idEscuela,
+          nombre: escuela.nombre
+          }
+      
+          this.listaMesas.forEach(mesa => {
+
+            // MESA
+            mesa = {
+           escuela: mesa.escuela,
+           estado: mesa.estado, 
+           idMesa: mesa.idMesa,
+           validofiscal: mesa.validofiscal,
+           validopresidente: mesa.validopresidente
+           }
+
+          if (
+            mesa.estado == "cerrada" &&
+            mesa.escuela == escuela.idEscuela) {
+            this.listadoMesasAbiertas.push(mesa);
+          }
           
-        }
-        
-      }
-      console.log(this.listadoEscuelasAbiertas);
+          //FOREACH MESA
+          this.listadoMesasAbiertasArray = this.listadoMesasAbiertas;
+           });
+      
+     });
 
+     console.log(this.listadoMesasAbiertasArray);
     
     });
   }
 
   ngOnInit() {
   }
-
-  TraerLasMesas()
-  {
-    this.baseService.getItems("votar/Mesas").then(mesas => {
-      // setTimeout(() => this.spinner = false, 2000);
-      
-      this.listaMesas = mesas;
-
-   
-     
-
-      
-    
-    });
-
- 
-  }
-
 
 }
