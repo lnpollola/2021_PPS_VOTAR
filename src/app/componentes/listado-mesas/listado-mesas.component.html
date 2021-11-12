@@ -17,7 +17,7 @@
           <select class="form-control" formControlName="perfil" >
               <option selected disabled>Seleccione establecimiento</option>
               <option *ngFor="let perfil of perfiles" [ngValue]="perfil">
-                  {{ perfil }}
+                  {{ perfil.nombre }}
                 </option>
              
             </select>
@@ -26,7 +26,7 @@
             <br>   
           
             
-            <button (click)="IngresarMesa()" class="btn btn-success btn-lg col-sm-12" [disabled]="!registroForm.valid">Agregar</button>
+            <button (click)="IngresarMesa()" class="btn btn-success btn-lg col-sm-12">Agregar</button>
           <br><br>
           <p letraYcolor *ngIf="agregOK" style="text-align: center;">Mesa agregada</p>
           <p letraYcolor *ngIf="eliminOK" style="text-align: center;">Mesa eliminada</p>
@@ -48,7 +48,7 @@
                   
                     <th  scope="col" class="col1">NRO MESA</th>
                     <th  scope="col" class="col2">ESTADO</th>
-                     <th  scope="col" class="col3">ESTABLECIMIENTO</th>
+                     <th  scope="col" class="col3">IDESTABLECIMIENTO</th>
 
                      <!--  <th  scope="col" class="col6">ACT/SUSP/ELIM</th>  -->
   
