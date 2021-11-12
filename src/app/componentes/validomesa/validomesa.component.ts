@@ -101,7 +101,8 @@ TraerMesasAbiertas (listadoEscuelasAbiertas){
            estado: mesa.estado, 
            idMesa: mesa.idMesa,
            validofiscal: mesa.validofiscal,
-           validopresidente: mesa.validopresidente
+           validopresidente: mesa.validopresidente,
+           key: mesa.key
            }
 
           if (
@@ -122,6 +123,44 @@ TraerMesasAbiertas (listadoEscuelasAbiertas){
   }
 
   ngOnInit() {
+  }
+
+  CheckFiscal(item)
+  {
+    console.log(item);
+   
+    var mesaHabilitar = {
+        escuela: item.escuela,
+        estado: item.estado, 
+        idMesa: item.idMesa,
+        validofiscal: true,
+        validopresidente: false
+        }
+       
+        console.log(mesaHabilitar);
+    this.baseService.updateItem('votar/Mesas', item.key , mesaHabilitar); 
+    this.TraerLasEscuelas();
+
+ 
+  }
+
+  CheckPresidente(item)
+  {
+   
+    var mesaHabilitar = {
+      escuela: item.escuela,
+      estado: "abierta", 
+      idMesa: item.idMesa,
+      validofiscal: true,
+      validopresidente: true
+      }
+     
+
+  this.baseService.updateItem('votar/Mesas', item.key , mesaHabilitar); 
+  this.TraerLasEscuelas();
+
+
+ 
   }
 
 }

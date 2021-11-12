@@ -36,17 +36,17 @@
                         <!-- <td *ngIf="item.montoTotal == 0"><p>Mesa no lista para cobrar.</p></td> -->
 
                         <td>
-                          <!-- FIJARSE BOTONES -->
-                            <!-- <div class="divider"></div> -->
-                            <button *ngIf="perfilLog == 'presidente'" class="btn btn-success" (click)="Abrir(item.idMesa)" >Abrir</button> 
-                            <button *ngIf="perfilLog == 'presidente'" class="btn btn-danger" (click)="Cerrar(item.idMesa)">Cerrar</button>
-                            <app-btn-eliminar *ngIf="perfilLog == 'admin'" (enviarABorrar)="borrarMesa(item)"></app-btn-eliminar></td>
-                            <!-- <div class="divider"></div>
-                            <button *ngIf="perfil=='admin'" class="btn btn-success" (click)="Cobrar(item.idMesa)" >Cobrar</button>  -->
-                            <!-- <div class="divider"><hr></div> -->
-                            <hr>
-                              
-                              <!-- <div class="divider"></div> -->
+                          <button *ngIf="perfilLog == 'fiscal' && item.validofiscal== false " class="btn btn-success" (click)="CheckFiscal(item)" >Habilitar Mesa</button> 
+                          <button *ngIf="perfilLog == 'fiscal' && item.validofiscal== true" class="btn btn-dark" disabled>Habilitación otorgada</button>
+
+
+                          <button *ngIf="perfilLog == 'presidente' && item.validofiscal == true && item.validopresidente == false" class="btn btn-info" (click)="CheckPresidente(item)" >Habilitar Mesa Presidente</button> 
+                          <button *ngIf="perfilLog == 'presidente' && item.validofiscal == false" class="btn btn-dark"  disabled>Falta Habilitación Fiscal</button> 
+                          <button *ngIf="perfilLog == 'presidente' && item.validofiscal == true && item.validopresidente==true " class="btn btn-dark"  disabled> Habilitación Otorgada</button> 
+                   
+
+                      </td>
+      
     
     
                    
