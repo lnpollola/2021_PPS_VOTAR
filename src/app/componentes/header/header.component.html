@@ -22,7 +22,9 @@
     
     <!-- MODIFICACION LISTADO DE ESCUELAS  -->
     <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/gestionEscuelas" routerLinkActive="active" class="hbtn"><span class="fa fa-university fa-lg"></span> GESTION DE ESCUELAS</a>
-    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'presidente' || perfilUsuario == 'admin')" routerLink="/listadoMesas" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && perfilUsuario == 'admin'" routerLink="/listadoMesas" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span> Listado de Mesas</a>
+    <a mat-button letraYcolor *ngIf="IngresoBool && (perfilUsuario == 'presidente' || perfilUsuario == 'fiscal')" routerLink="/validomesa" routerLinkActive="active" class="hbtn"><span class="fa fa-info-circle fa-lg"></span>Listado de Mesas</a>
+
   
 
     <!-- SECCION FUNCIONARIO -->
