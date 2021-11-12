@@ -43,6 +43,7 @@ export class GestionFuncionarioComponent implements OnInit {
   distrito = new FormControl('', [ ]);
   nombre = new FormControl('', [ ]);
   perfil = new FormControl(null, [ ]);
+  perfilog:any;
   
 
   registroForm: FormGroup = this.builder.group({
@@ -54,7 +55,7 @@ export class GestionFuncionarioComponent implements OnInit {
 
   constructor( private builder: FormBuilder,
     private baseService:FirebaseService) {
-    this.perfil=   JSON.parse(sessionStorage.getItem('Usuarios')).perfil;
+    this.perfilog=   JSON.parse(sessionStorage.getItem('Usuarios')).perfil;
   
     this.TraerLasEscuelas();
    }
