@@ -31,8 +31,8 @@ export class RegistroComponent implements OnInit {
     "NOMBRE": "",
     "IDMESA": 0,
     "IDESCUELA":0 ,
-    "ORDEN": 0,
-    "DVALIDADOR" : 0
+    "ORDEN": 0
+    // "DVALIDADOR" : 0
   }
 
   sexoElegido:string = "hombre";

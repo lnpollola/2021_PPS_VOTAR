@@ -167,7 +167,7 @@ export class MenuComponent implements OnInit {
       
       var agregoVotante = {
        dni: this.votante.dni,
-       dvalidador: this.votante.dvalidador,
+      //  dvalidador: this.votante.dvalidador,
        flagvoto: true,
        validoauxiliar: true,
        idEscuela: this.votante.idEscuela,

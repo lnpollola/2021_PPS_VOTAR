@@ -87,7 +87,7 @@ votanteBuscado:any;
    
     var agregoVotante = {
       dni: this.votanteBuscado.dni,
-      dvalidador: this.votanteBuscado.dvalidador,
+      // dvalidador: this.votanteBuscado.dvalidador,
       flagvoto: false,
       validoauxiliar: true,
       idEscuela: this.votanteBuscado.idEscuela,
@@ -110,7 +110,7 @@ votanteBuscado:any;
    
     var agregoVotante = {
       dni: this.votanteBuscado.dni,
-      dvalidador: this.votanteBuscado.dvalidador,
+      // dvalidador: this.votanteBuscado.dvalidador,
       flagvoto: false,
       validoauxiliar: true,
       idEscuela: this.votanteBuscado.idEscuela,
