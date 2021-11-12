@@ -104,7 +104,9 @@ TraerMesasAbiertas (listadoEscuelasAbiertas){
            validopresidente: mesa.validopresidente
            }
 
-          if (mesa.escuela == escuela.idEscuela) {
+          if (
+            mesa.estado == "cerrada" &&
+            mesa.escuela == escuela.idEscuela) {
             this.listadoMesasAbiertas.push(mesa);
           }
           
