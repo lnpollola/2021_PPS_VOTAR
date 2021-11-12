@@ -1,12 +1,12 @@
 export class Mesa {
     
     public idMesa: number;
-    public escuela: string;
+    public escuela: number;
     public estado: string;
     public validofiscal: boolean;
     public validopresidente: boolean;
 
-  constructor(nroMesa:number, estado:string, escuela:string) {
+  constructor(nroMesa:number, estado:string, escuela:number) {
     this.idMesa = nroMesa;
     this.estado = estado;
     this.escuela = escuela;

@@ -19,6 +19,7 @@ export class ListadoMesasComponent implements OnInit {
   display: boolean = false;
   perfilLog;
   noIMGcargada: boolean = false;
+  mesaSeleccionada;
   // mesa = new Mesa();
  
 
@@ -88,7 +89,7 @@ export class ListadoMesasComponent implements OnInit {
       var long = [];
       
       for (let index = 0; index < this.listaEscuelas.length; index++) {
-        this.perfiles[index] = this.listaEscuelas[index].nombre;
+        this.perfiles[index] = this.listaEscuelas[index];
         
       }
      
@@ -187,13 +188,17 @@ export class ListadoMesasComponent implements OnInit {
   IngresarMesa()
    {
  
+    // console.log(this.registroForm.get('perfil').value);
+    this.mesaSeleccionada = this.registroForm.get('perfil').value;
+    // console.log(this.mesaSeleccionada);
 
             let mesaNuev = new Mesa(
                               this.registroForm.get('num').value,
                               "cerrada",
-                              this.registroForm.get('perfil').value
+                              this.mesaSeleccionada.idEscuela
                               );
            
+                //  console.log(mesaNuev);
             this.baseService.addItem('votar/Mesas', mesaNuev); 
           
             this.eliminOK = false;
