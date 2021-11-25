@@ -72,9 +72,5 @@ export class HeaderComponent implements OnInit {
     
   }
 
-  guardovototp(){
-    sessionStorage.setItem('Vototp', "true");
-  
-  }
 
 }

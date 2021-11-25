@@ -21,7 +21,7 @@ h1{
     margin: 0px auto;
     /* padding: 0px 20px; */
     
-    background: rgb(176, 185, 230);
+    background: #d0d1ff;
 
     color: whitesmoke;
     min-height: 100px;
@@ -31,7 +31,7 @@ h1{
 
   .header 
   {
-    background-color: rgb(149, 125, 173);
+    background-color: #957fef;
     /* background-color: #6D6875; */
     font-family: 'Bebas Neue', cursive;
   }

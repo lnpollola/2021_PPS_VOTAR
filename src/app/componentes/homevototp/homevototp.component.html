@@ -30,7 +30,8 @@
 
 
           <ngx-slick-carousel class="carousel slide pb-4 pointer-event" #slickModal="slick-carousel" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)" [config]="slideConfig">  
-            <div ngxSlickItem *ngFor="let image of imagesNacion" (click)="candidatoElegido(image.img)" class="slide">  
+            <div ngxSlickItem *ngFor="let image of imagesNacion" (click)="candidatoElegido(image.img)" class="slide"> 
+              <div class="label-top shadow-sm">Asus Rog</div> 
               <img src="{{ image.img }}" style="margin-left: 35%;" width="27%">  
             </div>  
           </ngx-slick-carousel>  

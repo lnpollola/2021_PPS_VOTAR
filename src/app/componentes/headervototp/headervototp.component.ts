@@ -12,10 +12,6 @@ export class HeadervototpComponent implements OnInit {
   ngOnInit() {
   }
 
-  guardovototp(){
-    sessionStorage.setItem('Vototp', "false");
-  
-  }
 
 
 }
