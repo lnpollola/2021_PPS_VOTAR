@@ -2,11 +2,11 @@
 
 # SISTEMA VOT.AR
 ## GRUPO 10
-**
-## Julian Graziano
-## Matias Perez
-## Leandro Pollola
-**
+
+### Julian Graziano
+### Matias Perez
+### Leandro Pollola
+
 
 ## Tecnologías utilizadas:
 ![alt text](Screenshots/Languages.jpg)
