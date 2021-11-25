@@ -25,6 +25,8 @@ export class GestionEscuelasComponent implements OnInit {
   usuarioRegistrado: boolean = false;
   agregOK:boolean = false;
   eliminOK:boolean = false;
+  flagPrimeravez: boolean = true;
+  flagEscuelas:boolean = false;
   perfiles = [
   ];
 
@@ -58,18 +60,29 @@ export class GestionEscuelasComponent implements OnInit {
   TraerLasEscuelas() {
     this.baseService.getItems("votar/Escuelas").then(escuelas => {
       
-      this.listaEscuelas = escuelas;
-      var long = [];
-      
-      for (let index = 0; index < this.listaEscuelas.length; index++) {
-        this.perfiles[index] = this.listaEscuelas[index].nombre;
+      if( escuelas.length > 0 ) 
+      {
+        this.listaEscuelas = escuelas;
+        var long = [];
         
+        for (let index = 0; index < this.listaEscuelas.length; index++) {
+          this.perfiles[index] = this.listaEscuelas[index].nombre;
+          
+        }
+        this.flagEscuelas = true;
       }
+      else {
+        this.flagEscuelas = false;
+      }
+      
+     
      
     });
   }
 
   ngOnInit() {
+    this.TraerLasEscuelas();
+    this.flagPrimeravez = false;
   }
 
 
