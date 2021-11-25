@@ -25,6 +25,8 @@ export class ClienteComponent implements OnInit {
   listaEscuelas:any;
   escuelaVotante:any;
   DNIError: boolean = false;
+  flagvotoEnc: boolean = false;
+  
 
 valMozo:number;
 valCocinero:number;
@@ -80,6 +82,7 @@ votanteBuscado:any;
         this.sexo = this.votanteBuscado.sexo;
         this.idMesa = this.votanteBuscado.idMesa;
         this.orden = this.votanteBuscado.orden;
+
   
        this.escuelaVotante = this.listaEscuelas.find(elem => (elem.idEscuela == this.votanteBuscado.idEscuela ));
        console.log(this.escuelaVotante);
@@ -92,7 +95,8 @@ votanteBuscado:any;
       }
       else if(this.votanteBuscado.flagvoto === true){
         // sessionStorage.setItem('Votantes', JSON.stringify(this.votanteBuscado));
-        this.router.navigateByUrl('/encuesta'); 
+        this.flagvotoEnc = true;
+        setTimeout(() => this.router.navigateByUrl('/home'), 3000);
 
       }
   

@@ -71,9 +71,14 @@
       </form>
     
     </div>
-    
+  
+
     <div class="mat-elevation-z8 col-8 border border-dark" style="color:black; background: rgba(119, 136, 153, 0.481);">
       <br>
+      <h1 *ngIf="!flagUsuarios && !flagPrimeraVez" letraYcolor>
+        No se encuentran usuarios dados de alta
+      </h1>
+      <div *ngIf="flagUsuarios" >
         <h3 letraYcolor>Lista de usuarios</h3>
         <hr style="border-color: white;">
      
@@ -116,6 +121,6 @@
         <button class="btn btn-info btn-block btn-lg" (click)="descarga()"><i class="fa fa-cloud-download"></i> Descargar detalle lista de usuarios</button>
         <br>
       </div>
-    
+    </div>
     </div>
   </body>
