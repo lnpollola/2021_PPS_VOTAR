@@ -42,7 +42,7 @@ export class UsuariosComponent implements OnInit {
   checkagregoimagen: boolean = false;
   agregoimagenErrorMsg: boolean = false;
   flagUsuarios: boolean = false; 
-  flagPrimeraVezEsc: boolean = true;
+  flagPrimeraVez: boolean = true;
   
   // displayedColumns: string[] = ['usuario', 'perfil', 'estado','accionesSusp','accionesDel'];
 
@@ -323,7 +323,7 @@ this.baseService.getItems("votar/Usuarios").then(users => {
 
   ngOnInit() {
     this.TraerTodosLosUsuarios();
-    this.flagPrimeraVezEsc = false;
+    this.flagPrimeraVez = false;
   }
 
 
