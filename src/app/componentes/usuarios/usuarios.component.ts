@@ -6,25 +6,13 @@ import { FirebaseService } from '../../servicios/firebase.service';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
 import * as firebase from "firebase";
 
-// import { AngularFireStorage } from 'angularfire2/storage';
 
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
 }
 
-// import { MessageService } from 'primeng/api';
-// import {Message} from 'primeng/components/common/api';
-
-// export interface DetalleUsuarios {
-//   usuario: string;
-//   perfil: string;
-//   estado: string;
-//   accionesSusp: any;
-//   accionesDel: any;
-// }
 
 @Component({
   selector: 'app-usuarios',
@@ -35,7 +23,6 @@ class ImageSnippet {
 
 export class UsuariosComponent implements OnInit {
 
-  // @Input() dataSource;
 
   listaUsuarios:Array<any>;
   usuarioRegistrado: boolean = false;
@@ -54,7 +41,8 @@ export class UsuariosComponent implements OnInit {
   imagenNueva: any;
   checkagregoimagen: boolean = false;
   agregoimagenErrorMsg: boolean = false;
-
+  flagUsuarios: boolean = false; 
+  flagPrimeraVezEsc: boolean = true;
   
   // displayedColumns: string[] = ['usuario', 'perfil', 'estado','accionesSusp','accionesDel'];
 
@@ -105,9 +93,15 @@ export class UsuariosComponent implements OnInit {
 //  });
 
 this.baseService.getItems("votar/Usuarios").then(users => {
-  // setTimeout(() => this.spinner = false, 2000);
   
-  this.listaUsuarios = users;
+  if( users.length > 0 ) 
+  {
+    this.listaUsuarios = users;
+    this.flagUsuarios = true;
+  }
+  else {
+    this.flagUsuarios = false;
+  }
   
 
 });
@@ -162,16 +156,6 @@ this.baseService.getItems("votar/Usuarios").then(users => {
           this.TraerTodosLosUsuarios();
         }
 
-
-      
-        // this.httpUsuarios.CargarUsuario(usuario, clave, sexo, perfil)
-        // .subscribe((data)=>{
-        //  // console.log(data);
-        //   this.TraerTodosLosUsuarios();
-        // })
-        // ;
-        
-  
       
 
        
@@ -339,6 +323,7 @@ this.baseService.getItems("votar/Usuarios").then(users => {
 
   ngOnInit() {
     this.TraerTodosLosUsuarios();
+    this.flagPrimeraVezEsc = false;
   }
 
 

@@ -21,6 +21,8 @@ export class ListadoMesasComponent implements OnInit {
   noIMGcargada: boolean = false;
   mesaSeleccionada;
   // mesa = new Mesa();
+  flagMesas: boolean = false; 
+  flagprimeraVezMesas: boolean = true;
  
 
   listaUsuarios:Array<any>;
@@ -85,7 +87,7 @@ export class ListadoMesasComponent implements OnInit {
       // setTimeout(() => this.spinner = false, 2000);
       
       this.listaEscuelas = escuelas;
-      console.log(this.listaEscuelas[0].nombre);
+     
       var long = [];
       
       for (let index = 0; index < this.listaEscuelas.length; index++) {
@@ -93,26 +95,29 @@ export class ListadoMesasComponent implements OnInit {
         
       }
      
-      
-     
-      console.log(this.perfiles);
-
-      
-    
     });
   }
 
   ngOnInit() {
+    this.TraerLasMesas ();
+    this.flagprimeraVezMesas = false;
   }
   TraerLasMesas()
   {
     this.baseService.getItems("votar/Mesas").then(mesas => {
       // setTimeout(() => this.spinner = false, 2000);
       
-      this.listaMesas = mesas;
+
 
    
-
+      if( mesas.length > 0 ) 
+      {
+        this.listaMesas = mesas;
+        this.flagMesas = true;
+      }
+      else {
+        this.flagMesas = false;
+      }
       
     
     });
@@ -129,9 +134,7 @@ export class ListadoMesasComponent implements OnInit {
       // setTimeout(() => this.spinner = false, 2000);
       
       let listadoMesas = mesas;
-      console.log(idMesa);
       let mesaACobrar = listadoMesas.find(elem => (elem.idMesa == idMesa ));
-      console.log(mesaACobrar);
 
       let mesaAEnviar = {
         idMesa: mesaACobrar.idMesa,
@@ -156,10 +159,8 @@ export class ListadoMesasComponent implements OnInit {
       // setTimeout(() => this.spinner = false, 2000);
       
       let listadoMesas = mesas;
-      console.log(idMesa);
       let mesaACobrar = listadoMesas.find(elem => (elem.idMesa == idMesa ));
-      console.log(mesaACobrar);
-
+      
       let mesaAEnviar = {
         idMesa: mesaACobrar.idMesa,
         estado: "vacia",
@@ -177,7 +178,6 @@ export class ListadoMesasComponent implements OnInit {
   }
 
   borrarMesa(mesa){
-    console.log(mesa);
     this.baseService.removeItem('votar/Mesas', mesa.key );
 
     this.agregOK = false;
