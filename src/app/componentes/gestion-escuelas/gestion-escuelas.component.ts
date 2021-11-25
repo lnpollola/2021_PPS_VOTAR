@@ -25,7 +25,7 @@ export class GestionEscuelasComponent implements OnInit {
   usuarioRegistrado: boolean = false;
   agregOK:boolean = false;
   eliminOK:boolean = false;
-  flagPrimeravez: boolean = true;
+  flagPrimeravezEsc: boolean = true;
   flagEscuelas:boolean = false;
   perfiles = [
   ];
@@ -82,7 +82,7 @@ export class GestionEscuelasComponent implements OnInit {
 
   ngOnInit() {
     this.TraerLasEscuelas();
-    this.flagPrimeravez = false;
+    this.flagPrimeravezEsc = false;
   }
 
 
