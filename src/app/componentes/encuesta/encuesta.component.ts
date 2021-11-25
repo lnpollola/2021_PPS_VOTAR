@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms'
 import { Feedback, ContactType } from '../../clases/feedback';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import { FirebaseService } from '../../servicios/firebase.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -58,7 +59,8 @@ export class EncuestaComponent implements OnInit {
   constructor(
           private fb: FormBuilder,
           config: NgbRatingConfig,
-          private baseService:FirebaseService
+          private baseService:FirebaseService,
+          private router: Router
             ) 
     {
     this.createForm();
@@ -116,6 +118,8 @@ export class EncuestaComponent implements OnInit {
       puntuacionGeneral: ''
 
     });
+    this.logout();
+    setTimeout(() => this.router.navigateByUrl('/home'), 1000);
   }
 
   logout()

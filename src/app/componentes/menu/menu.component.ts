@@ -5,10 +5,12 @@ import { FirebaseService } from '../../servicios/firebase.service';
 import { Mesa } from "../../clases/mesa";
 import * as firebase from "firebase";
 import { Pedidodetalle } from "../../clases/pedidodetalle";
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -39,7 +41,8 @@ export class MenuComponent implements OnInit {
   // listadoMesas:Array<Mesa>;
   listadoMesas: any;
   elDetallePedido: Pedidodetalle;
-
+  agregOK:boolean = false;
+  eliminOK:boolean = false;
   selectedFile: ImageSnippet;
   imagenNueva: any;
   checkagregoimagen: boolean = false;
@@ -182,6 +185,7 @@ export class MenuComponent implements OnInit {
       this.baseService.updateItem('votar/Votantes',this.votante.key,agregoVotante); 
 
      
+     
     });
       
   
@@ -210,23 +214,105 @@ export class MenuComponent implements OnInit {
     this.isLoading = false;
     this.candidatosCard = false;
     this.yaVoto = true;
-    // setTimeout(() => this.isLoading = false, 8000);
-    
-    setTimeout(() => this.router.navigateByUrl('/encuesta'), 3000);
-    
+
+    this.descarga();
 
     
 
   }
   
 
-
-
   constructor( private baseService:FirebaseService,private router: Router) {
 
    }
 
-   
+   descarga(){
+    this.usuario = JSON.parse(sessionStorage.getItem('Votantes')) ;
+    this.eliminOK = false;
+    const documentDefinition = { content: [
+        {
+            text: 'Comprobante de Voto',
+            bold: true,
+            fontSize: 20,
+            alignment: 'center',
+            decoration: 'underline',
+            margin: [0, 0, 0, 20]
+        },
+        this.datosVotante(this.usuario),
+      ],
+          styles: {
+            name: {
+              fontSize: 14,
+            },
+            jobTitle: {
+              fontSize: 16,
+              bold: true,
+              italics: true
+            }
+          }
+        }
+
+    
+    pdfMake.createPdf(documentDefinition).download('Comprobante de Voto.pdf');
+
+    this.yaVoto = true;
+    setTimeout(() => this.router.navigateByUrl('/encuesta'), 5000);
+    
+  
+
+   }
+   datosVotante(agregoVotante){
+    const exs = [];
+    const datepipe: DatePipe = new DatePipe('en-US')
+    let formattedDate = datepipe.transform(Date.now() , 'dd-MMM-yyyy HH:mm:ss')
+      exs.push(
+        [{
+          columns: [
+            [{
+              text: "DNI Votante: "+ agregoVotante.dni,
+              style: 'jobTitle'
+            },
+            {
+              text:  "Fecha y Hora: "+  formattedDate,
+              style: 'name'
+            },
+            {
+              text:  "Nombre: "+ agregoVotante.nombre,
+              style: 'name'
+            },
+            {
+              text:  "Sexo: "+ agregoVotante.sexo,
+              style: 'name'
+            },
+            {
+              text:  "Orden: "+ agregoVotante.orden,
+              style: 'name'
+            },
+            {
+              text:  "ID Escuela: "+ agregoVotante.idEscuela,
+              style: 'name'
+            },
+            {
+              text:  "ID Mesa: "+ agregoVotante.idMesa,
+              style: 'name'
+            },
+         
+          ]
+          ]
+        }]
+      );
+
+    return {
+      table: {
+        widths: ['*'],
+        body: [
+          ...exs
+        ]
+      }
+    }
+    ;
+  
+  }
    
    AgregarAlPedido(producto:Producto)
    {
@@ -255,6 +341,9 @@ export class MenuComponent implements OnInit {
  
    }
  
+
+
+   
  async IngresarPedido()
  {
    this.elPedido.estado = "pendiente"
@@ -384,95 +473,6 @@ agregarImagen()
     return result;
  }
 
- descarga(){
-  // this.eliminOK = false;
-  console.log(this.detalleDescarga);
-  if(this.elPedido.id != undefined)
-  {
-    const documentDefinition = { content: [
-      {
-          text: 'Detalle pedido realizado',
-          bold: true,
-          fontSize: 20,
-          alignment: 'center',
-          decoration: 'underline',
-          margin: [0, 0, 0, 20]
-      },
-      this.getListaUsuariosPDF(this.detalleDescarga, this.elPedido),
-  
-    ],
-        styles: {
-          name: {
-            fontSize: 14,
-          },
-          jobTitle: {
-            fontSize: 16,
-            bold: true,
-            italics: true
-          }
-        }
-      }
-      pdfMake.createPdf(documentDefinition).download('Facturacion.pdf');
 
-  }
-  
- 
-
-  
-
-}
-getListaUsuariosPDF(detalleDescarga, elPedido){
-  console.log(detalleDescarga);
-  let detEnviar = "";
-  detalleDescarga.forEach(element => {
-    if (element.nombre != undefined) {
-    detEnviar+="\n "+ element.nombre;
-      
-    }
-  });
-  console.log(detEnviar);
-
-
-  const exs = [];
-  // this.listaProductos.forEach(element => {
-    exs.push(
-      [{
-        columns: [
-          [{
-            text: "Descripcion de lo pedido: "+ detEnviar,
-            style: 'jobTitle'
-          },
-          {
-            text:  "\nMesa: "+ elPedido.idMesa,
-            style: 'name'
-          },
-          {
-            text:  "\nNumero Pedido: "+ elPedido.id,
-            style: 'name'
-          },
-          {
-            text:  "Monto total: $"+ elPedido.montoTotal,
-            style: 'name'
-          },
-          // {
-          //   text:  "Firebase Key: "+ element.key,
-          //   style: 'name'
-          // },
-        ]
-        ]
-      }]
-    );
-  // });
-  return {
-    table: {
-      widths: ['*'],
-      body: [
-        ...exs
-      ]
-    }
-  };
-
-}
- 
 
 }
