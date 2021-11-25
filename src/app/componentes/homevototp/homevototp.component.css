@@ -10,16 +10,6 @@ th{
   /* color: whitesmoke; */
 }
 
-input[type=file] {
-  display: inherit;
-  width: 200px;
-}
-
-input{
-
-  font-family: 'Roboto Slab', serif;
-}
-
 /* .mat-radio-outer-circle{
   margin-left: -20%;
 } */
@@ -70,4 +60,25 @@ body{
 	background-image: url('../../../assets/images/faculomas.jfif');
 	background-repeat: repeat  ;
 	/* background-size: cover; */
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+  border: 0;
+  border-radius: 1rem
+}
+
+.label-top {
+  position: absolute;
+  background-color: #8bc34a;
+  color: #fff;
+  top: 8px;
+  right: 8px;
+  padding: 5px 10px 5px 10px;
+  font-size: .7rem;
+  font-weight: 600;
+  border-radius: 3px;
+  text-transform: uppercase
 }
