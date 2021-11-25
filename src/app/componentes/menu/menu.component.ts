@@ -13,8 +13,6 @@ import { DatePipe } from '@angular/common';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
 }

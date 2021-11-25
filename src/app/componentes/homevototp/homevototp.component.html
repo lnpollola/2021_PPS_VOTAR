@@ -1,7 +1,70 @@
 <app-headervototp></app-headervototp>
-<p>homevototp works!</p>
+
+<body>
+<div class="container">
+    <!-- <div class="row ">   -->
+        <br>
+      <div *ngIf="candidatosCard" class="card">    
+        <div class="card-header">
+          <h2 letraYcolor  style="text-align: center;">TRABAJOS PRACTICOS PRACTICA SUPERVISADA 2021</h2>
+        </div>
+        <div class="card-body bg-light">
+            <input type="string" letraYcolor  class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="nombregrupovotante" placeholder="Ingrese NOMBRE Y APELLIDO" required>
+
+            <div class="input-group mb-3" >
+                <div class="input-group-prepend">
+                  <label letraYcolor class="input-group-text" for="inputGroupSelect01">Grupo</label>
+                </div>
+                <select [(ngModel)]="selectedOption" style="text-align: center;" letraYcolor class="custom-select" id="inputGroupSelect01">
+                  <option selected disabled>Elija el grupo al que pertenece...</option>
+                  <option *ngFor="let o of options">{{o.value}}</option>
+      
+                </select>
+              </div>
+            <!-- <input type="string"  letraYcolor class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="grupovotante.grupo" placeholder="Ingrese Grupo al que pertenece" required> -->
+
+        </div>
+        <div class="card-body">
+
+            
 
 
-
-<!-- <app-footer [cambioclasefooter]="cambioclase"> </app-footer> -->
-
+          <ngx-slick-carousel class="carousel slide pb-4 pointer-event" #slickModal="slick-carousel" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)" [config]="slideConfig">  
+            <div ngxSlickItem *ngFor="let image of imagesNacion" (click)="candidatoElegido(image.img)" class="slide">  
+              <img src="{{ image.img }}" style="margin-left: 35%;" width="27%">  
+            </div>  
+          </ngx-slick-carousel>  
+        </div>
+    
+  
+        <div *ngIf="muestroCandidato" class="card-body text-center">
+          <label letraYcolor class="agregado"  style="width: 100%">Elección Trabajo Practico: {{candidatoSeleccionadoLabel}} </label>
+          <button letraYcolor class="btn btn-lg btn-success" (click)="confirmoCandidato()">Confirmar trabajo practico</button>
+  
+          
+  
+        </div>
+        <br>
+        
+      </div>
+      <br>
+      <div *ngIf="isLoading" class="d-flex justify-content-center text-primary">
+        <div class="spinner-border" role="status">
+    
+        </div>
+      </div>
+     
+      
+  
+      <div *ngIf="yaVoto" class="card">
+        <div class="card-header"><h2 letraYcolor  style="text-align: center;">VOTO CONFIRMADO</h2></div>
+        <div class="card-body" letraYcolor  style="text-align: center;"><p>
+          Usted confirmó el voto para el trabajo practico del {{candidatoSeleccionadoLabel}}. <br>Muchas gracias por utilizar el sistema electrónico.<br>
+          Si no voto por el tp del GRUPO 10, sera sancionado.</p>
+        </div>
+       <br><br><br><br>
+      </div>
+      <br>
+  </div>
+  
+</body>
