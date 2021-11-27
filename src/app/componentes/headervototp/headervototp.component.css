@@ -48,7 +48,7 @@ h1{
   }
 
 .active {
-  background-color: #957fef;
+  background-color: #5883e8;
   color: black;
   transition-duration: 1.8s;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
