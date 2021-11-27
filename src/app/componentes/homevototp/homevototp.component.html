@@ -9,13 +9,13 @@
           <h2 letraYcolor  style="text-align: center;">TRABAJOS PRACTICOS PRACTICA SUPERVISADA 2021</h2>
         </div>
         <div class="card-body bg-light">
-            <input type="string" letraYcolor  class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="nombregrupovotante" placeholder="Ingrese NOMBRE Y APELLIDO" required>
+            <input type="string" class="form-control form-control-lg" style="text-align: center;"  [(ngModel)]="nombregrupovotante" placeholder="Ingrese NOMBRE Y APELLIDO" required>
 
             <div class="input-group mb-3" >
-                <div class="input-group-prepend">
-                  <label letraYcolor class="input-group-text" for="inputGroupSelect01">Grupo</label>
+                <div class="input-group-prepend ">
+                  <label class="input-group-text" for="inputGroupSelect01">Grupo</label>
                 </div>
-                <select [(ngModel)]="selectedOption" style="text-align: center;" letraYcolor class="custom-select" id="inputGroupSelect01">
+                <select [(ngModel)]="selectedOption" style="text-align: center;" class="custom-select" id="inputGroupSelect01">
                   <option selected disabled>Elija el grupo al que pertenece...</option>
                   <option *ngFor="let o of options">{{o.value}}</option>
       

@@ -1,4 +1,17 @@
+  input{
+    color: black;
+  font-size: 190%;
+  
+    font-family: 'Bebas Neue', cursive;
+  }
 
+select,label{
+  color: black;
+font-size: 190%;
+ 
+  font-family: 'Bebas Neue', cursive;
+  
+}
 
 .col-md-5 {
   width: 100%;
@@ -59,6 +72,7 @@ text-align: center;
 body{
 	background-image: url('../../../assets/images/faculomas.jfif');
 	background-repeat: repeat  ;
+  margin-left: -5px;
 	/* background-size: cover; */
 }
 

@@ -10,7 +10,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class ResultadosGeneralesComponent implements OnInit {
 
-  listaResultados;
+  listaResultados = [{
+    nombre: '1',
+    cantidad: 1
+  }];
+
+  
   flagTrajores = false;
 
 
@@ -19,7 +24,7 @@ export class ResultadosGeneralesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listaResultados = [] ;
+    // this.listaResultados = [] ;
     this.traerResultadosGenerales();
     this.flagTrajores = true;
   }

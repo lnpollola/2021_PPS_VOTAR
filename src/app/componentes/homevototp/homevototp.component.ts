@@ -18,17 +18,17 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class HomevototpComponent implements OnInit {
  
   imagesNacion = [  
-    { img: "./assets/images/Grupo1.jpg" },
-    { img: "./assets/images/Grupo2.jpg" },
-    { img: "./assets/images/Grupo3.jpg" },
-    { img: "./assets/images/Grupo4.jpg" },
-    { img: "./assets/images/Grupo5.jpg" },
-    { img: "./assets/images/Grupo6.jpg" },
-    { img: "./assets/images/Grupo7.jpg" },
-    { img: "./assets/images/Grupo8.jpg" },
-    { img: "./assets/images/Grupo9.jpg" },
-    { img: "./assets/images/Grupo10.jpg" },
-    { img: "./assets/images/Grupo11.jpg" }
+    { img: "./assets/images/one.png" },
+    { img: "./assets/images/two.png" },
+    { img: "./assets/images/three.png" },
+    { img: "./assets/images/four.png" },
+    { img: "./assets/images/five.png" },
+    { img: "./assets/images/six.png" },
+    { img: "./assets/images/seven.png" },
+    { img: "./assets/images/eight.png" },
+    { img: "./assets/images/nine.png" },
+    { img: "./assets/images/ten.png" },
+    { img: "./assets/images/eleven.png" }
 
 
   ];  

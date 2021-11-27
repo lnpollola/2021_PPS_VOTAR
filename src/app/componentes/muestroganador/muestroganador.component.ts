@@ -8,35 +8,48 @@ import { FirebaseService } from '../../servicios/firebase.service';
   styleUrls: ['./muestroganador.component.css']
 })
 export class MuestroganadorComponent implements OnInit {
-  listaGrupos: any;
+ 
+  // listaResultados:any;
+  listaResultados = [{
+    nombre: '1',
+    cantidad: 1
+  }];
+  flagTrajores = false;
+
+
 
   constructor(private baseService:FirebaseService) {
-    this.baseService.getItems("votar/Votostp").then(grupos => {
-      
-
-      this.listaGrupos = grupos;
-      console.log(this.listaGrupos);
-
-      this.listaGrupos.forEach(element => {
-        
-      });
-      this.listaGrupos.sort(function(a, b) {
-        return a - b;
-      });
-
-      Math.max
-     
-      // this.partidoBuscado = this.listaCandidatos.find(elem => (elem.key == this.candidatoConfirmado ));
-     
-     
-
-     
-    });
+ 
 
    }
 
   ngOnInit() {
+    // this.listaResultados = [] ;
+    this.traerResultadosGenerales();
+    this.flagTrajores = true;
   }
+
+  async traerResultadosGenerales() {
+    
+   await this.baseService.getItems("votar/Votostp").then(resultados => {
+
+      this.listaResultados = resultados;
+      this.listaResultados.sort( 
+          function (a,b)  {
+            if (a.cantidad < b.cantidad) {
+              return 1;
+            }
+            if (a.cantidad > b.cantidad) {
+              return -1;
+            } 
+            return 0;
+      }) ;
+  
+     
+    });
+  
+  }
+
 
   
 
