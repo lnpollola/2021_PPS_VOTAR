@@ -11,6 +11,7 @@ export class MuestroganadorComponent implements OnInit {
  
   // listaResultados:any;
   listaResultados = [{
+    key: "1",
     nombre: '1',
     cantidad: 1
   }];

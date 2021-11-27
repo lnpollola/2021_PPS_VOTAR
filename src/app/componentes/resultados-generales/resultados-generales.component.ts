@@ -11,6 +11,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class ResultadosGeneralesComponent implements OnInit {
 
   listaResultados = [{
+    logo: "1",
+    key: "1",
     nombre: '1',
     cantidad: 1
   }];
