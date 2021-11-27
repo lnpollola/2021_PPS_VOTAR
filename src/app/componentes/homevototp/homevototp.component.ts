@@ -91,62 +91,62 @@ export class HomevototpComponent implements OnInit {
     // console.log("clicked img " + image);
 
     switch (image) {
-      case "./assets/images/Grupo1.jpg":
+      case "./assets/images/one.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 1";
         this.candidatoConfirmado = "grupo1";
         break;
 
-      case "./assets/images/Grupo2.jpg":
+      case "./assets/images/two.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 2";
         this.candidatoConfirmado = "grupo2";
         break;
 
-      case "./assets/images/Grupo3.jpg":
+      case "./assets/images/three.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 3";
         this.candidatoConfirmado = "grupo3";
         break;
 
-      case "./assets/images/Grupo4.jpg":
+      case "./assets/images/four.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 4";
         this.candidatoConfirmado = "grupo4";
 
         break;
 
-      case "./assets/images/Grupo5.jpg":
+      case "./assets/images/five.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 5";
         this.candidatoConfirmado = "grupo5";
         break;
-      case "./assets/images/Grupo6.jpg":
+      case "./assets/images/six.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 6";
         this.candidatoConfirmado = "grupo6";
         break;
-      case "./assets/images/Grupo7.jpg":
+      case "./assets/images/seven.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 7";
         this.candidatoConfirmado = "grupo7";
         break;
-      case "./assets/images/Grupo8.jpg":
+      case "./assets/images/eight.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 8";
         this.candidatoConfirmado = "grupo8";
         break;
-      case "./assets/images/Grupo9.jpg":
+      case "./assets/images/nine.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 9";
         this.candidatoConfirmado = "grupo9";
         break;
-      case "./assets/images/Grupo10.jpg":
+      case "./assets/images/ten.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 10";
         this.candidatoConfirmado = "grupo10";
         break;
-      case "./assets/images/Grupo11.jpg":
+      case "./assets/images/eleven.png":
         this.muestroCandidato = true;
         this.candidatoSeleccionadoLabel = "GRUPO 11";
         this.candidatoConfirmado = "grupo11";
