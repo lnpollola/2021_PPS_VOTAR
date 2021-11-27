@@ -1,81 +1,64 @@
 <app-headervototp></app-headervototp>
 
-
 <body>
+   
 
-    <div class="container">
-        <br>
-        <div  class="card">    
-            <div class="card-header bg-light">
-                <h2 letraYcolor  style="text-align: center;">TRABAJO PRACTICO GANADOR </h2>
-            </div>
-            <div class="card-body ">
-                <div class="row w-row">
-                    <div class="basic-column w-col w-col-3">
-                        <div class="tag-wrapper">
-                            <div class="number-card number-card-content1">
-                                <h1 class="number-card-number">2.40</h1>
-                                <div class="number-card-dollars">$991.24</div>
-                                <div class="number-card-divider"></div>
-                                <div class="number-card-progress-wrapper">
-                                    <div class="tagline number-card-currency">ETH</div>
-                                    <div class="number-card-progress">-9.9%</div>
-                                </div>
-                            </div>
-                            <div class="divider"></div>
-                            <div class="style-label">.number-card .number-card-content1</div>
-                        </div>
-                    </div>
-                    <div class="basic-column w-col w-col-3">
-                        <div class="tag-wrapper">
-                            <div class="number-card number-card-content2">
-                                <h1 class="number-card-number">34.3</h1>
-                                <div class="number-card-dollars">$820.53</div>
-                                <div class="number-card-divider"></div>
-                                <div class="number-card-progress-wrapper">
-                                    <div class="tagline number-card-currency">TNB</div>
-                                    <div class="number-card-progress">+15.2%</div>
-                                </div>
-                            </div>
-                            <div class="divider"></div>
-                            <div class="style-label">.NUMBER-CARD .NUMBER-CARD-CONTENT2</div>
-                        </div>
-                    </div>
-                    <div class="basic-column w-col w-col-3">
-                        <div class="tag-wrapper">
-                            <div class="number-card number-card-content3">
-                                <h1 class="number-card-number">1902.1</h1>
-                                <div class="number-card-dollars">$154,569</div>
-                                <div class="number-card-divider"></div>
-                                <div class="number-card-progress-wrapper">
-                                    <div class="tagline number-card-currency">BTC</div>
-                                    <div class="number-card-progress">+932.1%</div>
-                                </div>
-                            </div>
-                            <div class="divider"></div>
-                            <div class="style-label">.NUMBER-CARD .NUMBER-CARD-CONTENT3</div>
-                        </div>
-                    </div>
-                    <div class="basic-column w-col w-col-3">
-                        <div class="tag-wrapper">
-                            <div class="number-card number-card-content4">
-                                <h1 class="number-card-number">994.2</h1>
-                                <div class="number-card-dollars">$238.89</div>
-                                <div class="number-card-divider"></div>
-                                <div class="number-card-progress-wrapper">
-                                    <div class="tagline number-card-currency">ENG</div>
-                                    <div class="number-card-progress">+3.2%</div>
-                                </div>
-                            </div>
-                            <div class="divider"></div>
-                            <div class="style-label">.NUMBER-CARD .NUMBER-CARD-CONTENT4</div>
-                        </div>
+    <div *ngIf="flagTrajores" class="row">
+        <div class="basic-column w-col w-col-3">
+            <div class="tag-wrapper">
+                <div class="number-card number-card-content1">
+                    <h1 class="number-card-number">{{listaResultados[0]?.cantidad}}</h1>
+                    <div class="number-card-number">{{listaResultados[0]?.key}}</div>
+                    <div class="number-card-divider"></div>
+                    <div class="number-card-progress-wrapper">
+                        <div class="tagline number-card-currency">PUESTO NUMERO </div>
+                        <div class="number-card-progress">1</div>
                     </div>
                 </div>
+                <div class="divider"></div>
             </div>
-            <br>
-        
         </div>
-    </div>    
-    <br>
+        <div class="basic-column w-col w-col-3">
+            <div class="tag-wrapper">
+                <div class="number-card number-card-content2">
+                    <h1 class="number-card-number">{{listaResultados[1]?.cantidad}}</h1>
+                    <div class="number-card-number">{{listaResultados[1]?.key}}</div>
+                    <div class="number-card-divider"></div>
+                    <div class="number-card-progress-wrapper">
+                        <div class="tagline number-card-currency">PUESTO NUMERO</div>
+                        <div class="number-card-progress">2</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+            </div>
+        </div>
+        <div class="basic-column w-col w-col-3">
+            <div class="tag-wrapper">
+                <div class="number-card number-card-content3">
+                    <h1 class="number-card-number">{{listaResultados[2]?.cantidad}}</h1>
+                    <div class="number-card-number">{{listaResultados[2]?.key}}</div>
+                    <div class="number-card-divider"></div>
+                    <div class="number-card-progress-wrapper">
+                        <div class="tagline number-card-currency">PUESTO NUMERO</div>
+                        <div class="number-card-progress">3</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+            </div>
+        </div>
+        <div class="basic-column w-col w-col-3">
+            <div class="tag-wrapper">
+                <div class="number-card number-card-content4">
+                    <h1 class="number-card-number">{{listaResultados[3]?.cantidad}}</h1>
+                    <div class="number-card-dollars">{{listaResultados[3]?.key}}</div>
+                    <div class="number-card-divider"></div>
+                    <div class="number-card-progress-wrapper">
+                        <div class="tagline number-card-currency">PUESTO NUMERO</div>
+                        <div class="number-card-progress">4</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
 </body>

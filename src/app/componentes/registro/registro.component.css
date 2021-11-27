@@ -9,12 +9,12 @@ h2{
 }
 
 input{
-    color: lightgrey;
+    color: black;
   font-size: 190%;
    
     font-family: 'Bebas Neue', cursive;
-}
-
+  }
+  
 
 /* input{
     background-color: rgb(126, 126, 118);

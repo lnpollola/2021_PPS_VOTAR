@@ -5,12 +5,14 @@
         <p> ESTA MOSTRANDO ANTES</p>
     </div>
 
-    <div *ngIf="flagTrajores" class="row w-row">
+    <div *ngIf="flagTrajores" class="row w-row" style="text-align: center;">
         <div class="basic-column w-col w-col-3">
+            
             <div class="tag-wrapper">
                 <div class="number-card number-card-content1">
-                    <h1 class="number-card-number">{{listaResultados[0].cantidad}}</h1>
-                    <div class="number-card-number">{{listaResultados[0].nombre}}</div>
+                    <img src="{{listaResultados[0]?.logo}}" class="card-img-top">
+                    <h1 class="number-card-number">{{listaResultados[0]?.cantidad}}</h1>
+                    <div class="number-card-number">{{listaResultados[0]?.nombre}}</div>
                     <div class="number-card-divider"></div>
                     <div class="number-card-progress-wrapper">
                         <div class="tagline number-card-currency">PUESTO NUMERO </div>
@@ -23,8 +25,9 @@
         <div class="basic-column w-col w-col-3">
             <div class="tag-wrapper">
                 <div class="number-card number-card-content2">
-                    <h1 class="number-card-number">{{listaResultados[1].cantidad}}</h1>
-                    <div class="number-card-number">{{listaResultados[1].nombre}}</div>
+                    <img src="{{listaResultados[1]?.logo}}" class="card-img-top">
+                    <h1 class="number-card-number">{{listaResultados[1]?.cantidad}}</h1>
+                    <div class="number-card-number">{{listaResultados[1]?.nombre}}</div>
                     <div class="number-card-divider"></div>
                     <div class="number-card-progress-wrapper">
                         <div class="tagline number-card-currency">PUESTO NUMERO</div>
@@ -37,8 +40,9 @@
         <div class="basic-column w-col w-col-3">
             <div class="tag-wrapper">
                 <div class="number-card number-card-content3">
-                    <h1 class="number-card-number">{{listaResultados[2].cantidad}}</h1>
-                    <div class="number-card-number">{{listaResultados[2].nombre}}</div>
+                    <img src="{{listaResultados[2]?.logo}}" class="card-img-top">
+                    <h1 class="number-card-number">{{listaResultados[2]?.cantidad}}</h1>
+                    <div class="number-card-number">{{listaResultados[2]?.nombre}}</div>
                     <div class="number-card-divider"></div>
                     <div class="number-card-progress-wrapper">
                         <div class="tagline number-card-currency">PUESTO NUMERO</div>
@@ -51,8 +55,9 @@
         <div class="basic-column w-col w-col-3">
             <div class="tag-wrapper">
                 <div class="number-card number-card-content4">
-                    <h1 class="number-card-number">{{listaResultados[3].cantidad}}</h1>
-                    <div class="number-card-dollars">{{listaResultados[3].nombre}}</div>
+                    <img src="{{listaResultados[3]?.logo}}" class="card-img-top">
+                    <h1 class="number-card-number">{{listaResultados[3]?.cantidad}}</h1>
+                    <div class="number-card-dollars">{{listaResultados[3]?.nombre}}</div>
                     <div class="number-card-divider"></div>
                     <div class="number-card-progress-wrapper">
                         <div class="tagline number-card-currency">PUESTO NUMERO</div>

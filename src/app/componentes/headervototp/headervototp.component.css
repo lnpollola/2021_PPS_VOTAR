@@ -21,7 +21,7 @@ h1{
     margin: 0px auto;
     /* padding: 0px 20px; */
     
-    background: #d0d1ff;
+    background: #8594ce;
 
     color: whitesmoke;
     min-height: 100px;
@@ -31,7 +31,7 @@ h1{
 
   .header 
   {
-    background-color: #957fef;
+    background-color: #5883e8;
     /* background-color: #6D6875; */
     font-family: 'Bebas Neue', cursive;
   }
@@ -48,7 +48,7 @@ h1{
   }
 
 .active {
-  background-color:rgb(126,164,179);
+  background-color: #957fef;
   color: black;
   transition-duration: 1.8s;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
