@@ -17,6 +17,7 @@ import { GestionFuncionarioComponent} from '../app/componentes/gestion-funcionar
 import { ValidomesaComponent } from './componentes/validomesa/validomesa.component';
 import { HomevototpComponent } from './componentes/homevototp/homevototp.component';
 import { HeadervototpComponent } from './componentes/headervototp/headervototp.component';
+import { ResultadosGeneralesComponent } from './componentes/resultados-generales/resultados-generales.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'listadoMesas', component: ListadoMesasComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'gestionFuncionario', component: GestionFuncionarioComponent },
+  { path: 'resultadosGenerales', component: ResultadosGeneralesComponent },
 
   // { path: 'listado', component: TablaPendientesComponent },
   { path: 'gestionEscuelas', component: GestionEscuelasComponent },

@@ -76,6 +76,7 @@ import { GestionFuncionarioComponent } from './componentes/gestion-funcionario/g
 import { ValidomesaComponent } from './componentes/validomesa/validomesa.component';
 import { HomevototpComponent } from './componentes/homevototp/homevototp.component';
 import { HeadervototpComponent } from './componentes/headervototp/headervototp.component';
+import { ResultadosGeneralesComponent } from './componentes/resultados-generales/resultados-generales.component';
 
 // import { AngularFireStorageModule  } from "angularfire2/storage";
 // import { AngularFireModule } from "@angular/fire";
@@ -117,6 +118,7 @@ import { HeadervototpComponent } from './componentes/headervototp/headervototp.c
     ValidomesaComponent,
     HomevototpComponent,
     HeadervototpComponent,
+    ResultadosGeneralesComponent,
     // FileSelectDirective
   ],
   imports: [
