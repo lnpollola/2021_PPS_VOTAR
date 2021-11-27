@@ -17,6 +17,7 @@ import { GestionFuncionarioComponent} from '../app/componentes/gestion-funcionar
 import { ValidomesaComponent } from './componentes/validomesa/validomesa.component';
 import { HomevototpComponent } from './componentes/homevototp/homevototp.component';
 import { HeadervototpComponent } from './componentes/headervototp/headervototp.component';
+import { MuestroganadorComponent } from './componentes/muestroganador/muestroganador.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,8 @@ const routes: Routes = [
   { path: 'validomesa', component: ValidomesaComponent },
   { path: 'homevototp', component: HomevototpComponent },
   { path: 'headervototp', component: HeadervototpComponent },
+  { path: 'muestroganador', component: MuestroganadorComponent },
+
 
 
 
