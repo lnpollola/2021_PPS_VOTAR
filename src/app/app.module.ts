@@ -77,6 +77,7 @@ import { ValidomesaComponent } from './componentes/validomesa/validomesa.compone
 import { HomevototpComponent } from './componentes/homevototp/homevototp.component';
 import { HeadervototpComponent } from './componentes/headervototp/headervototp.component';
 import { MuestroganadorComponent } from './componentes/muestroganador/muestroganador.component';
+import { ResultadosGeneralesComponent } from './componentes/resultados-generales/resultados-generales.component';
 
 // import { AngularFireStorageModule  } from "angularfire2/storage";
 // import { AngularFireModule } from "@angular/fire";
@@ -119,6 +120,7 @@ import { MuestroganadorComponent } from './componentes/muestroganador/muestrogan
     HomevototpComponent,
     HeadervototpComponent,
     MuestroganadorComponent,
+    ResultadosGeneralesComponent,
     // FileSelectDirective
   ],
   imports: [

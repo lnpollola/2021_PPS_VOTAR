@@ -18,6 +18,7 @@ import { ValidomesaComponent } from './componentes/validomesa/validomesa.compone
 import { HomevototpComponent } from './componentes/homevototp/homevototp.component';
 import { HeadervototpComponent } from './componentes/headervototp/headervototp.component';
 import { MuestroganadorComponent } from './componentes/muestroganador/muestroganador.component';
+import { ResultadosGeneralesComponent } from './componentes/resultados-generales/resultados-generales.component';
 
 
 const routes: Routes = [
@@ -30,8 +31,7 @@ const routes: Routes = [
   { path: 'listadoMesas', component: ListadoMesasComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'gestionFuncionario', component: GestionFuncionarioComponent },
-
-  // { path: 'listado', component: TablaPendientesComponent },
+  { path: 'resultadosGenerales', component: ResultadosGeneralesComponent },
   { path: 'gestionEscuelas', component: GestionEscuelasComponent },
   { path: 'encuesta', component: EncuestaComponent },
   { path: 'validovotante', component: ValidovotanteComponent },
